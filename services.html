@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services & Products - Tooraflex</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/whatsapp-float.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="images/logo/logo.ico" />
+  </head>
+  <body>
+    <!-- Floating WhatsApp Button - Will be populated by JavaScript -->
+    <div class="whatsapp-float" id="whatsapp-float"></div>
+
+    <!-- Header - Will be populated by JavaScript -->
+    <header id="main-header"></header>
+
+    <!-- Page Hero -->
+    <section class="hero" style="padding: 80px 0">
+      <div class="container">
+        <div
+          class="hero-text"
+          style="text-align: center; max-width: 800px; margin: 0 auto"
+        >
+          <h1>Services & Products</h1>
+          <p>
+            Discover our comprehensive suite of digital solutions designed to
+            help your business succeed in the digital age.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Categories -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="product-categories">
+          <button class="category-btn active" data-category="all">
+            All Services
+          </button>
+          <button class="category-btn" data-category="design">Design</button>
+          <button class="category-btn" data-category="development">
+            Development
+          </button>
+          <button class="category-btn" data-category="analytics">
+            Analytics
+          </button>
+          <button class="category-btn" data-category="hosting">Hosting</button>
+        </div>
+
+        <!-- Services Grid -->
+        <div class="services-grid">
+          <!-- Website Design -->
+          <div class="service-card" data-category="design">
+            <div class="service-icon">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <h3>Website Design & Development</h3>
+            <p>
+              Custom, responsive websites designed to engage visitors and
+              convert them into customers. We create beautiful, functional
+              websites that work across all devices.
+            </p>
+            <div class="product-features">
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Responsive Design</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>SEO Optimized</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>CMS Integration</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>E-commerce Solutions</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Web Applications -->
+          <div class="service-card" data-category="development">
+            <div class="service-icon">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h3>Web Applications</h3>
+            <p>
+              Interactive web applications built with modern technologies. From
+              e-commerce platforms to business management tools, we develop
+              solutions that drive efficiency.
+            </p>
+            <div class="product-features">
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Custom Development</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>API Integration</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Real-time Features</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Progressive Web Apps</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Graphic Design -->
+          <div class="service-card" data-category="design">
+            <div class="service-icon">
+              <i class="fas fa-palette"></i>
+            </div>
+            <h3>Graphic Design</h3>
+            <p>
+              Creative graphic design services including logos, branding
+              materials, marketing collateral, and UI/UX design that captures
+              your brand's essence.
+            </p>
+            <div class="product-features">
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Brand Identity</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>UI/UX Design</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Marketing Materials</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Social Media Graphics</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hosting Solutions -->
+          <div class="service-card" data-category="hosting">
+            <div class="service-icon">
+              <i class="fas fa-server"></i>
+            </div>
+            <h3>Hosting Solutions</h3>
+            <p>
+              Reliable, secure, and fast hosting services with 99.9% uptime
+              guarantee. We ensure your website and applications are always
+              accessible to your customers.
+            </p>
+            <div class="product-features">
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>99.9% Uptime</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>24/7 Support</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>SSL Certificates</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Daily Backups</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Power BI & Analytics -->
+          <div class="service-card" data-category="analytics">
+            <div class="service-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Power BI & Data Analytics</h3>
+            <p>
+              Business intelligence solutions with Power BI dashboards and
+              comprehensive data management services to transform your data into
+              actionable insights.
+            </p>
+            <div class="product-features">
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Custom Dashboards</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Data Visualization</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Real-time Reporting</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Data Integration</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Surveys & Analytics -->
+          <div class="service-card" data-category="analytics">
+            <div class="service-icon">
+              <i class="fas fa-poll"></i>
+            </div>
+            <h3>Surveys & Customer Analytics</h3>
+            <p>
+              Custom survey creation and implementation to gather valuable
+              customer insights. We help you understand your audience and make
+              data-driven decisions.
+            </p>
+            <div class="product-features">
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Custom Surveys</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Data Analysis</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Insight Reports</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Customer Journey Mapping</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Package -->
+    <section class="section-padding bg-light">
+      <div class="container">
+        <div class="section-title">
+          <h2>Product Packages</h2>
+          <p>Choose the perfect package for your business needs</p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <div
+              class="service-icon"
+              style="background-color: rgba(0, 201, 156, 0.1)"
+            >
+              <i class="fas fa-star" style="color: var(--secondary)"></i>
+            </div>
+            <h3>Starter Package</h3>
+            <p><strong>Perfect for small businesses and startups</strong></p>
+            <ul style="list-style: none; padding-left: 0">
+              <li>
+                <i class="fas fa-check" style="color: var(--secondary)"></i>
+                Responsive Website
+              </li>
+              <li>
+                <i class="fas fa-check" style="color: var(--secondary)"></i>
+                Basic SEO Setup
+              </li>
+              <li>
+                <i class="fas fa-check" style="color: var(--secondary)"></i>
+                Contact Form
+              </li>
+              <li>
+                <i class="fas fa-check" style="color: var(--secondary)"></i>
+                Social Media Integration
+              </li>
+            </ul>
+            <div style="margin-top: 20px; text-align: center">
+              <span
+                style="
+                  font-size: 1.5rem;
+                  font-weight: bold;
+                  color: var(--primary);
+                "
+                >R 2999.99</span
+              >
+              <a
+                href="contact.html"
+                class="btn"
+                style="display: block; margin-top: 15px"
+                >Get Started</a
+              >
+            </div>
+          </div>
+
+          <div
+            class="service-card"
+            style="transform: scale(1.05); border: 2px solid var(--primary)"
+          >
+            <div class="service-icon">
+              <i class="fas fa-crown" style="color: #ffd700"></i>
+            </div>
+            <h3>Business Package</h3>
+            <p>
+              <strong>Our most popular package for growing businesses</strong>
+            </p>
+            <ul style="list-style: none; padding-left: 0">
+              <li>
+                <i class="fas fa-check" style="color: var(--secondary)"></i>
+                Custom Web Design
+              </li>
+              <li>
+                <i class="fas fa-check" style="color: var(--secondary)"></i>
+                E-commerce Functionality
+              </li>
+              <li>
+                <i class="fas fa-check" style="color: var(--secondary)"></i> CMS
+                Integration
+              </li>
+              <li>
+                <i class="fas fa-check" style="color: var(--secondary)"></i>
+                Advanced SEO
+              </li>
+              <li>
+                <i class="fas fa-check" style="color: var(--secondary)"></i> 6
+                Months Hosting
+              </li>
+            </ul>
+            <div style="margin-top: 20px; text-align: center">
+              <span
+                style="
+                  font-size: 1.5rem;
+                  font-weight: bold;
+                  color: var(--primary);
+                "
+                >R5000.00</span
+              >
+              <a
+                href="contact.html"
+                class="btn"
+                style="display: block; margin-top: 15px"
+                >Get Started</a
+              >
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div
+              class="service-icon"
+              style="background-color: rgba(42, 91, 215, 0.1)"
+            >
+              <i class="fas fa-rocket"></i>
+            </div>
+            <h3>Enterprise Package</h3>
+            <p>
+              <strong
+                >Complete digital solution for established businesses</strong
+              >
+            </p>
+            <ul style="list-style: none; padding-left: 0">
+              <li>
+                <i class="fas fa-check" style="color: var(--secondary)"></i>
+                Custom Web Application
+              </li>
+              <li>
+                <i class="fas fa-check" style="color: var(--secondary)"></i>
+                Power BI Analytics
+              </li>
+              <li>
+                <i class="fas fa-check" style="color: var(--secondary)"></i>
+                Full Branding Package
+              </li>
+              <li>
+                <i class="fas fa-check" style="color: var(--secondary)"></i> 1
+                Year Hosting & Support
+              </li>
+              <li>
+                <i class="fas fa-check" style="color: var(--secondary)"></i>
+                Monthly Analytics Reports
+              </li>
+            </ul>
+            <div style="margin-top: 20px; text-align: center">
+              <a
+                href="contact.html"
+                class="btn"
+                style="display: block; margin-top: 15px"
+                >Contact for Quote</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Companies We've Worked With -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="section-title">
+          <h2>Companies We've Worked With</h2>
+          <p>Trusted by businesses of all sizes across various industries</p>
+        </div>
+
+        <!-- Client Logo Marquee -->
+        <div class="client-marquee-container">
+          <div class="client-marquee">
+            <!-- First set of logos -->
+            <div class="client-marquee-track">
+              <div class="client-logo">
+                <img src="images/clients/client1.png" alt="Lowveld Institute" />
+              </div>
+              <div class="client-logo">
+                <img src="images/clients/client2.png" alt="Green Energy Co" />
+              </div>
+              <div class="client-logo">
+                <img
+                  src="images/clients/client3.png"
+                  alt="Finance Trust Bank"
+                />
+              </div>
+              <div class="client-logo">
+                <img
+                  src="images/clients/client4.png"
+                  alt="Health Plus Medical"
+                />
+              </div>
+              <div class="client-logo">
+                <img src="images/clients/client5.png" alt="EduSmart Academy" />
+              </div>
+              <div class="client-logo">
+                <img src="images/clients/client6.png" alt="Retail Masters" />
+              </div>
+              <!-- Duplicate logos for seamless loop -->
+              <div class="client-logo">
+                <img
+                  src="images/clients/client1.png"
+                  alt="Tech Solutions Inc"
+                />
+              </div>
+              <div class="client-logo">
+                <img src="images/clients/client2.png" alt="Green Energy Co" />
+              </div>
+              <div class="client-logo">
+                <img
+                  src="images/clients/client3.png"
+                  alt="Finance Trust Bank"
+                />
+              </div>
+              <div class="client-logo">
+                <img
+                  src="images/clients/client4.png"
+                  alt="Health Plus Medical"
+                />
+              </div>
+              <div class="client-logo">
+                <img src="images/clients/client5.png" alt="EduSmart Academy" />
+              </div>
+              <div class="client-logo">
+                <img src="images/clients/client6.png" alt="Retail Masters" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px">
+          <p>And many more satisfied clients...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Google Reviews -->
+    <section class="section-padding bg-light">
+      <div class="container">
+        <div class="section-title">
+          <h2>What Our Clients Say</h2>
+          <p>Read reviews from our satisfied customers on Google</p>
+        </div>
+
+        <div class="reviews-grid">
+          <div class="review-card">
+            <div class="review-header">
+              <div class="review-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span>5.0</span>
+              </div>
+              <div class="review-source">
+                <i class="fab fa-google" style="color: #4285f4"></i>
+                <span>Google Review</span>
+              </div>
+            </div>
+            <div class="review-content">
+              <p>
+                "Tooraflex transformed our outdated website into a modern,
+                user-friendly platform. Our online sales increased by 150%
+                within 3 months. Excellent service and support!"
+              </p>
+            </div>
+            <div class="review-author">
+              <div class="author-info">
+                <h4>Sarah M.</h4>
+                <p>Retail Business Owner</p>
+              </div>
+              <div class="review-date">
+                <i class="far fa-calendar-alt"></i>
+                <span>2 weeks ago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-header">
+              <div class="review-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span>4.5</span>
+              </div>
+              <div class="review-source">
+                <i class="fab fa-google" style="color: #4285f4"></i>
+                <span>Google Review</span>
+              </div>
+            </div>
+            <div class="review-content">
+              <p>
+                "The Power BI dashboards they created for our company have
+                revolutionized how we make decisions. Data is now accessible and
+                understandable for our entire team."
+              </p>
+            </div>
+            <div class="review-author">
+              <div class="author-info">
+                <h4>James K.</h4>
+                <p>Operations Manager</p>
+              </div>
+              <div class="review-date">
+                <i class="far fa-calendar-alt"></i>
+                <span>1 month ago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-header">
+              <div class="review-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span>5.0</span>
+              </div>
+              <div class="review-source">
+                <i class="fab fa-google" style="color: #4285f4"></i>
+                <span>Google Review</span>
+              </div>
+            </div>
+            <div class="review-content">
+              <p>
+                "From design to deployment, Tooraflex handled our entire web
+                application project professionally. They delivered ahead of
+                schedule and within budget. Highly recommended!"
+              </p>
+            </div>
+            <div class="review-author">
+              <div class="author-info">
+                <h4>Lisa T.</h4>
+                <p>Startup Founder</p>
+              </div>
+              <div class="review-date">
+                <i class="far fa-calendar-alt"></i>
+                <span>3 months ago</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px">
+          <a
+            href="https://maps.app.goo.gl/P8DdmPHfWZuWYujp6/review"
+            target="_blank"
+            class="btn"
+          >
+            <i class="fab fa-google"></i> Write a Review on Google
+          </a>
+          <a
+            href="https://www.google.com/search?q=tooraflex+reviews"
+            target="_blank"
+            class="btn btn-secondary"
+            style="margin-left: 15px"
+          >
+            <i class="fas fa-star"></i> Read More Reviews
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="container">
+        <h2>Need a Custom Solution?</h2>
+        <p>
+          Contact us for a personalized quote tailored to your specific business
+          requirements.
+        </p>
+        <a href="contact.html" class="btn btn-secondary"
+          >Request Custom Quote</a
+        >
+      </div>
+    </section>
+
+    <!-- Footer - Will be populated by JavaScript -->
+    <footer id="main-footer"></footer>
+
+    <!-- Load config first, then main script -->
+    <script src="js/config.js"></script>
+    <script src="js/script.js"></script>
+    <!-- No additional script needed - everything initializes automatically -->
+  </body>
+</html>

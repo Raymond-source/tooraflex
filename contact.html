@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - Tooraflex</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/whatsapp-float.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="images/logo/logo.ico" />
+  </head>
+  <body>
+    <!-- Floating WhatsApp Button - Will be populated by JavaScript -->
+    <div class="whatsapp-float" id="whatsapp-float"></div>
+
+    <!-- Header - Will be populated by JavaScript -->
+    <header id="main-header"></header>
+
+    <!-- Page Hero -->
+    <section class="hero" style="padding: 80px 0">
+      <div class="container">
+        <div
+          class="hero-text"
+          style="text-align: center; max-width: 800px; margin: 0 auto"
+        >
+          <h1>Contact Us</h1>
+          <p>
+            Get in touch with our team to discuss your project. We're excited to
+            hear about your ideas and help bring them to life.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="contact-content">
+          <div class="contact-info">
+            <h3>Get In Touch</h3>
+            <p>
+              Have a project in mind? We'd love to hear about it. Send us a
+              message and we'll respond as soon as possible.
+            </p>
+
+            <div class="contact-detail">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <h4>Our Office</h4>
+                <p class="contact-address">Loading address...</p>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <i class="fas fa-phone-alt"></i>
+              <div>
+                <h4>Phone Number</h4>
+                <p>
+                  <a href="tel:+27812194023" class="contact-phone"
+                    >Loading phone...</a
+                  >
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <h4>Email Address</h4>
+                <p>
+                  <a href="mailto:info@tooraflex.co.za" class="contact-email"
+                    >Loading email...</a
+                  >
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <i class="fas fa-clock"></i>
+              <div>
+                <h4>Business Hours</h4>
+                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                <p>Saturday: 10:00 AM - 2:00 PM</p>
+                <p>Sunday: Closed</p>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <i class="fas fa-exclamation-circle"></i>
+              <div>
+                <h4>Emergency Contact</h4>
+                <p>
+                  <a href="tel:+27664575904" class="contact-emergency"
+                    >Loading emergency...</a
+                  >
+                </p>
+              </div>
+            </div>
+
+            <div style="margin-top: 30px">
+              <h4>Follow Us</h4>
+              <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form">
+            <form id="contactForm">
+              <h3>Send us a Message</h3>
+
+              <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input
+                  type="text"
+                  id="name"
+                  class="form-control"
+                  placeholder="Your Name"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input
+                  type="email"
+                  id="email"
+                  class="form-control"
+                  placeholder="Your Email"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  class="form-control"
+                  placeholder="Your Phone Number"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="service">Service Interested In *</label>
+                <select id="service" class="form-control" required>
+                  <option value="">Select a Service</option>
+                  <option value="website-design">Website Design</option>
+                  <option value="web-apps">Web Applications</option>
+                  <option value="hosting">Hosting Solutions</option>
+                  <option value="surveys">Surveys & Analytics</option>
+                  <option value="graphic-design">Graphic Design</option>
+                  <option value="power-bi">Power BI & Data Management</option>
+                  <option value="starter-package">Starter Package</option>
+                  <option value="business-package">Business Package</option>
+                  <option value="enterprise-package">Enterprise Package</option>
+                  <option value="multiple">Multiple Services</option>
+                  <option value="custom">Custom Solution</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="budget">Project Budget</label>
+                <select id="budget" class="form-control">
+                  <option value="">Select Budget Range</option>
+                  <option value="under-5k">Under R5,000</option>
+                  <option value="5k-10k">R5,000 - R10,000</option>
+                  <option value="10k-25k">R10,000 - R25,000</option>
+                  <option value="25k-50k">R25,000 - R50,000</option>
+                  <option value="50k-plus">R50,000+</option>
+                  <option value="not-sure">Not Sure Yet</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Project Details *</label>
+                <textarea
+                  id="message"
+                  class="form-control"
+                  rows="5"
+                  placeholder="Tell us about your project, goals, and timeline..."
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="section-padding bg-light">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Location</h2>
+          <p>Visit our office or contact us remotely</p>
+        </div>
+
+        <div
+          style="
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+          "
+        >
+          <!-- Google Maps Embed -->
+          <div style="height: 400px; border-radius: 8px; overflow: hidden">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3593.7373603001024!2d28.19359137562544!3d-25.746197645478144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e95621af1018bfb%3A0xa82b408f9572ede2!2s367%20Helen%20Joseph%20St%2C%20Pretoria%20Central%2C%20Pretoria%2C%200001!5e0!3m2!1sen!2sza!4v1768048299820!5m2!1sen!2sza"
+              width="100%"
+              height="100%"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            >
+            </iframe>
+          </div>
+
+          <div style="margin-top: 20px; text-align: center">
+            <h3>Tooraflex Office</h3>
+            <p class="contact-address" style="margin-bottom: 20px">
+              Loading address...
+            </p>
+            <a
+              href="https://maps.google.com/maps?q=367+Helen+Joseph+St,+Pretoria+Central,+Pretoria,+0001"
+              target="_blank"
+              class="btn"
+            >
+              <i class="fas fa-directions"></i> Get Directions
+            </a>
+            <a
+              href="https://wa.me/27812194023"
+              target="_blank"
+              class="btn btn-secondary"
+              style="margin-left: 10px"
+            >
+              <i class="fab fa-whatsapp"></i> WhatsApp Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="section-title">
+          <h2>Frequently Asked Questions</h2>
+          <p>Get answers to common questions about our services</p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <h3>How long does a typical project take?</h3>
+            <p>
+              Project timelines vary based on complexity. A simple website takes
+              2-4 weeks, while custom web applications can take 8-12 weeks. We
+              provide detailed timelines during our initial consultation.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <h3>Do you offer ongoing support?</h3>
+            <p>
+              Yes, we offer various support packages including monthly
+              maintenance, hosting, and updates. Our enterprise packages include
+              24/7 support and regular performance reviews.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <h3>Can you work with existing designs or systems?</h3>
+            <p>
+              Absolutely! We can work with your existing designs, integrate with
+              current systems, or migrate data from old platforms to new
+              solutions we develop for you.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer - Will be populated by JavaScript -->
+    <footer id="main-footer"></footer>
+
+    <!-- Load config first, then main script -->
+    <script src="js/config.js"></script>
+    <script src="js/script.js"></script>
+    <!-- No additional script needed - everything initializes automatically -->
+  </body>
+</html>
