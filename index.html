@@ -1,11 +1,29 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
+    <!-- Basic Meta -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tooraflex - Digital Solutions</title>
+
+    <!-- SEO Title -->
+    <title>
+      TooraFlex | Digital Solutions & Web Development in South Africa
+    </title>
+
+    <!-- SEO Description -->
+    <meta
+      name="description"
+      content="TooraFlex is a South Africa–based digital solutions company offering website design, web applications, hosting, analytics, and graphic design to help businesses grow online."
+    />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://www.tooraflex.co.za/" />
+
+    <!-- Styles -->
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/whatsapp-float.css" />
+
+    <!-- Fonts & Icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -16,48 +34,64 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@700;800&display=swap"
       rel="stylesheet"
     />
-    <!-- Static favicon fallback for GitHub Pages -->
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="images/logo/logo.ico"
-      id="static-favicon"
-    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/logo/logo.ico" />
+
+    <!-- Structured Data (SEO Boost) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "TooraFlex",
+        "url": "https://www.tooraflex.co.za",
+        "logo": "https://www.tooraflex.co.za/images/logo/logo.png",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "ZA"
+        }
+      }
+    </script>
   </head>
+
   <body>
-    <!-- Floating WhatsApp Button - Will be populated by JavaScript -->
+    <!-- Floating WhatsApp Button -->
     <div class="whatsapp-float" id="whatsapp-float"></div>
 
     <!-- Header -->
-    <header id="main-header">
-      <!-- Header content will be loaded by JavaScript -->
-    </header>
+    <header id="main-header"></header>
 
     <!-- Hero Section -->
     <section class="hero">
       <div class="container hero-content">
         <div class="hero-text">
-          <h1>Digital Solutions for <span>Your Business</span></h1>
+          <h1>Digital Solutions for Growing Businesses in South Africa</h1>
           <p>
-            TooraFlex is a South Africa–based digital solutions company offering custom website design, scalable web applications, reliable hosting, data-driven analytics, and professional graphic design to help businesses grow online.
+            TooraFlex is a South Africa–based digital solutions company offering
+            custom website design, scalable web applications, secure hosting,
+            data-driven analytics, and professional graphic design to help
+            businesses grow online.
           </p>
+
           <a href="contact.html" class="btn">Start Your Project</a>
           <a href="services.html" class="btn btn-secondary">Our Services</a>
         </div>
+
         <div class="hero-image">
           <img
+            loading="lazy"
             src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
-            alt="Tooraflex Digital Solutions"
+            alt="TooraFlex digital solutions and web development services in South Africa"
           />
         </div>
       </div>
     </section>
 
-    <!-- Services Preview -->
+    <!-- Services Section -->
     <section class="section-padding bg-light">
       <div class="container">
         <div class="section-title">
-          <h2>Our Core Services</h2>
+          <h2>Our Core Digital Services</h2>
           <p>Comprehensive digital solutions tailored to your business needs</p>
         </div>
 
@@ -68,8 +102,8 @@
             </div>
             <h3>Website Design</h3>
             <p>
-              Custom, responsive websites designed to engage visitors and
-              convert them into customers.
+              Custom, responsive websites designed to engage visitors, improve
+              SEO rankings, and convert traffic into customers.
             </p>
           </div>
 
@@ -79,8 +113,8 @@
             </div>
             <h3>Web Applications</h3>
             <p>
-              Interactive web applications built with modern technologies for
-              business efficiency.
+              Scalable and secure web applications built with modern
+              technologies to streamline business operations.
             </p>
           </div>
 
@@ -90,41 +124,37 @@
             </div>
             <h3>Data Analytics</h3>
             <p>
-              Business intelligence solutions with Power BI dashboards and data
-              management.
+              Insightful data analytics and Power BI dashboards that help
+              businesses make smarter decisions.
             </p>
           </div>
         </div>
 
         <div class="text-center" style="margin-top: 50px">
-          <a href="services.html" class="btn">View All Services & Products</a>
+          <a href="services.html" class="btn">View All Services</a>
         </div>
       </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- CTA -->
     <section class="cta">
       <div class="container">
         <h2>Ready to Transform Your Digital Presence?</h2>
         <p>
-          Contact us today for a free consultation. Let's discuss how Tooraflex
-          can help your business achieve its digital goals.
+          Get in touch today for a free consultation and discover how TooraFlex
+          can help your business grow online.
         </p>
-        <a href="contact.html" class="btn btn-secondary"
-          >Get Your Free Consultation</a
-        >
+        <a href="contact.html" class="btn btn-secondary">
+          Get Your Free Consultation
+        </a>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer id="main-footer">
-      <!-- Footer content will be loaded by JavaScript -->
-    </footer>
+    <footer id="main-footer"></footer>
 
-    <!-- Load config first, then main script -->
+    <!-- Scripts -->
     <script src="js/config.js"></script>
     <script src="js/script.js"></script>
-    <!-- No additional script needed - everything initializes automatically -->
   </body>
 </html>
-
