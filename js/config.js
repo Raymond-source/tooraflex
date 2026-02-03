@@ -8,9 +8,9 @@ const siteConfig = {
   whatsappMessage:
     "Hello Toora Flex, I'd like more information about your packages",
   socialLinks: {
-    facebook: "#",
+    facebook: "https://www.facebook.com/profile.php?id=61586508505155",
     twitter: "#",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/company/toora-flex/?viewAsMember=true",
     instagram: "#",
   },
   services: [
@@ -51,3 +51,4 @@ function formatPhoneNumber(phone) {
   }
   return phone;
 }
+
