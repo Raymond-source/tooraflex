@@ -2,8 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+    />
     <title>Contact Us - Tooraflex</title>
+    <meta
+      name="description"
+      content="Get in touch with Tooraflex for your digital solution needs. We're here to help your business grow online."
+    />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/whatsapp-float.css" />
     <link
@@ -19,19 +26,16 @@
     <link rel="icon" type="image/x-icon" href="images/logo/logo.ico" />
   </head>
   <body>
-    <!-- Floating WhatsApp Button - Will be populated by JavaScript -->
+    <!-- Floating WhatsApp Button -->
     <div class="whatsapp-float" id="whatsapp-float"></div>
 
-    <!-- Header - Will be populated by JavaScript -->
+    <!-- Header -->
     <header id="main-header"></header>
 
     <!-- Page Hero -->
-    <section class="hero" style="padding: 80px 0">
+    <section class="hero page-hero">
       <div class="container">
-        <div
-          class="hero-text"
-          style="text-align: center; max-width: 800px; margin: 0 auto"
-        >
+        <div class="hero-text page-hero-text">
           <h1>Contact Us</h1>
           <p>
             Get in touch with our team to discuss your project. We're excited to
@@ -106,14 +110,24 @@
               </div>
             </div>
 
-            <div style="margin-top: 30px">
+            <div class="social-section">
               <h4>Follow Us</h4>
               <div class="social-links">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#" aria-label="Facebook"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a href="#" aria-label="Twitter"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a href="#" aria-label="LinkedIn"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+                <a href="#" aria-label="Instagram"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a href="#" aria-label="GitHub"
+                  ><i class="fab fa-github"></i
+                ></a>
               </div>
             </div>
           </div>
@@ -158,17 +172,6 @@
                 <label for="service">Service Interested In *</label>
                 <select id="service" class="form-control" required>
                   <option value="">Select a Service</option>
-                  <option value="website-design">Website Design</option>
-                  <option value="web-apps">Web Applications</option>
-                  <option value="hosting">Hosting Solutions</option>
-                  <option value="surveys">Surveys & Analytics</option>
-                  <option value="graphic-design">Graphic Design</option>
-                  <option value="power-bi">Power BI & Data Management</option>
-                  <option value="starter-package">Starter Package</option>
-                  <option value="business-package">Business Package</option>
-                  <option value="enterprise-package">Enterprise Package</option>
-                  <option value="multiple">Multiple Services</option>
-                  <option value="custom">Custom Solution</option>
                 </select>
               </div>
 
@@ -211,16 +214,9 @@
           <p>Visit our office or contact us remotely</p>
         </div>
 
-        <div
-          style="
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-          "
-        >
+        <div class="map-container">
           <!-- Google Maps Embed -->
-          <div style="height: 400px; border-radius: 8px; overflow: hidden">
+          <div class="map-embed">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3593.7373603001024!2d28.19359137562544!3d-25.746197645478144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e95621af1018bfb%3A0xa82b408f9572ede2!2s367%20Helen%20Joseph%20St%2C%20Pretoria%20Central%2C%20Pretoria%2C%200001!5e0!3m2!1sen!2sza!4v1768048299820!5m2!1sen!2sza"
               width="100%"
@@ -229,30 +225,32 @@
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
+              title="Tooraflex Office Location"
             >
             </iframe>
           </div>
 
-          <div style="margin-top: 20px; text-align: center">
+          <div class="map-info">
             <h3>Tooraflex Office</h3>
-            <p class="contact-address" style="margin-bottom: 20px">
-              Loading address...
-            </p>
-            <a
-              href="https://maps.google.com/maps?q=367+Helen+Joseph+St,+Pretoria+Central,+Pretoria,+0001"
-              target="_blank"
-              class="btn"
-            >
-              <i class="fas fa-directions"></i> Get Directions
-            </a>
-            <a
-              href="https://wa.me/27812194023"
-              target="_blank"
-              class="btn btn-secondary"
-              style="margin-left: 10px"
-            >
-              <i class="fab fa-whatsapp"></i> WhatsApp Us
-            </a>
+            <p class="contact-address">Loading address...</p>
+            <div class="map-buttons">
+              <a
+                href="https://maps.google.com/maps?q=367+Helen+Joseph+St,+Pretoria+Central,+Pretoria,+0001"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn"
+              >
+                <i class="fas fa-directions"></i> Get Directions
+              </a>
+              <a
+                href="https://wa.me/27812194023"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-secondary"
+              >
+                <i class="fab fa-whatsapp"></i> WhatsApp Us
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -297,12 +295,11 @@
       </div>
     </section>
 
-    <!-- Footer - Will be populated by JavaScript -->
+    <!-- Footer -->
     <footer id="main-footer"></footer>
 
-    <!-- Load config first, then main script -->
+    <!-- Scripts -->
     <script src="js/config.js"></script>
     <script src="js/script.js"></script>
-    <!-- No additional script needed - everything initializes automatically -->
   </body>
 </html>
