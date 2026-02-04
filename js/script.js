@@ -9,7 +9,7 @@ function setFavicon() {
   }
 
   const existingAppleIcon = document.querySelector(
-    'link[rel="apple-touch-icon"]'
+    'link[rel="apple-touch-icon"]',
   );
   if (existingAppleIcon) {
     existingAppleIcon.parentNode.removeChild(existingAppleIcon);
@@ -19,7 +19,7 @@ function setFavicon() {
   const favicon = document.createElement("link");
   favicon.rel = "icon";
   favicon.type = "image/x-icon";
-  favicon.href = getLogoPath("logo.ico"); // Use centralized function
+  favicon.href = getLogoPath("logo.ico");
 
   // Add to head
   document.head.appendChild(favicon);
@@ -27,11 +27,11 @@ function setFavicon() {
   // Also create Apple Touch Icon for mobile devices
   const appleTouchIcon = document.createElement("link");
   appleTouchIcon.rel = "apple-touch-icon";
-  appleTouchIcon.href = getLogoPath("logo.ico"); // Use centralized function
+  appleTouchIcon.href = getLogoPath("logo.ico");
   document.head.appendChild(appleTouchIcon);
 }
 
-// Function to get logo path (centralized) - UPDATED for logo subfolder
+// Function to get logo path
 function getLogoPath(filename) {
   return `images/logo/${filename}`;
 }
@@ -47,7 +47,7 @@ function formatPhoneNumber(phone) {
   if (digits.length === 11 && digits.startsWith("27")) {
     return `+${digits.slice(0, 2)} ${digits.slice(2, 5)} ${digits.slice(
       5,
-      8
+      8,
     )} ${digits.slice(8)}`;
   }
 
@@ -105,9 +105,9 @@ function animateStats() {
       });
     },
     {
-      threshold: 0.5, // Trigger when 50% of element is visible
-      rootMargin: "0px 0px -100px 0px", // Trigger a bit before it's fully visible
-    }
+      threshold: 0.5,
+      rootMargin: "0px 0px -100px 0px",
+    },
   );
 
   // Start observing each stat number
@@ -116,51 +116,79 @@ function animateStats() {
   });
 }
 
-// Initialize client logo marquee
+// Initialize client logo marquee with sample data
 function initClientMarquee() {
   const marqueeTrack = document.querySelector(".client-marquee-track");
   if (!marqueeTrack) return;
 
-  // Clone the logos for seamless loop
-  const logos = marqueeTrack.querySelectorAll(".client-logo");
-  const totalLogos = logos.length;
+  // Sample client logos - replace with your actual clients
+  const clients = [
+    {
+      name: "Client 1",
+      logo: "https://via.placeholder.com/100x50?text=Client+1",
+    },
+    {
+      name: "Client 2",
+      logo: "https://via.placeholder.com/100x50?text=Client+2",
+    },
+    {
+      name: "Client 3",
+      logo: "https://via.placeholder.com/100x50?text=Client+3",
+    },
+    {
+      name: "Client 4",
+      logo: "https://via.placeholder.com/100x50?text=Client+4",
+    },
+    {
+      name: "Client 5",
+      logo: "https://via.placeholder.com/100x50?text=Client+5",
+    },
+    {
+      name: "Client 6",
+      logo: "https://via.placeholder.com/100x50?text=Client+6",
+    },
+  ];
 
-  // Only clone if we haven't already
-  if (totalLogos <= 12) {
-    // 6 originals + 6 duplicates = 12
-    // We already have duplicates in HTML, so just initialize
-    setupMarqueeAnimation();
-  } else {
-    setupMarqueeAnimation();
-  }
+  // Clear existing content
+  marqueeTrack.innerHTML = "";
+
+  // Add clients (duplicate for seamless loop)
+  [...clients, ...clients].forEach((client) => {
+    const logoDiv = document.createElement("div");
+    logoDiv.className = "client-logo";
+    logoDiv.innerHTML = `<img src="${client.logo}" alt="${client.name}" loading="lazy">`;
+    marqueeTrack.appendChild(logoDiv);
+  });
+
+  // Initialize animation
+  setupMarqueeAnimation();
 
   function setupMarqueeAnimation() {
-    const marqueeContainer = document.querySelector(
-      ".client-marquee-container"
-    );
-    if (!marqueeContainer) return;
-
     let animationId;
     let position = 0;
-    const speed = 1; // pixels per frame
+    const speed = 1;
+    let isPaused = false;
 
     function animate() {
-      position -= speed;
+      if (!isPaused) {
+        position -= speed;
 
-      // Get total width of all logos
-      const firstLogo = marqueeTrack.querySelector(".client-logo");
-      if (!firstLogo) return;
+        // Get total width of half the logos (since we duplicated them)
+        const logos = marqueeTrack.querySelectorAll(".client-logo");
+        if (logos.length > 0) {
+          const firstLogo = logos[0];
+          const logoWidth = firstLogo.offsetWidth;
+          const gap = 40;
+          const totalWidth = (logoWidth + gap) * (logos.length / 2);
 
-      const logoWidth = firstLogo.offsetWidth;
-      const gap = 40; // Match CSS gap
-      const totalWidth = (logoWidth + gap) * (marqueeTrack.children.length / 2);
+          // Reset position when half the content has scrolled
+          if (Math.abs(position) >= totalWidth) {
+            position = 0;
+          }
 
-      // Reset position when half the content has scrolled
-      if (Math.abs(position) >= totalWidth) {
-        position = 0;
+          marqueeTrack.style.transform = `translateX(${position}px)`;
+        }
       }
-
-      marqueeTrack.style.transform = `translateX(${position}px)`;
       animationId = requestAnimationFrame(animate);
     }
 
@@ -168,123 +196,237 @@ function initClientMarquee() {
     animate();
 
     // Pause on hover
-    marqueeContainer.addEventListener("mouseenter", () => {
-      cancelAnimationFrame(animationId);
+    marqueeTrack.addEventListener("mouseenter", () => {
+      isPaused = true;
     });
 
-    marqueeContainer.addEventListener("mouseleave", () => {
-      animate();
+    marqueeTrack.addEventListener("mouseleave", () => {
+      isPaused = false;
     });
 
     // Pause when tab is not visible
     document.addEventListener("visibilitychange", () => {
       if (document.hidden) {
-        cancelAnimationFrame(animationId);
+        isPaused = true;
       } else {
-        animate();
+        isPaused = false;
       }
+    });
+
+    // Handle window resize
+    window.addEventListener("resize", () => {
+      position = 0;
+      marqueeTrack.style.transform = `translateX(${position}px)`;
     });
   }
 }
 
+// Initialize reviews section
+function initReviews() {
+  const reviewsGrid = document.querySelector(".reviews-grid");
+  if (!reviewsGrid) return;
+
+  // Sample reviews - replace with your actual reviews
+  const reviews = [
+    {
+      name: "John Smith",
+      role: "CEO, TechCorp",
+      rating: 5,
+      content:
+        "TooraFlex transformed our online presence. Their team was professional, responsive, and delivered exceptional results.",
+      date: "2 weeks ago",
+      source: "Google",
+    },
+    {
+      name: "Sarah Johnson",
+      role: "Marketing Director",
+      rating: 5,
+      content:
+        "Outstanding service! Our new website has increased conversions by 40%. Highly recommend TooraFlex for any digital project.",
+      date: "1 month ago",
+      source: "Google",
+    },
+    {
+      name: "Michael Brown",
+      role: "Business Owner",
+      rating: 4,
+      content:
+        "Great experience working with TooraFlex. They understood our needs and delivered a solution that exceeded our expectations.",
+      date: "3 weeks ago",
+      source: "Google",
+    },
+  ];
+
+  // Clear existing content
+  reviewsGrid.innerHTML = "";
+
+  // Add reviews
+  reviews.forEach((review) => {
+    const reviewCard = document.createElement("div");
+    reviewCard.className = "review-card";
+
+    let stars = "";
+    for (let i = 0; i < 5; i++) {
+      stars +=
+        i < review.rating
+          ? '<i class="fas fa-star"></i>'
+          : '<i class="far fa-star"></i>';
+    }
+
+    reviewCard.innerHTML = `
+      <div class="review-header">
+        <div class="review-rating">
+          ${stars}
+          <span>${review.rating}.0</span>
+        </div>
+        <div class="review-source">
+          <i class="fab fa-google"></i>
+          <span>${review.source}</span>
+        </div>
+      </div>
+      <div class="review-content">
+        <p>${review.content}</p>
+      </div>
+      <div class="review-author">
+        <div class="author-info">
+          <h4>${review.name}</h4>
+          <p>${review.role}</p>
+        </div>
+        <div class="review-date">
+          <i class="far fa-clock"></i>
+          <span>${review.date}</span>
+        </div>
+      </div>
+    `;
+
+    reviewsGrid.appendChild(reviewCard);
+  });
+}
+
 // Initialize dynamic contact forms
 function initDynamicForms() {
-  // Auto-populate service dropdown if it exists
   const serviceSelect = document.getElementById("service");
-  if (serviceSelect) {
+  if (serviceSelect && window.siteConfig && siteConfig.services) {
     // Clear existing options except the first one
     while (serviceSelect.options.length > 1) {
       serviceSelect.remove(1);
     }
 
-    // Add services from config (if available)
-    if (window.siteConfig && siteConfig.services) {
-      siteConfig.services.forEach((service) => {
-        const option = document.createElement("option");
-        option.value = service.id;
-        option.textContent = service.name;
-        serviceSelect.appendChild(option);
-      });
-    }
+    // Add services from config
+    siteConfig.services.forEach((service) => {
+      const option = document.createElement("option");
+      option.value = service.id;
+      option.textContent = service.name;
+      serviceSelect.appendChild(option);
+    });
   }
 }
 
-// Main initialization function
-function inittooraflex() {
-  // Mobile Menu Toggle
+// Mobile menu functionality
+function initMobileMenu() {
   const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
   const navLinks = document.querySelector(".nav-links");
 
-  if (mobileMenuBtn && navLinks) {
-    mobileMenuBtn.addEventListener("click", () => {
-      navLinks.classList.toggle("active");
-      mobileMenuBtn.innerHTML = navLinks.classList.contains("active")
-        ? '<i class="fas fa-times"></i>'
-        : '<i class="fas fa-bars"></i>';
-    });
+  if (!mobileMenuBtn || !navLinks) return;
 
-    // Close mobile menu when clicking a link
-    document.querySelectorAll(".nav-links a").forEach((link) => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("active");
-        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-      });
-    });
+  // Function to close mobile menu
+  const closeMobileMenu = () => {
+    navLinks.classList.remove("active");
+    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+    mobileMenuBtn.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "auto";
+  };
 
-    // Close mobile menu when clicking outside
-    document.addEventListener("click", (e) => {
-      if (!mobileMenuBtn.contains(e.target) && !navLinks.contains(e.target)) {
-        navLinks.classList.remove("active");
-        if (mobileMenuBtn) {
-          mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-        }
+  // Function to open mobile menu
+  const openMobileMenu = () => {
+    navLinks.classList.add("active");
+    mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+    mobileMenuBtn.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
+  };
+
+  // Toggle menu on button click
+  mobileMenuBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+
+    if (navLinks.classList.contains("active")) {
+      closeMobileMenu();
+    } else {
+      openMobileMenu();
+    }
+  });
+
+  // Close menu when clicking links
+  document.querySelectorAll(".nav-links a").forEach((link) => {
+    link.addEventListener("click", (e) => {
+      // Don't close if it's a get quote button that might trigger a modal
+      if (!link.classList.contains("btn")) {
+        closeMobileMenu();
       }
     });
-  }
+  });
 
-  // Form Submission
-  const contactForm = document.getElementById("contactForm");
-  if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
+  // Close menu when clicking outside
+  document.addEventListener("click", (e) => {
+    if (
+      !navLinks.contains(e.target) &&
+      !mobileMenuBtn.contains(e.target) &&
+      navLinks.classList.contains("active")
+    ) {
+      closeMobileMenu();
+    }
+  });
 
-      // Get form values
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const service = document.getElementById("service").value;
-      const message = document.getElementById("message").value;
+  // Close menu on escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && navLinks.classList.contains("active")) {
+      closeMobileMenu();
+    }
+  });
 
-      // In a real implementation, you would send this data to a server
-      // For this demo, we'll just show an alert
-      alert(
-        `Thank you ${name}! Your message has been received. We'll contact you at ${email} regarding ${service} services soon.`
-      );
+  // Close menu on window resize (if resizing to desktop)
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768 && navLinks.classList.contains("active")) {
+      closeMobileMenu();
+    }
+  });
+}
 
-      // Reset form
-      contactForm.reset();
-    });
-  }
-
-  // Smooth scrolling for anchor links
+// Smooth scrolling
+function initSmoothScrolling() {
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       const targetId = this.getAttribute("href");
 
-      // Don't intercept links to other pages or empty anchors
-      if (targetId === "#" || targetId.includes(".html")) return;
+      // Skip if it's just a hash or links to another page
+      if (
+        targetId === "#" ||
+        targetId.includes(".html") ||
+        targetId.includes("://")
+      ) {
+        return;
+      }
 
       e.preventDefault();
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
+        const headerHeight = document.querySelector("header").offsetHeight;
+        const targetPosition =
+          targetElement.getBoundingClientRect().top +
+          window.pageYOffset -
+          headerHeight;
+
         window.scrollTo({
-          top: targetElement.offsetTop - 80,
+          top: targetPosition,
           behavior: "smooth",
         });
       }
     });
   });
+}
 
-  // Product Category Filter
+// Product category filter
+function initProductFilter() {
   const categoryBtns = document.querySelectorAll(".category-btn");
   const serviceCards = document.querySelectorAll(".service-card");
 
@@ -299,18 +441,17 @@ function inittooraflex() {
 
         const category = btn.dataset.category;
 
-        // Show/hide service cards based on category
+        // Filter service cards
         serviceCards.forEach((card) => {
           if (category === "all" || card.dataset.category === category) {
             card.style.display = "block";
-            // Add fade-in animation
-            card.style.opacity = "0";
             setTimeout(() => {
-              card.style.transition = "opacity 0.3s ease";
               card.style.opacity = "1";
+              card.style.transform = "translateY(0)";
             }, 10);
           } else {
             card.style.opacity = "0";
+            card.style.transform = "translateY(20px)";
             setTimeout(() => {
               card.style.display = "none";
             }, 300);
@@ -319,8 +460,58 @@ function inittooraflex() {
       });
     });
   }
+}
 
-  // Initialize any dynamic contact forms with config data
+// Form handling
+function initForms() {
+  const contactForm = document.getElementById("contactForm");
+  if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // Basic validation
+      const name = document.getElementById("name")?.value.trim();
+      const email = document.getElementById("email")?.value.trim();
+      const message = document.getElementById("message")?.value.trim();
+
+      if (!name || !email || !message) {
+        alert("Please fill in all required fields.");
+        return;
+      }
+
+      // Email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert("Please enter a valid email address.");
+        return;
+      }
+
+      // Show success message
+      alert(
+        `Thank you ${name}! Your message has been received. We'll contact you at ${email} soon.`,
+      );
+
+      // Reset form
+      contactForm.reset();
+    });
+  }
+}
+
+// Main initialization function
+function inittooraflex() {
+  // Initialize mobile menu
+  initMobileMenu();
+
+  // Initialize smooth scrolling
+  initSmoothScrolling();
+
+  // Initialize product filter
+  initProductFilter();
+
+  // Initialize forms
+  initForms();
+
+  // Initialize dynamic forms
   initDynamicForms();
 
   // Initialize stats animation
@@ -328,6 +519,14 @@ function inittooraflex() {
 
   // Initialize client marquee
   initClientMarquee();
+
+  // Initialize reviews
+  initReviews();
+
+  // Add touch device detection for hover effects
+  if ("ontouchstart" in window || navigator.maxTouchPoints) {
+    document.body.classList.add("touch-device");
+  }
 }
 
 // Enhanced Components object with all functionality
@@ -339,16 +538,18 @@ const Components = {
 
     header.innerHTML = `
       <div class="container header-container">
-        <a href="index.html" class="logo">
+        <a href="index.html" class="logo" aria-label="TooraFlex Home">
           <img
             src="${getLogoPath("logo-mark.png")}"
-            alt="tooraflex Logo"
+            alt="TooraFlex Logo"
             class="logo-img"
+            width="40"
+            height="40"
           />
           <div class="logo-text">Toora<span>flex</span></div>
         </a>
 
-        <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
+        <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
           <i class="fas fa-bars"></i>
         </button>
 
@@ -378,18 +579,10 @@ const Components = {
               develop, and deploy solutions that help your business grow.
             </p>
             <div class="social-links">
-              <a href="${
-                siteConfig.socialLinks?.facebook || "#"
-              }" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-              <a href="${
-                siteConfig.socialLinks?.twitter || "#"
-              }" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-              <a href="${
-                siteConfig.socialLinks?.linkedin || "#"
-              }" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-              <a href="${
-                siteConfig.socialLinks?.instagram || "#"
-              }" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="${siteConfig.socialLinks?.facebook || "#"}" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+              <a href="${siteConfig.socialLinks?.twitter || "#"}" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+              <a href="${siteConfig.socialLinks?.linkedin || "#"}" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+              <a href="${siteConfig.socialLinks?.instagram || "#"}" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
             </div>
           </div>
 
@@ -422,24 +615,18 @@ const Components = {
               </li>
               <li>
                 <i class="fas fa-phone-alt"></i>
-                <a href="${getPhoneLink()}" class="contact-phone">${formatPhoneNumber(
-      siteConfig.phoneNumber
-    )}</a>
+                <a href="${getPhoneLink()}" class="contact-phone">${formatPhoneNumber(siteConfig.phoneNumber)}</a>
               </li>
               <li>
                 <i class="fas fa-envelope"></i>
-                <a href="mailto:${siteConfig.email}" class="contact-email">${
-      siteConfig.email
-    }</a>
+                <a href="mailto:${siteConfig.email}" class="contact-email">${siteConfig.email}</a>
               </li>
               ${
                 siteConfig.emergencyNumber
                   ? `
               <li>
                 <i class="fas fa-exclamation-circle"></i>
-                <a href="${getEmergencyPhoneLink()}" class="contact-emergency">Emergency: ${formatPhoneNumber(
-                      siteConfig.emergencyNumber
-                    )}</a>
+                <a href="${getEmergencyPhoneLink()}" class="contact-emergency">Emergency: ${formatPhoneNumber(siteConfig.emergencyNumber)}</a>
               </li>
               `
                   : ""
@@ -450,24 +637,23 @@ const Components = {
 
         <div class="copyright">
           <p>
-            &copy; <span class="current-year"></span> Tooraflex. All rights
-            reserved. Site by
+            &copy; <span class="current-year"></span> Tooraflex. All rights reserved. Site by
             <a
               href="https://www.Tooraflex.co.za"
               target="_blank"
               rel="noopener noreferrer"
               class="tooraflex-name"
-              aria-label="Visit tooraflex website"
+              aria-label="Visit Tooraflex website"
             >
-              <span class="toora-part">Toora</span
-              ><span class="flex-part">flex</span>
+              <span class="terra-part">Toora</span><span class="flex-part">flex</span>
               <img
                 src="${getLogoPath("logo.ico")}"
-                alt="tooraflex Logo"
+                alt="Tooraflex Logo"
                 class="tooraflex-icon"
+                width="16"
+                height="16"
               />
             </a>
-            .
           </p>
         </div>
       </div>
@@ -490,7 +676,7 @@ const Components = {
     `;
   },
 
-  // Update contact info dynamically (for any elements with contact classes)
+  // Update contact info dynamically
   updateContactInfo: function () {
     // Update all address elements
     document.querySelectorAll(".contact-address").forEach((el) => {
@@ -518,9 +704,7 @@ const Components = {
       if (el.tagName === "A") {
         el.href = getEmergencyPhoneLink();
       }
-      el.textContent = `Emergency: ${formatPhoneNumber(
-        siteConfig.emergencyNumber
-      )}`;
+      el.textContent = `Emergency: ${formatPhoneNumber(siteConfig.emergencyNumber)}`;
     });
   },
 
@@ -555,7 +739,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Check if config is loaded
   if (typeof siteConfig === "undefined") {
     console.error(
-      "Config.js not loaded! Make sure config.js is loaded before script.js"
+      "Config.js not loaded! Make sure config.js is loaded before script.js",
     );
     return;
   }
@@ -567,7 +751,7 @@ document.addEventListener("DOMContentLoaded", function () {
     typeof getEmergencyPhoneLink === "undefined"
   ) {
     console.error(
-      "Config.js functions not loaded! Make sure config.js has getWhatsAppUrl(), getPhoneLink(), and getEmergencyPhoneLink() functions"
+      "Config.js functions not loaded! Make sure config.js has required functions",
     );
     return;
   }
