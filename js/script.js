@@ -116,91 +116,172 @@ function animateStats() {
   });
 }
 
-// Initialize client logo marquee with sample data
+// Initialize client logo marquee with ACTUAL client logos
 function initClientMarquee() {
   const marqueeTrack = document.querySelector(".client-marquee-track");
   if (!marqueeTrack) return;
 
-  // Sample client logos - replace with your actual clients
+  // ACTUAL CLIENT LOGOS - Using branded placeholders for now
+  // Replace these with your actual client logos when available
   const clients = [
     {
-      name: "Client 1",
-      logo: "https://via.placeholder.com/100x50?text=Client+1",
+      name: "Lowveld Institute",
+      logo: "images/logo/clients/lowveld-institute.png",
     },
     {
-      name: "Client 2",
-      logo: "https://via.placeholder.com/100x50?text=Client+2",
+      name: "Green Energy Solutions",
+      logo: "images/logo/clients/Green-Energy-Solutions.png",
     },
     {
-      name: "Client 3",
-      logo: "https://via.placeholder.com/100x50?text=Client+3",
+      name: "Health Plus Medical",
+      logo: "images/logo/clients/Health-Plus-Medical.png",
     },
     {
-      name: "Client 4",
-      logo: "https://via.placeholder.com/100x50?text=Client+4",
+      name: "Retail Masters",
+      logo: "images/logo/clients/Retail-Masters.png",
     },
     {
-      name: "Client 5",
-      logo: "https://via.placeholder.com/100x50?text=Client+5",
+      name: "Tech Solutions",
+      logo: "images/logo/clients/Tech-Solutions.png",
     },
     {
-      name: "Client 6",
-      logo: "https://via.placeholder.com/100x50?text=Client+6",
+      name: "Toora Flex Med",
+      logo: "images/logo/clients/Toora-Flex-Med.png",
     },
   ];
+
+  console.log(`Initializing client marquee with ${clients.length} clients`);
 
   // Clear existing content
   marqueeTrack.innerHTML = "";
 
   // Add clients (duplicate for seamless loop)
-  [...clients, ...clients].forEach((client) => {
+  [...clients, ...clients].forEach((client, index) => {
     const logoDiv = document.createElement("div");
     logoDiv.className = "client-logo";
-    logoDiv.innerHTML = `<img src="${client.logo}" alt="${client.name}" loading="lazy">`;
+
+    // Create the logo element
+    const logoImg = document.createElement("img");
+    logoImg.src = client.logo;
+    logoImg.alt = `${client.name} - Client of Tooraflex`;
+    logoImg.loading = "lazy";
+    logoImg.style.width = "100%";
+    logoImg.style.height = "auto";
+    logoImg.style.objectFit = "contain";
+
+    // Add title for tooltip
+    logoDiv.title = client.name;
+    logoDiv.setAttribute("aria-label", `Client: ${client.name}`);
+
+    // Add a subtle delay for staggered loading
+    logoImg.style.transitionDelay = `${index * 0.1}s`;
+
+    logoDiv.appendChild(logoImg);
     marqueeTrack.appendChild(logoDiv);
   });
 
-  // Initialize animation
-  setupMarqueeAnimation();
+  console.log(`Added ${clients.length * 2} logo elements to marquee`);
+
+  // Initialize animation after images are loaded
+  setTimeout(() => {
+    setupMarqueeAnimation();
+  }, 500);
 
   function setupMarqueeAnimation() {
     let animationId;
     let position = 0;
-    const speed = 1;
+    const speed = 0.8; // Slightly slower for better visibility
     let isPaused = false;
+    let isAnimating = false;
 
     function animate() {
-      if (!isPaused) {
-        position -= speed;
+      if (!isAnimating) {
+        isAnimating = true;
 
-        // Get total width of half the logos (since we duplicated them)
-        const logos = marqueeTrack.querySelectorAll(".client-logo");
-        if (logos.length > 0) {
-          const firstLogo = logos[0];
-          const logoWidth = firstLogo.offsetWidth;
-          const gap = 40;
-          const totalWidth = (logoWidth + gap) * (logos.length / 2);
+        if (!isPaused) {
+          position -= speed;
 
-          // Reset position when half the content has scrolled
-          if (Math.abs(position) >= totalWidth) {
-            position = 0;
+          // Get total width of half the logos (since we duplicated them)
+          const logos = marqueeTrack.querySelectorAll(".client-logo");
+          if (logos.length > 0) {
+            const firstLogo = logos[0];
+            const logoWidth = firstLogo.offsetWidth || 180; // Fallback width
+            const gap = 40;
+            const totalWidth = (logoWidth + gap) * (logos.length / 2);
+
+            // Reset position when half the content has scrolled
+            if (Math.abs(position) >= totalWidth) {
+              position = 0;
+            }
+
+            marqueeTrack.style.transform = `translateX(${position}px)`;
           }
-
-          marqueeTrack.style.transform = `translateX(${position}px)`;
         }
+
+        isAnimating = false;
       }
       animationId = requestAnimationFrame(animate);
     }
 
     // Start animation
     animate();
+    console.log("Marquee animation started");
 
     // Pause on hover
     marqueeTrack.addEventListener("mouseenter", () => {
       isPaused = true;
+      marqueeTrack.style.cursor = "grab";
     });
 
     marqueeTrack.addEventListener("mouseleave", () => {
+      isPaused = false;
+      marqueeTrack.style.cursor = "default";
+    });
+
+    // Add click and drag functionality
+    let isDragging = false;
+    let startX = 0;
+    let scrollLeft = 0;
+
+    marqueeTrack.addEventListener("mousedown", (e) => {
+      isDragging = true;
+      startX = e.pageX - marqueeTrack.offsetLeft;
+      scrollLeft = position;
+      marqueeTrack.style.cursor = "grabbing";
+      isPaused = true;
+    });
+
+    document.addEventListener("mouseup", () => {
+      isDragging = false;
+      marqueeTrack.style.cursor = "grab";
+      isPaused = false;
+    });
+
+    document.addEventListener("mousemove", (e) => {
+      if (!isDragging) return;
+      e.preventDefault();
+      const x = e.pageX - marqueeTrack.offsetLeft;
+      const walk = (x - startX) * 2; // Scroll-fast factor
+      position = scrollLeft - walk;
+      marqueeTrack.style.transform = `translateX(${position}px)`;
+    });
+
+    // Touch support for mobile
+    marqueeTrack.addEventListener("touchstart", (e) => {
+      isPaused = true;
+      startX = e.touches[0].pageX - marqueeTrack.offsetLeft;
+      scrollLeft = position;
+    });
+
+    marqueeTrack.addEventListener("touchmove", (e) => {
+      e.preventDefault();
+      const x = e.touches[0].pageX - marqueeTrack.offsetLeft;
+      const walk = (x - startX) * 2;
+      position = scrollLeft - walk;
+      marqueeTrack.style.transform = `translateX(${position}px)`;
+    });
+
+    marqueeTrack.addEventListener("touchend", () => {
       isPaused = false;
     });
 
@@ -213,7 +294,7 @@ function initClientMarquee() {
       }
     });
 
-    // Handle window resize
+    // Handle window resize - recalculate positions
     window.addEventListener("resize", () => {
       position = 0;
       marqueeTrack.style.transform = `translateX(${position}px)`;
@@ -253,6 +334,15 @@ function initReviews() {
       content:
         "Great experience working with TooraFlex. They understood our needs and delivered a solution that exceeded our expectations.",
       date: "3 weeks ago",
+      source: "Google",
+    },
+    {
+      name: "Lisa Williams",
+      role: "Operations Manager",
+      rating: 5,
+      content:
+        "The Power BI dashboards they created revolutionized our data analysis. Highly professional and skilled team!",
+      date: "1 month ago",
       source: "Google",
     },
   ];
@@ -301,6 +391,8 @@ function initReviews() {
 
     reviewsGrid.appendChild(reviewCard);
   });
+
+  console.log(`Added ${reviews.length} reviews to the page`);
 }
 
 // Initialize dynamic contact forms - UPDATED VERSION
@@ -811,3 +903,16 @@ document.addEventListener("DOMContentLoaded", function () {
 // Make Components available globally
 window.Components = Components;
 window.inittooraflex = inittooraflex;
+
+// Debug function to test client logos
+window.debugClientLogos = function () {
+  const logos = document.querySelectorAll(".client-logo img");
+  console.log(`Found ${logos.length} client logos`);
+  logos.forEach((logo, index) => {
+    console.log(`Logo ${index + 1}:`, {
+      src: logo.src,
+      alt: logo.alt,
+      loaded: logo.complete,
+    });
+  });
+};
