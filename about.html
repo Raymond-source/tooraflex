@@ -26,6 +26,35 @@
     <link rel="icon" type="image/x-icon" href="images/logo/logo.ico" />
   </head>
   <body>
+    <!-- Cookie Consent Banner for POPIA -->
+    <div id="cookie-consent" class="cookie-consent">
+      <div class="cookie-content">
+        <div class="cookie-text">
+          <h3><i class="fas fa-cookie-bite"></i> Cookie Consent</h3>
+          <p>
+            We use cookies to improve your experience on our site and to show
+            you relevant content. By clicking "Accept All", you agree to the use
+            of all cookies as per the Protection of Personal Information Act
+            (POPIA).
+            <a href="privacy.html" class="cookie-link"
+              >Learn more about our privacy policy</a
+            >.
+          </p>
+        </div>
+        <div class="cookie-buttons">
+          <button id="cookie-accept-all" class="btn cookie-btn accept-btn">
+            <i class="fas fa-check"></i> Accept All
+          </button>
+          <button id="cookie-necessary" class="btn cookie-btn necessary-btn">
+            <i class="fas fa-cog"></i> Necessary Only
+          </button>
+          <button id="cookie-decline" class="btn cookie-btn decline-btn">
+            <i class="fas fa-times"></i> Decline
+          </button>
+        </div>
+      </div>
+    </div>
+
     <!-- Floating WhatsApp Button -->
     <div class="whatsapp-float" id="whatsapp-float"></div>
 
@@ -218,5 +247,70 @@
     <!-- Scripts -->
     <script src="js/config.js"></script>
     <script src="js/script.js"></script>
+
+    <!-- Cookie Consent Script -->
+    <script>
+      // Cookie Consent Functionality
+      function initCookieConsent() {
+        const cookieConsent = document.getElementById("cookie-consent");
+        const acceptAllBtn = document.getElementById("cookie-accept-all");
+        const necessaryBtn = document.getElementById("cookie-necessary");
+        const declineBtn = document.getElementById("cookie-decline");
+
+        // Check if consent already given
+        const consentGiven = localStorage.getItem("cookieConsent");
+
+        if (!consentGiven) {
+          // Show cookie consent after 2 seconds
+          setTimeout(() => {
+            cookieConsent.classList.add("show");
+          }, 2000);
+        } else {
+          cookieConsent.style.display = "none";
+        }
+
+        // Handle accept all
+        acceptAllBtn.addEventListener("click", () => {
+          localStorage.setItem("cookieConsent", "all");
+          localStorage.setItem("cookieConsentDate", new Date().toISOString());
+          cookieConsent.classList.remove("show");
+          setTimeout(() => {
+            cookieConsent.style.display = "none";
+          }, 300);
+
+          // Initialize analytics (if you add them later)
+          console.log("All cookies accepted - analytics enabled");
+        });
+
+        // Handle necessary only
+        necessaryBtn.addEventListener("click", () => {
+          localStorage.setItem("cookieConsent", "necessary");
+          localStorage.setItem("cookieConsentDate", new Date().toISOString());
+          cookieConsent.classList.remove("show");
+          setTimeout(() => {
+            cookieConsent.style.display = "none";
+          }, 300);
+
+          console.log("Only necessary cookies accepted");
+        });
+
+        // Handle decline
+        declineBtn.addEventListener("click", () => {
+          localStorage.setItem("cookieConsent", "declined");
+          localStorage.setItem("cookieConsentDate", new Date().toISOString());
+          cookieConsent.classList.remove("show");
+          setTimeout(() => {
+            cookieConsent.style.display = "none";
+          }, 300);
+
+          console.log("Cookies declined");
+        });
+      }
+
+      // Initialize on page load
+      document.addEventListener("DOMContentLoaded", function () {
+        initCookieConsent();
+      });
+    </script>
   </body>
 </html>
