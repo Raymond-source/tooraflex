@@ -2,8 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+    />
     <title>About Us - Tooraflex</title>
+    <meta
+      name="description"
+      content="Learn about Tooraflex, a South African digital solutions company helping businesses grow online."
+    />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/whatsapp-float.css" />
     <link
@@ -16,22 +23,19 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@700;800&display=swap"
       rel="stylesheet"
     />
-    <!-- Favicon will be loaded by JavaScript -->
+    <link rel="icon" type="image/x-icon" href="images/logo/logo.ico" />
   </head>
   <body>
-    <!-- Floating WhatsApp Button - Will be populated by JavaScript -->
+    <!-- Floating WhatsApp Button -->
     <div class="whatsapp-float" id="whatsapp-float"></div>
 
-    <!-- Header - Will be populated by JavaScript -->
+    <!-- Header -->
     <header id="main-header"></header>
 
     <!-- Page Hero -->
-    <section class="hero" style="padding: 80px 0">
+    <section class="hero page-hero">
       <div class="container">
-        <div
-          class="hero-text"
-          style="text-align: center; max-width: 800px; margin: 0 auto"
-        >
+        <div class="hero-text page-hero-text">
           <h1>About Tooraflex</h1>
           <p>
             Your partner in digital transformation. We combine technical
@@ -208,12 +212,11 @@
       </div>
     </section>
 
-    <!-- Footer - Will be populated by JavaScript -->
+    <!-- Footer -->
     <footer id="main-footer"></footer>
 
-    <!-- Load config first, then main script -->
+    <!-- Scripts -->
     <script src="js/config.js"></script>
     <script src="js/script.js"></script>
-    <!-- No additional script needed - everything initializes automatically -->
   </body>
 </html>
