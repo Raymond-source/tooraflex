@@ -2,8 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+    />
     <title>Services & Products - Tooraflex</title>
+    <meta
+      name="description"
+      content="Comprehensive digital solutions including website design, web applications, hosting, analytics, and graphic design services."
+    />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/whatsapp-float.css" />
     <link
@@ -19,19 +26,16 @@
     <link rel="icon" type="image/x-icon" href="images/logo/logo.ico" />
   </head>
   <body>
-    <!-- Floating WhatsApp Button - Will be populated by JavaScript -->
+    <!-- Floating WhatsApp Button -->
     <div class="whatsapp-float" id="whatsapp-float"></div>
 
-    <!-- Header - Will be populated by JavaScript -->
+    <!-- Header -->
     <header id="main-header"></header>
 
     <!-- Page Hero -->
-    <section class="hero" style="padding: 80px 0">
+    <section class="hero page-hero">
       <div class="container">
-        <div
-          class="hero-text"
-          style="text-align: center; max-width: 800px; margin: 0 auto"
-        >
+        <div class="hero-text page-hero-text">
           <h1>Services & Products</h1>
           <p>
             Discover our comprehensive suite of digital solutions designed to
@@ -257,146 +261,125 @@
           <p>Choose the perfect package for your business needs</p>
         </div>
 
-        <div class="services-grid">
-          <div class="service-card">
-            <div
-              class="service-icon"
-              style="background-color: rgba(0, 201, 156, 0.1)"
-            >
-              <i class="fas fa-star" style="color: var(--secondary)"></i>
+        <div class="packages-grid">
+          <div class="package-card">
+            <div class="package-header">
+              <div class="package-icon">
+                <i class="fas fa-star"></i>
+              </div>
+              <h3>Starter Package</h3>
+              <p class="package-subtitle">
+                Perfect for small businesses and startups
+              </p>
             </div>
-            <h3>Starter Package</h3>
-            <p><strong>Perfect for small businesses and startups</strong></p>
-            <ul style="list-style: none; padding-left: 0">
+
+            <ul class="package-features">
               <li>
-                <i class="fas fa-check" style="color: var(--secondary)"></i>
-                Responsive Website
+                <i class="fas fa-check"></i>
+                <span>Responsive Website</span>
               </li>
               <li>
-                <i class="fas fa-check" style="color: var(--secondary)"></i>
-                Basic SEO Setup
+                <i class="fas fa-check"></i>
+                <span>Basic SEO Setup</span>
               </li>
               <li>
-                <i class="fas fa-check" style="color: var(--secondary)"></i>
-                Contact Form
+                <i class="fas fa-check"></i>
+                <span>Contact Form</span>
               </li>
               <li>
-                <i class="fas fa-check" style="color: var(--secondary)"></i>
-                Social Media Integration
+                <i class="fas fa-check"></i>
+                <span>Social Media Integration</span>
               </li>
             </ul>
-            <div style="margin-top: 20px; text-align: center">
-              <span
-                style="
-                  font-size: 1.5rem;
-                  font-weight: bold;
-                  color: var(--primary);
-                "
-                >R 2999.99</span
-              >
-              <a
-                href="contact.html"
-                class="btn"
-                style="display: block; margin-top: 15px"
-                >Get Started</a
-              >
+
+            <div class="package-price">
+              <span>R 2999.99</span>
             </div>
+
+            <a href="contact.html" class="btn package-btn">Get Started</a>
           </div>
 
-          <div
-            class="service-card"
-            style="transform: scale(1.05); border: 2px solid var(--primary)"
-          >
-            <div class="service-icon">
-              <i class="fas fa-crown" style="color: #ffd700"></i>
+          <div class="package-card featured">
+            <div class="package-badge">Most Popular</div>
+            <div class="package-header">
+              <div class="package-icon">
+                <i class="fas fa-crown"></i>
+              </div>
+              <h3>Business Package</h3>
+              <p class="package-subtitle">
+                Our most popular package for growing businesses
+              </p>
             </div>
-            <h3>Business Package</h3>
-            <p>
-              <strong>Our most popular package for growing businesses</strong>
-            </p>
-            <ul style="list-style: none; padding-left: 0">
+
+            <ul class="package-features">
               <li>
-                <i class="fas fa-check" style="color: var(--secondary)"></i>
-                Custom Web Design
+                <i class="fas fa-check"></i>
+                <span>Custom Web Design</span>
               </li>
               <li>
-                <i class="fas fa-check" style="color: var(--secondary)"></i>
-                E-commerce Functionality
+                <i class="fas fa-check"></i>
+                <span>E-commerce Functionality</span>
               </li>
               <li>
-                <i class="fas fa-check" style="color: var(--secondary)"></i> CMS
-                Integration
+                <i class="fas fa-check"></i>
+                <span>CMS Integration</span>
               </li>
               <li>
-                <i class="fas fa-check" style="color: var(--secondary)"></i>
-                Advanced SEO
+                <i class="fas fa-check"></i>
+                <span>Advanced SEO</span>
               </li>
               <li>
-                <i class="fas fa-check" style="color: var(--secondary)"></i> 6
-                Months Hosting
+                <i class="fas fa-check"></i>
+                <span>6 Months Hosting</span>
               </li>
             </ul>
-            <div style="margin-top: 20px; text-align: center">
-              <span
-                style="
-                  font-size: 1.5rem;
-                  font-weight: bold;
-                  color: var(--primary);
-                "
-                >R5000.00</span
-              >
-              <a
-                href="contact.html"
-                class="btn"
-                style="display: block; margin-top: 15px"
-                >Get Started</a
-              >
+
+            <div class="package-price">
+              <span>R5000.00</span>
             </div>
+
+            <a href="contact.html" class="btn package-btn">Get Started</a>
           </div>
 
-          <div class="service-card">
-            <div
-              class="service-icon"
-              style="background-color: rgba(42, 91, 215, 0.1)"
-            >
-              <i class="fas fa-rocket"></i>
+          <div class="package-card">
+            <div class="package-header">
+              <div class="package-icon">
+                <i class="fas fa-rocket"></i>
+              </div>
+              <h3>Enterprise Package</h3>
+              <p class="package-subtitle">
+                Complete digital solution for established businesses
+              </p>
             </div>
-            <h3>Enterprise Package</h3>
-            <p>
-              <strong
-                >Complete digital solution for established businesses</strong
-              >
-            </p>
-            <ul style="list-style: none; padding-left: 0">
+
+            <ul class="package-features">
               <li>
-                <i class="fas fa-check" style="color: var(--secondary)"></i>
-                Custom Web Application
+                <i class="fas fa-check"></i>
+                <span>Custom Web Application</span>
               </li>
               <li>
-                <i class="fas fa-check" style="color: var(--secondary)"></i>
-                Power BI Analytics
+                <i class="fas fa-check"></i>
+                <span>Power BI Analytics</span>
               </li>
               <li>
-                <i class="fas fa-check" style="color: var(--secondary)"></i>
-                Full Branding Package
+                <i class="fas fa-check"></i>
+                <span>Full Branding Package</span>
               </li>
               <li>
-                <i class="fas fa-check" style="color: var(--secondary)"></i> 1
-                Year Hosting & Support
+                <i class="fas fa-check"></i>
+                <span>1 Year Hosting & Support</span>
               </li>
               <li>
-                <i class="fas fa-check" style="color: var(--secondary)"></i>
-                Monthly Analytics Reports
+                <i class="fas fa-check"></i>
+                <span>Monthly Analytics Reports</span>
               </li>
             </ul>
-            <div style="margin-top: 20px; text-align: center">
-              <a
-                href="contact.html"
-                class="btn"
-                style="display: block; margin-top: 15px"
-                >Contact for Quote</a
-              >
+
+            <div class="package-price">
+              <span>Custom Quote</span>
             </div>
+
+            <a href="contact.html" class="btn package-btn">Contact for Quote</a>
           </div>
         </div>
       </div>
@@ -413,65 +396,11 @@
         <!-- Client Logo Marquee -->
         <div class="client-marquee-container">
           <div class="client-marquee">
-            <!-- First set of logos -->
-            <div class="client-marquee-track">
-              <div class="client-logo">
-                <img src="images/clients/client1.png" alt="Lowveld Institute" />
-              </div>
-              <div class="client-logo">
-                <img src="images/clients/client2.png" alt="Green Energy Co" />
-              </div>
-              <div class="client-logo">
-                <img
-                  src="images/clients/client3.png"
-                  alt="Finance Trust Bank"
-                />
-              </div>
-              <div class="client-logo">
-                <img
-                  src="images/clients/client4.png"
-                  alt="Health Plus Medical"
-                />
-              </div>
-              <div class="client-logo">
-                <img src="images/clients/client5.png" alt="EduSmart Academy" />
-              </div>
-              <div class="client-logo">
-                <img src="images/clients/client6.png" alt="Retail Masters" />
-              </div>
-              <!-- Duplicate logos for seamless loop -->
-              <div class="client-logo">
-                <img
-                  src="images/clients/client1.png"
-                  alt="Tech Solutions Inc"
-                />
-              </div>
-              <div class="client-logo">
-                <img src="images/clients/client2.png" alt="Green Energy Co" />
-              </div>
-              <div class="client-logo">
-                <img
-                  src="images/clients/client3.png"
-                  alt="Finance Trust Bank"
-                />
-              </div>
-              <div class="client-logo">
-                <img
-                  src="images/clients/client4.png"
-                  alt="Health Plus Medical"
-                />
-              </div>
-              <div class="client-logo">
-                <img src="images/clients/client5.png" alt="EduSmart Academy" />
-              </div>
-              <div class="client-logo">
-                <img src="images/clients/client6.png" alt="Retail Masters" />
-              </div>
-            </div>
+            <!-- Client logos will be populated by JavaScript -->
           </div>
         </div>
 
-        <div style="text-align: center; margin-top: 40px">
+        <div class="text-center" style="margin-top: 40px">
           <p>And many more satisfied clients...</p>
         </div>
       </div>
@@ -482,124 +411,26 @@
       <div class="container">
         <div class="section-title">
           <h2>What Our Clients Say</h2>
-          <p>Read reviews from our satisfied customers on Google</p>
+          <p>Read reviews from our satisfied customers</p>
         </div>
 
         <div class="reviews-grid">
-          <div class="review-card">
-            <div class="review-header">
-              <div class="review-rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <span>5.0</span>
-              </div>
-              <div class="review-source">
-                <i class="fab fa-google" style="color: #4285f4"></i>
-                <span>Google Review</span>
-              </div>
-            </div>
-            <div class="review-content">
-              <p>
-                "Tooraflex transformed our outdated website into a modern,
-                user-friendly platform. Our online sales increased by 150%
-                within 3 months. Excellent service and support!"
-              </p>
-            </div>
-            <div class="review-author">
-              <div class="author-info">
-                <h4>Sarah M.</h4>
-                <p>Retail Business Owner</p>
-              </div>
-              <div class="review-date">
-                <i class="far fa-calendar-alt"></i>
-                <span>2 weeks ago</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="review-card">
-            <div class="review-header">
-              <div class="review-rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-                <span>4.5</span>
-              </div>
-              <div class="review-source">
-                <i class="fab fa-google" style="color: #4285f4"></i>
-                <span>Google Review</span>
-              </div>
-            </div>
-            <div class="review-content">
-              <p>
-                "The Power BI dashboards they created for our company have
-                revolutionized how we make decisions. Data is now accessible and
-                understandable for our entire team."
-              </p>
-            </div>
-            <div class="review-author">
-              <div class="author-info">
-                <h4>James K.</h4>
-                <p>Operations Manager</p>
-              </div>
-              <div class="review-date">
-                <i class="far fa-calendar-alt"></i>
-                <span>1 month ago</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="review-card">
-            <div class="review-header">
-              <div class="review-rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <span>5.0</span>
-              </div>
-              <div class="review-source">
-                <i class="fab fa-google" style="color: #4285f4"></i>
-                <span>Google Review</span>
-              </div>
-            </div>
-            <div class="review-content">
-              <p>
-                "From design to deployment, Tooraflex handled our entire web
-                application project professionally. They delivered ahead of
-                schedule and within budget. Highly recommended!"
-              </p>
-            </div>
-            <div class="review-author">
-              <div class="author-info">
-                <h4>Lisa T.</h4>
-                <p>Startup Founder</p>
-              </div>
-              <div class="review-date">
-                <i class="far fa-calendar-alt"></i>
-                <span>3 months ago</span>
-              </div>
-            </div>
-          </div>
+          <!-- Reviews will be populated by JavaScript -->
         </div>
 
-        <div style="text-align: center; margin-top: 40px">
+        <div class="text-center" style="margin-top: 40px">
           <a
             href="https://g.page/r/CftNF6rwIo0IEBM/review"
             target="_blank"
+            rel="noopener noreferrer"
             class="btn"
           >
             <i class="fab fa-google"></i> Write a Review on Google
           </a>
           <a
-            href="https://www.google.com/search?q=tooraflex+reviews#"
+            href="https://g.page/r/CftNF6rwIo0IEBM/review"
             target="_blank"
+            rel="noopener noreferrer"
             class="btn btn-secondary"
             style="margin-left: 15px"
           >
@@ -623,13 +454,11 @@
       </div>
     </section>
 
-    <!-- Footer - Will be populated by JavaScript -->
+    <!-- Footer -->
     <footer id="main-footer"></footer>
 
-    <!-- Load config first, then main script -->
+    <!-- Scripts -->
     <script src="js/config.js"></script>
     <script src="js/script.js"></script>
-    <!-- No additional script needed - everything initializes automatically -->
   </body>
 </html>
-
