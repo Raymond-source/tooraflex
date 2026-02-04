@@ -172,6 +172,18 @@
                 <label for="service">Service Interested In *</label>
                 <select id="service" class="form-control" required>
                   <option value="">Select a Service</option>
+                  <!-- Hardcoded fallback options that match config.js -->
+                  <option value="website-design">Website Design</option>
+                  <option value="web-apps">Web Applications</option>
+                  <option value="hosting">Hosting Solutions</option>
+                  <option value="surveys">Surveys & Analytics</option>
+                  <option value="graphic-design">Graphic Design</option>
+                  <option value="power-bi">Power BI & Data Management</option>
+                  <option value="starter-package">Starter Package</option>
+                  <option value="business-package">Business Package</option>
+                  <option value="enterprise-package">Enterprise Package</option>
+                  <option value="multiple">Multiple Services</option>
+                  <option value="custom">Custom Solution</option>
                 </select>
               </div>
 
@@ -298,8 +310,32 @@
     <!-- Footer -->
     <footer id="main-footer"></footer>
 
-    <!-- Scripts -->
+    <!-- Scripts - MUST BE IN THIS ORDER -->
     <script src="js/config.js"></script>
     <script src="js/script.js"></script>
+
+    <!-- Debug script to check if services are populated -->
+    <script>
+      // Check after page loads
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          const serviceSelect = document.getElementById("service");
+          if (serviceSelect) {
+            console.log(
+              "Service select options:",
+              serviceSelect.options.length,
+            );
+            console.log("First option:", serviceSelect.options[0]?.text);
+
+            if (serviceSelect.options.length <= 1) {
+              console.warn("Services were not populated from config.js");
+              console.log("Using hardcoded fallback options instead");
+            } else {
+              console.log("Services successfully populated from config.js");
+            }
+          }
+        }, 2000);
+      });
+    </script>
   </body>
 </html>
