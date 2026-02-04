@@ -26,6 +26,35 @@
     <link rel="icon" type="image/x-icon" href="images/logo/logo.ico" />
   </head>
   <body>
+    <!-- Cookie Consent Banner for POPIA -->
+    <div id="cookie-consent" class="cookie-consent">
+      <div class="cookie-content">
+        <div class="cookie-text">
+          <h3><i class="fas fa-cookie-bite"></i> Cookie Consent</h3>
+          <p>
+            We use cookies to improve your experience on our site and to show
+            you relevant content. By clicking "Accept All", you agree to the use
+            of all cookies as per the Protection of Personal Information Act
+            (POPIA).
+            <a href="privacy.html" class="cookie-link"
+              >Learn more about our privacy policy</a
+            >.
+          </p>
+        </div>
+        <div class="cookie-buttons">
+          <button id="cookie-accept-all" class="btn cookie-btn accept-btn">
+            <i class="fas fa-check"></i> Accept All
+          </button>
+          <button id="cookie-necessary" class="btn cookie-btn necessary-btn">
+            <i class="fas fa-cog"></i> Necessary Only
+          </button>
+          <button id="cookie-decline" class="btn cookie-btn decline-btn">
+            <i class="fas fa-times"></i> Decline
+          </button>
+        </div>
+      </div>
+    </div>
+
     <!-- Floating WhatsApp Button -->
     <div class="whatsapp-float" id="whatsapp-float"></div>
 
@@ -82,7 +111,7 @@
                 <h4>Email Address</h4>
                 <p>
                   <a href="mailto:info@tooraflex.co.za" class="contact-email"
-                    >Loading email...</a
+                    >info@tooraflex.co.za</a
                   >
                 </p>
               </div>
@@ -133,14 +162,41 @@
           </div>
 
           <div class="contact-form">
-            <form id="contactForm">
+            <form
+              id="contactForm"
+              action="https://formspree.io/f/mykprlvy"
+              method="POST"
+            >
               <h3>Send us a Message</h3>
+
+              <!-- Hidden field for the recipient email -->
+              <input
+                type="hidden"
+                name="_replyto"
+                value="info@tooraflex.co.za"
+              />
+              <input
+                type="hidden"
+                name="_subject"
+                value="New Contact Form Submission from Tooraflex Website"
+              />
+
+              <!-- Formspree redirect after success -->
+              <input
+                type="hidden"
+                name="_next"
+                value="https://yourdomain.co.za/thank-you.html"
+              />
+
+              <!-- Honey pot field for spam protection -->
+              <input type="text" name="_gotcha" style="display: none" />
 
               <div class="form-group">
                 <label for="name">Full Name *</label>
                 <input
                   type="text"
                   id="name"
+                  name="name"
                   class="form-control"
                   placeholder="Your Name"
                   required
@@ -152,6 +208,7 @@
                 <input
                   type="email"
                   id="email"
+                  name="email"
                   class="form-control"
                   placeholder="Your Email"
                   required
@@ -163,6 +220,7 @@
                 <input
                   type="tel"
                   id="phone"
+                  name="phone"
                   class="form-control"
                   placeholder="Your Phone Number"
                 />
@@ -170,9 +228,13 @@
 
               <div class="form-group">
                 <label for="service">Service Interested In *</label>
-                <select id="service" class="form-control" required>
+                <select
+                  id="service"
+                  name="service"
+                  class="form-control"
+                  required
+                >
                   <option value="">Select a Service</option>
-                  <!-- Hardcoded fallback options that match config.js -->
                   <option value="website-design">Website Design</option>
                   <option value="web-apps">Web Applications</option>
                   <option value="hosting">Hosting Solutions</option>
@@ -189,7 +251,7 @@
 
               <div class="form-group">
                 <label for="budget">Project Budget</label>
-                <select id="budget" class="form-control">
+                <select id="budget" name="budget" class="form-control">
                   <option value="">Select Budget Range</option>
                   <option value="under-5k">Under R5,000</option>
                   <option value="5k-10k">R5,000 - R10,000</option>
@@ -204,6 +266,7 @@
                 <label for="message">Project Details *</label>
                 <textarea
                   id="message"
+                  name="message"
                   class="form-control"
                   rows="5"
                   placeholder="Tell us about your project, goals, and timeline..."
@@ -211,7 +274,39 @@
                 ></textarea>
               </div>
 
-              <button type="submit" class="btn">Send Message</button>
+              <!-- POPIA Consent Checkbox -->
+              <div class="form-group consent-group">
+                <div class="consent-checkbox">
+                  <input
+                    type="checkbox"
+                    id="popia-consent"
+                    name="popia-consent"
+                    required
+                  />
+                  <label for="popia-consent">
+                    I consent to Tooraflex collecting and processing my personal
+                    information in accordance with the Protection of Personal
+                    Information Act (POPIA). I understand that my information
+                    will be used solely for responding to my inquiry and will
+                    not be shared with third parties without my consent.
+                    <span class="required-star">*</span>
+                  </label>
+                </div>
+              </div>
+
+              <button type="submit" class="btn submit-btn" id="submitBtn">
+                <span class="btn-text">Send Message</span>
+                <span class="spinner" style="display: none">
+                  <i class="fas fa-spinner fa-spin"></i> Sending...
+                </span>
+              </button>
+
+              <!-- Response Message Container -->
+              <div
+                id="formResponse"
+                class="response-message"
+                style="display: none"
+              ></div>
             </form>
           </div>
         </div>
@@ -314,28 +409,157 @@
     <script src="js/config.js"></script>
     <script src="js/script.js"></script>
 
-    <!-- Debug script to check if services are populated -->
+    <!-- Contact Form Handler -->
     <script>
-      // Check after page loads
-      window.addEventListener("load", function () {
-        setTimeout(function () {
-          const serviceSelect = document.getElementById("service");
-          if (serviceSelect) {
-            console.log(
-              "Service select options:",
-              serviceSelect.options.length,
-            );
-            console.log("First option:", serviceSelect.options[0]?.text);
+      document.addEventListener("DOMContentLoaded", function () {
+        const contactForm = document.getElementById("contactForm");
+        const submitBtn = document.getElementById("submitBtn");
+        const btnText = submitBtn.querySelector(".btn-text");
+        const spinner = submitBtn.querySelector(".spinner");
+        const formResponse = document.getElementById("formResponse");
 
-            if (serviceSelect.options.length <= 1) {
-              console.warn("Services were not populated from config.js");
-              console.log("Using hardcoded fallback options instead");
-            } else {
-              console.log("Services successfully populated from config.js");
+        if (contactForm) {
+          // Handle form submission
+          contactForm.addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            // Show loading spinner
+            btnText.style.display = "none";
+            spinner.style.display = "inline-block";
+            submitBtn.disabled = true;
+
+            // Clear previous response
+            formResponse.style.display = "none";
+            formResponse.className = "response-message";
+            formResponse.innerHTML = "";
+
+            try {
+              // Formspree AJAX submission
+              const formData = new FormData(contactForm);
+              const response = await fetch(contactForm.action, {
+                method: "POST",
+                body: formData,
+                headers: {
+                  Accept: "application/json",
+                },
+              });
+
+              if (response.ok) {
+                // Success
+                formResponse.innerHTML = `
+                  <div class="success-message">
+                    <i class="fas fa-check-circle"></i>
+                    <h4>Thank You!</h4>
+                    <p>Your message has been sent successfully. We'll get back to you within 24 hours.</p>
+                    <p>You will receive a confirmation email shortly.</p>
+                  </div>
+                `;
+                formResponse.classList.add("success");
+                formResponse.style.display = "block";
+
+                // Reset form
+                contactForm.reset();
+
+                // Scroll to response
+                formResponse.scrollIntoView({
+                  behavior: "smooth",
+                  block: "nearest",
+                });
+
+                // Log to console (for debugging)
+                console.log("Form submitted successfully to Formspree");
+              } else {
+                throw new Error("Form submission failed");
+              }
+            } catch (error) {
+              // Error handling
+              console.error("Form submission error:", error);
+
+              formResponse.innerHTML = `
+                <div class="error-message">
+                  <i class="fas fa-exclamation-circle"></i>
+                  <h4>Oops! Something went wrong</h4>
+                  <p>There was an error sending your message. Please try again or contact us directly at <a href="mailto:info@tooraflex.co.za">info@tooraflex.co.za</a>.</p>
+                  <p>Error: ${error.message}</p>
+                </div>
+              `;
+              formResponse.classList.add("error");
+              formResponse.style.display = "block";
+
+              // Scroll to error
+              formResponse.scrollIntoView({
+                behavior: "smooth",
+                block: "nearest",
+              });
+            } finally {
+              // Hide spinner and re-enable button
+              btnText.style.display = "inline-block";
+              spinner.style.display = "none";
+              submitBtn.disabled = false;
             }
-          }
-        }, 2000);
+          });
+        }
+
+        // Initialize cookie consent
+        initCookieConsent();
       });
+
+      // Cookie Consent Functionality
+      function initCookieConsent() {
+        const cookieConsent = document.getElementById("cookie-consent");
+        const acceptAllBtn = document.getElementById("cookie-accept-all");
+        const necessaryBtn = document.getElementById("cookie-necessary");
+        const declineBtn = document.getElementById("cookie-decline");
+
+        // Check if consent already given
+        const consentGiven = localStorage.getItem("cookieConsent");
+
+        if (!consentGiven) {
+          // Show cookie consent after 2 seconds
+          setTimeout(() => {
+            cookieConsent.classList.add("show");
+          }, 2000);
+        } else {
+          cookieConsent.style.display = "none";
+        }
+
+        // Handle accept all
+        acceptAllBtn.addEventListener("click", () => {
+          localStorage.setItem("cookieConsent", "all");
+          localStorage.setItem("cookieConsentDate", new Date().toISOString());
+          cookieConsent.classList.remove("show");
+          setTimeout(() => {
+            cookieConsent.style.display = "none";
+          }, 300);
+
+          // Initialize analytics (if you add them later)
+          console.log("All cookies accepted - analytics enabled");
+        });
+
+        // Handle necessary only
+        necessaryBtn.addEventListener("click", () => {
+          localStorage.setItem("cookieConsent", "necessary");
+          localStorage.setItem("cookieConsentDate", new Date().toISOString());
+          cookieConsent.classList.remove("show");
+          setTimeout(() => {
+            cookieConsent.style.display = "none";
+          }, 300);
+
+          console.log("Only necessary cookies accepted");
+        });
+
+        // Handle decline
+        declineBtn.addEventListener("click", () => {
+          localStorage.setItem("cookieConsent", "declined");
+          localStorage.setItem("cookieConsentDate", new Date().toISOString());
+          cookieConsent.classList.remove("show");
+          setTimeout(() => {
+            cookieConsent.style.display = "none";
+          }, 300);
+
+          console.log("Cookies declined");
+        });
+      }
     </script>
   </body>
 </html>
