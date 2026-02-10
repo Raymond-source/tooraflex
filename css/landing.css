@@ -715,13 +715,13 @@
   .landing-item {
     cursor: default;
   }
-  
+
   /* Disable hover effects on touch devices */
   .landing-container:hover .landing-item:not(:hover) {
     filter: none;
     transform: none;
   }
-  
+
   .landing-item:hover {
     transform: none;
   }
