@@ -1,0 +1,576 @@
+/* Landing Page Styles */
+.landing-section {
+  padding: 40px 0 80px; /* Reduced top padding, kept bottom padding */
+  position: relative;
+  overflow: hidden;
+  min-height: 600px; /* Reduced height */
+  display: flex;
+  align-items: center;
+  background: linear-gradient(
+    135deg,
+    #0a1f44 0%,
+    #2a5bd7 100%
+  ); /* Solid gradient fallback */
+}
+
+/* Background Slideshow */
+.landing-bg-slideshow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.landing-bg-slideshow .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transform: scale(1.1);
+  transition:
+    opacity 1.5s ease-in-out,
+    transform 6s ease-in-out;
+  will-change: opacity, transform;
+}
+
+.landing-bg-slideshow .slide.active {
+  opacity: 0.8; /* Reduced opacity to make text more readable */
+  transform: scale(1);
+  z-index: 1;
+}
+
+.slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(10, 31, 68, 0.85) 0%,
+    rgba(42, 91, 215, 0.7) 50%,
+    rgba(42, 91, 215, 0.3) 100%
+  );
+  z-index: 2;
+}
+
+/* Container overlay */
+.landing-section .container {
+  position: relative;
+  z-index: 3;
+  padding-top: 20px; /* Reduced top padding */
+}
+
+/* Compact Section Title */
+.landing-section-title {
+  text-align: center;
+  margin-bottom: 40px; /* Reduced margin */
+  padding: 0 20px;
+}
+
+.landing-section-title h2 {
+  color: white;
+  font-size: 36px; /* Smaller font */
+  font-weight: 700;
+  margin-bottom: 10px; /* Reduced margin */
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+  line-height: 1.2;
+}
+
+.landing-section-title p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 16px; /* Smaller font */
+  font-weight: 400;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Wrapper for cards */
+.landing-wrapper {
+  width: 95%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.landing-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 380px; /* Reduced container height */
+  gap: 15px;
+  transition: gap 0.4s ease;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.landing-item {
+  position: relative;
+  overflow: hidden;
+  flex: 0 0 180px; /* Reduced starting width */
+  height: 300px; /* Reduced starting height */
+  border-radius: 20px;
+  cursor: pointer;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    10px 15px 30px rgba(0, 0, 0, 0.3),
+    -6px -8px 20px rgba(255, 255, 255, 0.03);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  background: #000;
+  will-change: flex, transform, width, height;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.landing-item img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  object-fit: cover;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  filter: brightness(0.8);
+}
+
+.landing-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  color: #fff;
+  padding: 25px 20px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.7) 20%,
+    rgba(0, 0, 0, 0.4) 50%,
+    transparent 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateZ(15px);
+}
+
+/* Non-hovered state - Show only title at bottom */
+.landing-item:not(:hover) .landing-content {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.55) 40%,
+    transparent 100%
+  );
+  justify-content: flex-end;
+  padding-bottom: 25px;
+}
+
+.landing-content span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateZ(20px);
+}
+
+.landing-content h2 {
+  font-weight: 700;
+  font-size: 22px; /* Smaller font */
+  line-height: 1.2;
+  margin: 0;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+  transition: all 0.4s ease;
+  width: 100%;
+  text-align: center;
+}
+
+/* For non-hovered cards, keep title at bottom */
+.landing-item:not(:hover) .landing-content h2 {
+  font-size: 20px; /* Even smaller for non-hovered */
+  margin-bottom: 0;
+  padding: 0 10px;
+}
+
+/* Hide description and button on non-hovered cards */
+.landing-item:not(:hover) .landing-content p,
+.landing-item:not(:hover) .demo-btn {
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+  width: 0;
+  margin: 0;
+  padding: 0;
+  transform: translateY(15px);
+  transition: all 0.3s ease;
+}
+
+/* Show description only on hover */
+.landing-content p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px; /* Smaller font */
+  line-height: 1.5;
+  margin: 15px 0 20px;
+  padding: 0 15px;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+  transform: translateY(10px);
+  transition: all 0.4s ease 0.1s;
+  font-weight: 300;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* Get Demo Button Styles */
+.demo-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--primary) 0%, #2a5bd7 100%);
+  color: white;
+  padding: 10px 25px; /* Smaller padding */
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px; /* Smaller font */
+  letter-spacing: 0.5px;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 4px 15px rgba(42, 91, 215, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px) scale(0.9);
+  transition: all 0.4s ease 0.15s;
+  min-width: 130px;
+}
+
+.demo-btn i {
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+.demo-btn:hover {
+  background: white;
+  color: var(--primary);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow:
+    0 8px 20px rgba(42, 91, 215, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.15);
+  border-color: var(--primary);
+}
+
+/* Hover Effects */
+
+.landing-item:hover {
+  flex: 0 1 380px; /* Reduced expanded width */
+  height: 340px; /* Reduced expanded height */
+  transform: translateY(-10px) scale(1.05);
+  z-index: 10;
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.4),
+    0 0 0 2px rgba(255, 255, 255, 0.15),
+    0 0 20px rgba(42, 91, 215, 0.3);
+}
+
+.landing-item:hover img {
+  width: 125%;
+  height: 125%;
+  filter: brightness(1.05);
+}
+
+/* Show content on hover */
+.landing-item:hover .landing-content {
+  justify-content: center;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.75) 25%,
+    rgba(0, 0, 0, 0.45) 55%,
+    transparent 100%
+  );
+  padding: 35px 25px;
+}
+
+.landing-item:hover .landing-content h2 {
+  font-size: 28px; /* Larger on hover */
+  margin-bottom: 15px;
+}
+
+.landing-item:hover .landing-content p {
+  opacity: 1;
+  visibility: visible;
+  height: auto;
+  transform: translateY(0);
+  margin: 15px 0 22px;
+}
+
+.landing-item:hover .demo-btn {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  height: auto;
+  width: auto;
+}
+
+/* Special styling for the Clinic item */
+.landing-item:first-child {
+  border-color: rgba(76, 175, 80, 0.4);
+  box-shadow:
+    10px 15px 30px rgba(76, 175, 80, 0.15),
+    -6px -8px 20px rgba(76, 175, 80, 0.08);
+}
+
+.landing-item:first-child .demo-btn {
+  background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+  box-shadow:
+    0 4px 15px rgba(76, 175, 80, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.landing-item:first-child .demo-btn:hover {
+  background: white;
+  color: #4caf50;
+  border-color: #4caf50;
+  box-shadow:
+    0 8px 20px rgba(76, 175, 80, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+.landing-item:first-child:hover {
+  border-color: #4caf50;
+  box-shadow:
+    0 25px 50px rgba(76, 175, 80, 0.25),
+    0 0 0 2px rgba(76, 175, 80, 0.3),
+    0 0 20px rgba(76, 175, 80, 0.2);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1200px) {
+  .landing-section {
+    min-height: 550px;
+    padding: 30px 0 70px;
+  }
+
+  .landing-wrapper {
+    width: 98%;
+    padding: 15px;
+  }
+
+  .landing-container {
+    height: 340px;
+  }
+
+  .landing-item {
+    flex: 0 0 160px;
+    height: 250px;
+  }
+
+  .landing-item:hover {
+    flex: 0 1 320px;
+    height: 290px;
+  }
+
+  .landing-section-title h2 {
+    font-size: 32px;
+  }
+
+  .landing-section-title p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .landing-section {
+    min-height: 500px;
+  }
+
+  .landing-container {
+    height: 320px;
+  }
+
+  .landing-item {
+    flex: 0 0 150px;
+    height: 230px;
+  }
+
+  .landing-item:hover {
+    flex: 0 1 280px;
+    height: 260px;
+  }
+
+  .landing-section-title h2 {
+    font-size: 28px;
+  }
+
+  .landing-section-title p {
+    font-size: 14px;
+  }
+
+  .demo-btn {
+    padding: 9px 22px;
+    font-size: 13px;
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .landing-section {
+    padding: 20px 0 60px;
+    min-height: 450px;
+  }
+
+  .landing-wrapper {
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(4px);
+  }
+
+  .landing-container {
+    height: 280px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding: 8px 4px;
+    gap: 12px;
+    min-width: max-content;
+  }
+
+  .landing-item {
+    flex: 0 0 170px;
+    height: 220px;
+  }
+
+  .landing-item:hover {
+    flex: 0 0 200px;
+    height: 240px;
+    transform: translateY(-6px);
+  }
+
+  .landing-section-title {
+    margin-bottom: 30px;
+  }
+
+  .landing-section-title h2 {
+    font-size: 26px;
+  }
+
+  .landing-section-title p {
+    font-size: 14px;
+    max-width: 400px;
+  }
+
+  /* On mobile, show all content */
+  .landing-item .landing-content {
+    justify-content: flex-end !important;
+    padding-bottom: 20px !important;
+  }
+
+  .landing-item .landing-content h2 {
+    font-size: 18px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .landing-content p,
+  .landing-item .demo-btn {
+    display: none !important;
+  }
+
+  .demo-btn {
+    padding: 8px 20px;
+    font-size: 13px;
+    min-width: 110px;
+  }
+}
+
+@media (max-width: 576px) {
+  .landing-section {
+    min-height: 400px;
+  }
+
+  .landing-container {
+    height: 250px;
+  }
+
+  .landing-item {
+    flex: 0 0 140px;
+    height: 190px;
+  }
+
+  .landing-item:hover {
+    flex: 0 0 160px;
+    height: 210px;
+  }
+
+  .landing-section-title h2 {
+    font-size: 24px;
+  }
+
+  .landing-section-title p {
+    font-size: 13px;
+  }
+
+  .landing-item .landing-content h2 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing-section {
+    min-height: 380px;
+  }
+
+  .landing-container {
+    height: 220px;
+  }
+
+  .landing-item {
+    flex: 0 0 120px;
+    height: 170px;
+  }
+
+  .landing-item:hover {
+    flex: 0 0 140px;
+    height: 190px;
+  }
+
+  .landing-item .landing-content h2 {
+    font-size: 14px !important;
+  }
+
+  .landing-section-title h2 {
+    font-size: 22px;
+  }
+}
