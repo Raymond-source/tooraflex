@@ -2,14 +2,18 @@
 <html lang="en">
   <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QB2KT6TCVS"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-QB2KT6TCVS');
-</script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-XXXXXXXXXX");
+    </script>
 
     <!-- Basic Meta -->
     <meta charset="UTF-8" />
@@ -36,6 +40,9 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/whatsapp-float.css" />
 
+    <!-- Landing Page Styles -->
+    <link rel="stylesheet" href="css/landing.css" />
+
     <!-- Fonts & Icons -->
     <link
       rel="stylesheet"
@@ -47,6 +54,9 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@700;800&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Tilt.js for 3D tilt effect -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="images/logo/logo.ico" />
@@ -103,30 +113,83 @@
     <!-- Header -->
     <header id="main-header"></header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="container hero-content">
-        <div class="hero-text">
-          <h1>Digital Solutions for Growing Businesses in South Africa</h1>
-          <p>
-            TooraFlex is a South Africa–based digital solutions company offering
-            custom website design, scalable web applications, secure hosting,
-            data-driven analytics, and professional graphic design to help
-            businesses grow online.
-          </p>
+    <!-- Landing Page Section -->
+    <section class="landing-section">
+      <!-- Background Slideshow -->
+      <div class="landing-bg-slideshow">
+        <div
+          class="slide active"
+          style="background-image: url(&quot;images/slides/slide1.png&quot;)"
+        ></div>
+        <div
+          class="slide"
+          style="background-image: url(&quot;images/slides/slide2.png&quot;)"
+        ></div>
+        <div
+          class="slide"
+          style="background-image: url(&quot;images/slides/slide3.png&quot;)"
+        ></div>
+        <div
+          class="slide"
+          style="background-image: url(&quot;images/slides/slide4.png&quot;)"
+        ></div>
+        <div class="slide-overlay"></div>
+      </div>
 
-          <div class="hero-buttons">
-            <a href="contact.html" class="btn">Start Your Project</a>
-            <a href="services.html" class="btn btn-secondary">Our Services</a>
-          </div>
+      <div class="container">
+        <!-- Compact Section Title -->
+        <div class="landing-section-title">
+          <h2>Our Digital Solutions</h2>
+          <p>Explore our innovative services</p>
         </div>
 
-        <div class="hero-image">
-          <img
-            loading="lazy"
-            src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
-            alt="TooraFlex digital solutions and web development services in South Africa"
-          />
+        <div class="landing-wrapper">
+          <ul class="landing-container">
+            <li class="landing-item">
+              <img src="/images/services/Toora-Flex-Med.png" alt="MediTrack" />
+              <div class="landing-content">
+                <span>
+                  <h2>MediTrack</h2>
+                  <a href="contact.html" class="demo-btn">
+                    <i class="fas fa-play-circle"></i> Get Demo
+                  </a>
+                </span>
+              </div>
+            </li>
+            <li class="landing-item">
+              <img src="/images/services/Toora-Flex-School.png" alt="EduCore" />
+              <div class="landing-content">
+                <span>
+                  <h2>EduCore</h2>
+                  <a href="contact.html" class="demo-btn">
+                    <i class="fas fa-play-circle"></i> Get Demo
+                  </a>
+                </span>
+              </div>
+            </li>
+            <li class="landing-item">
+              <img src="/images/services/Toora-Flex-POS.png" alt="SaleTrack" />
+              <div class="landing-content">
+                <span>
+                  <h2>SaleTrack</h2>
+                  <a href="contact.html" class="demo-btn">
+                    <i class="fas fa-play-circle"></i> Get Demo
+                  </a>
+                </span>
+              </div>
+            </li>
+            <li class="landing-item">
+              <img src="/images/services/Toora-Flex-ERP.png" alt="ERP Lite" />
+              <div class="landing-content">
+                <span>
+                  <h2>ERP Lite</h2>
+                  <a href="contact.html" class="demo-btn">
+                    <i class="fas fa-play-circle"></i> Get Demo
+                  </a>
+                </span>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
@@ -232,6 +295,8 @@
     <!-- Scripts -->
     <script src="js/config.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/system-cards.js"></script>
+    <script src="js/landing.js"></script>
 
     <!-- Cookie Consent Script -->
     <script>
@@ -295,8 +360,16 @@
       // Initialize on page load
       document.addEventListener("DOMContentLoaded", function () {
         initCookieConsent();
+        // Initialize tilt effect
+        if (typeof VanillaTilt !== "undefined") {
+          VanillaTilt.init(document.querySelectorAll(".system-card"), {
+            max: 15,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.2,
+          });
+        }
       });
     </script>
   </body>
 </html>
-
