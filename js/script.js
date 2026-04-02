@@ -129,8 +129,8 @@ function initClientMarquee() {
       logo: "images/logo/clients/lowveld-institute.png",
     },
     {
-      name: "Green Energy Solutions",
-      logo: "images/logo/clients/Green-Energy-Solutions.png",
+      name: "Tshwaranag Community Solutions",
+      logo: "images/logo/clients/Tshwaranang-Community-Solutions.png",
     },
     {
       name: "Health Plus Medical",
