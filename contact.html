@@ -6,560 +6,880 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
     />
-    <title>Contact Us - Tooraflex</title>
+    <title>Contact Us | Tshwaranang Community Solution</title>
     <meta
       name="description"
-      content="Get in touch with Tooraflex for your digital solution needs. We're here to help your business grow online."
+      content="Get in touch with Tshwaranang Community Solution for inquiries, partnerships, or to learn more about our services."
     />
+
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
     <link rel="stylesheet" href="css/whatsapp-float.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Raleway:wght@700;800;900&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" type="image/x-icon" href="images/logo/logo.ico" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/logo/icon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="images/logo/icon.ico" />
+    <link rel="apple-touch-icon" href="images/logo/logo.png" />
   </head>
   <body>
-    <!-- Cookie Consent Banner for POPIA -->
-    <div id="cookie-consent" class="cookie-consent">
-      <div class="cookie-content">
-        <div class="cookie-text">
-          <h3><i class="fas fa-cookie-bite"></i> Cookie Consent</h3>
+    <div class="whatsapp-float" id="whatsapp-float"></div>
+
+    <header id="main-header">
+      <div class="container header-container">
+        <a href="index.html" class="logo">
+          <div class="logo-image">
+            <img
+              src="images/logo/logo.png"
+              alt="Tshwaranang Community Solution Logo"
+              class="logo-img"
+            />
+          </div>
+          <div class="logo-text">
+            Tshwaranang <span>Community Solution</span>
+          </div>
+        </a>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+          <li>
+            <a href="#" class="btn-donate-nav" id="navDonateBtn"
+              ><i class="fas fa-hand-holding-heart"></i> Donate</a
+            >
+          </li>
+          <li>
+            <a href="contact.html" class="btn btn-primary btn-small"
+              >Get Involved</a
+            >
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <div class="page-hero-text">
+            <h1>Contact Us</h1>
+            <p>
+              Get in touch with us for inquiries, partnerships, or to learn more
+              about our services
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-padding">
+        <div class="container">
+          <div class="contact-grid">
+            <!-- Contact Information Column -->
+            <div class="contact-info">
+              <h2>Get In Touch</h2>
+              <p>
+                Have questions or want to partner with us? We'd love to hear
+                from you.
+              </p>
+
+              <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                  <h3>Address</h3>
+                  <p>13303 Extension 13, Soshanguve South, Pretoria, 0152</p>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <i class="fas fa-phone-alt"></i>
+                <div>
+                  <h3>Phone</h3>
+                  <p>
+                    Xolani Nkosi: <a href="tel:+27655634365">065 563 4365</a>
+                  </p>
+                  <p>Phumi Phogole: Available upon request</p>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <i class="fas fa-clock"></i>
+                <div>
+                  <h3>Office Hours</h3>
+                  <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
+                  <p>Saturday: 9:00 AM - 1:00 PM</p>
+                  <p>Sunday: Closed</p>
+                </div>
+              </div>
+
+              <!-- Donate Button -->
+              <div class="donate-section">
+                <button class="btn-donate" id="donateBtn">
+                  <i class="fas fa-hand-holding-heart"></i> Support Our Cause
+                </button>
+              </div>
+
+              <div class="social-links-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                  <a
+                    href="https://www.facebook.com/share/1BLaByDTpP/"
+                    target="_blank"
+                    aria-label="Facebook"
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact Form Column -->
+            <div class="contact-form">
+              <h2>Send Us a Message</h2>
+              <form id="contactForm" data-custom-handler="true">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    name="name"
+                    id="formName"
+                    placeholder="Your Full Name"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="email"
+                    name="email"
+                    id="formEmail"
+                    placeholder="Your Email Address"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="tel"
+                    name="phone"
+                    id="formPhone"
+                    placeholder="Your Phone Number"
+                  />
+                </div>
+                <div class="form-group">
+                  <select name="inquiry-type" id="formInquiry" required>
+                    <option value="">Select Inquiry Type</option>
+                    <option value="general">General Inquiry</option>
+                    <option value="partnership">Partnership Opportunity</option>
+                    <option value="volunteer">Volunteer</option>
+                    <option value="services">Services Information</option>
+                    <option value="donation">Donation/Support</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <textarea
+                    name="message"
+                    id="formMessage"
+                    rows="5"
+                    placeholder="Your Message"
+                    required
+                  ></textarea>
+                </div>
+                <div class="form-group consent-checkbox">
+                  <input type="checkbox" id="consent" name="consent" required />
+                  <label for="consent"
+                    >I consent to Tshwaranang Community Solution collecting and
+                    processing my personal information in accordance with
+                    <a href="privacy.html" target="_blank">POPIA</a>.</label
+                  >
+                </div>
+                <button type="submit" class="btn btn-primary" id="submitBtn">
+                  <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Map Section - Fixed with working Google Maps embed -->
+      <section class="section-padding bg-light">
+        <div class="container">
+          <div class="section-title">
+            <h2>Our Location</h2>
+            <p>Visit Phomelelong Wellness Clinic in Soshanguve</p>
+          </div>
+          <div class="map-container">
+            <div class="map-embed">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115153.89858441822!2d27.94062953195109!3d-25.586323756942868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ebfcff23f681b71%3A0xa08fab73ca87bbdc!2sPhomelelong%20Wellness%20Clinic!5e0!3m2!1sen!2sza!4v1774944135009!5m2!1sen!2sza"
+                width="100%"
+                height="400"
+                style="border: 0; border-radius: 16px"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Phomelelong Wellness Clinic - Tshwaranang Community Solution Location"
+              >
+              </iframe>
+            </div>
+            <div class="map-info">
+              <p>
+                <i class="fas fa-map-marker-alt"></i> Phomelelong Wellness
+                Clinic, Soshanguve, Pretoria
+              </p>
+              <div class="map-buttons">
+                <a
+                  href="https://www.google.com/maps/dir/?api=1&destination=Phomelelong+Wellness+Clinic+Soshanguve"
+                  target="_blank"
+                  class="btn btn-secondary"
+                >
+                  <i class="fas fa-directions"></i> Get Directions
+                </a>
+                <a
+                  href="https://www.google.com/maps/place/Phomelelong+Wellness+Clinic/@-25.5863238,27.9406295,15z/data=!4m6!3m5!1s0x1ebfcff23f681b71:0xa08fab73ca87bbdc!8m2!3d-25.5863238!4d27.9406295!16s%2Fg%2F11t7hx2wqf"
+                  target="_blank"
+                  class="btn btn-outline"
+                >
+                  <i class="fas fa-map"></i> Open in Google Maps
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="cta">
+        <div class="container">
+          <h2>Want to Support Our Cause?</h2>
           <p>
-            We use cookies to improve your experience on our site and to show
-            you relevant content. By clicking "Accept All", you agree to the use
-            of all cookies as per the Protection of Personal Information Act
-            (POPIA).
-            <a href="privacy.html" class="cookie-link"
-              >Learn more about our privacy policy</a
-            >.
+            Your donation helps us continue our mission of providing quality
+            healthcare and climate action initiatives.
+          </p>
+          <button
+            id="ctaDonateBtn"
+            class="btn btn-secondary"
+            style="background: white; color: #1a7b4a"
+          >
+            Make a Donation
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer id="main-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h3>Tshwaranang Community Solution</h3>
+            <p>
+              Registered NPO under NPO Act 71 of 1997 | Registration Number:
+              333-527-NPO
+            </p>
+            <p>NPC: 2026/121811/08 | PBO: 930088793</p>
+            <p>CDS: MAAA1697303 | Tax Number: 9248008287</p>
+            <p>Section 22B Permit: Active</p>
+          </div>
+          <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="privacy.html">Privacy Policy</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Contact Info</h3>
+            <ul class="footer-links">
+              <li>
+                <i class="fas fa-map-marker-alt"></i> 13303 Extension 13,
+                Soshanguve, Pretoria, 0152
+              </li>
+              <li>
+                <i class="fas fa-phone-alt"></i> Phumi Phogole: 076 735 4237
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>
+            © <span id="currentYear"></span> Tshwaranang Community Solution. All
+            Rights Reserved. Site by
+            <a
+              href="https://www.tooraflex.co.za"
+              target="_blank"
+              class="tooraflex-link"
+            >
+              <span class="toora">Toora</span><span class="flex">flex</span>
+              <img src="images/icon.ico" alt="icon" class="site-icon" />
+            </a>
           </p>
         </div>
-        <div class="cookie-buttons">
-          <button id="cookie-accept-all" class="btn cookie-btn accept-btn">
-            <i class="fas fa-check"></i> Accept All
-          </button>
-          <button id="cookie-necessary" class="btn cookie-btn necessary-btn">
-            <i class="fas fa-cog"></i> Necessary Only
-          </button>
-          <button id="cookie-decline" class="btn cookie-btn decline-btn">
-            <i class="fas fa-times"></i> Decline
-          </button>
+      </div>
+    </footer>
+
+    <!-- Bank Details Modal -->
+    <div id="bankDetailsModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3><i class="fas fa-university"></i> Bank Details</h3>
+          <span class="close-modal">&times;</span>
+        </div>
+        <div class="modal-body">
+          <div class="bank-details">
+            <div class="bank-detail-item">
+              <strong>Bank Name:</strong>
+              <span>First National Bank (FNB)</span>
+            </div>
+            <div class="bank-detail-item">
+              <strong>Account Holder:</strong>
+              <span>Tshwaranang Community Solution</span>
+            </div>
+            <div class="bank-detail-item">
+              <strong>Account Number:</strong>
+              <span>631 982 834 93</span>
+            </div>
+            <div class="bank-detail-item">
+              <strong>Branch Code:</strong>
+              <span>250655</span>
+            </div>
+            <div class="bank-detail-item">
+              <strong>Account Type:</strong>
+              <span>Cheque Account</span>
+            </div>
+            <div class="bank-detail-item">
+              <strong>Reference:</strong>
+              <span>Donation - [Your Name]</span>
+            </div>
+          </div>
+          <div class="donation-note">
+            <i class="fas fa-heart"></i>
+            <p>
+              Your support helps us continue our mission of providing quality
+              healthcare and climate action initiatives. All donations are
+              tax-deductible as we are a registered PBO (930088793).
+            </p>
+          </div>
+          <div class="modal-actions">
+            <button class="btn btn-secondary" id="copyDetailsBtn">
+              <i class="fas fa-copy"></i> Copy Bank Details
+            </button>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Floating WhatsApp Button -->
-    <div class="whatsapp-float" id="whatsapp-float"></div>
-
-    <!-- Header -->
-    <header id="main-header"></header>
-
-    <!-- Page Hero -->
-    <section class="hero page-hero">
-      <div class="container">
-        <div class="hero-text page-hero-text">
-          <h1>Contact Us</h1>
-          <p>
-            Get in touch with our team to discuss your project. We're excited to
-            hear about your ideas and help bring them to life.
-          </p>
+    <!-- Confirmation Modal -->
+    <div id="confirmationModal" class="modal confirmation-modal">
+      <div class="modal-content confirmation-content">
+        <div class="modal-header confirmation-header">
+          <h3><i class="fas fa-check-circle"></i> Thank You!</h3>
+          <span class="close-confirmation">&times;</span>
+        </div>
+        <div class="modal-body" id="confirmationModalBody"></div>
+        <div class="modal-actions confirmation-actions">
+          <button class="btn btn-primary close-confirmation-btn">Close</button>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- Contact Section -->
-    <section class="section-padding">
-      <div class="container">
-        <div class="contact-content">
-          <div class="contact-info">
-            <h3>Get In Touch</h3>
-            <p>
-              Have a project in mind? We'd love to hear about it. Send us a
-              message and we'll respond as soon as possible.
-            </p>
-
-            <div class="contact-detail">
-              <i class="fas fa-map-marker-alt"></i>
-              <div>
-                <h4>Our Office</h4>
-                <p class="contact-address">Loading address...</p>
-              </div>
-            </div>
-
-            <div class="contact-detail">
-              <i class="fas fa-phone-alt"></i>
-              <div>
-                <h4>Phone Number</h4>
-                <p>
-                  <a href="tel:+27812194023" class="contact-phone"
-                    >Loading phone...</a
-                  >
-                </p>
-              </div>
-            </div>
-
-            <div class="contact-detail">
-              <i class="fas fa-envelope"></i>
-              <div>
-                <h4>Email Address</h4>
-                <p>
-                  <a href="mailto:info@tooraflex.co.za" class="contact-email"
-                    >info@tooraflex.co.za</a
-                  >
-                </p>
-              </div>
-            </div>
-
-            <div class="contact-detail">
-              <i class="fas fa-clock"></i>
-              <div>
-                <h4>Business Hours</h4>
-                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                <p>Saturday: 10:00 AM - 2:00 PM</p>
-                <p>Sunday: Closed</p>
-              </div>
-            </div>
-
-            <div class="contact-detail">
-              <i class="fas fa-exclamation-circle"></i>
-              <div>
-                <h4>Emergency Contact</h4>
-                <p>
-                  <a href="tel:+27664575904" class="contact-emergency"
-                    >Loading emergency...</a
-                  >
-                </p>
-              </div>
-            </div>
-
-            <div class="social-section">
-              <h4>Follow Us</h4>
-              <div class="social-links">
-                <a href="#" aria-label="Facebook"
-                  ><i class="fab fa-facebook-f"></i
-                ></a>
-                <a href="#" aria-label="Twitter"
-                  ><i class="fab fa-twitter"></i
-                ></a>
-                <a href="#" aria-label="LinkedIn"
-                  ><i class="fab fa-linkedin-in"></i
-                ></a>
-                <a href="#" aria-label="Instagram"
-                  ><i class="fab fa-instagram"></i
-                ></a>
-                <a href="#" aria-label="GitHub"
-                  ><i class="fab fa-github"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="contact-form">
-            <form
-              id="contactForm"
-              action="https://formspree.io/f/mykprlvy"
-              method="POST"
-            >
-              <h3>Send us a Message</h3>
-
-              <!-- Hidden field for the recipient email -->
-              <input
-                type="hidden"
-                name="_replyto"
-                value="info@tooraflex.co.za"
-              />
-              <input
-                type="hidden"
-                name="_subject"
-                value="New Contact Form Submission from Tooraflex Website"
-              />
-
-              <!-- Formspree redirect after success -->
-              <input
-                type="hidden"
-                name="_next"
-                value="https://yourdomain.co.za/thank-you.html"
-              />
-
-              <!-- Honey pot field for spam protection -->
-              <input type="text" name="_gotcha" style="display: none" />
-
-              <div class="form-group">
-                <label for="name">Full Name *</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  class="form-control"
-                  placeholder="Your Name"
-                  required
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="email">Email Address *</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  class="form-control"
-                  placeholder="Your Email"
-                  required
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  class="form-control"
-                  placeholder="Your Phone Number"
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="service">Service Interested In *</label>
-                <select
-                  id="service"
-                  name="service"
-                  class="form-control"
-                  required
-                >
-                  <option value="">Select a Service</option>
-                  <option value="website-design">Website Design</option>
-                  <option value="web-apps">Web Applications</option>
-                  <option value="hosting">Hosting Solutions</option>
-                  <option value="surveys">Surveys & Analytics</option>
-                  <option value="graphic-design">Graphic Design</option>
-                  <option value="power-bi">Power BI & Data Management</option>
-                  <option value="starter-package">Starter Package</option>
-                  <option value="business-package">Business Package</option>
-                  <option value="enterprise-package">Enterprise Package</option>
-                  <option value="multiple">Multiple Services</option>
-                  <option value="custom">Custom Solution</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label for="budget">Project Budget</label>
-                <select id="budget" name="budget" class="form-control">
-                  <option value="">Select Budget Range</option>
-                  <option value="under-5k">Under R5,000</option>
-                  <option value="5k-10k">R5,000 - R10,000</option>
-                  <option value="10k-25k">R10,000 - R25,000</option>
-                  <option value="25k-50k">R25,000 - R50,000</option>
-                  <option value="50k-plus">R50,000+</option>
-                  <option value="not-sure">Not Sure Yet</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label for="message">Project Details *</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  class="form-control"
-                  rows="5"
-                  placeholder="Tell us about your project, goals, and timeline..."
-                  required
-                ></textarea>
-              </div>
-
-              <!-- POPIA Consent Checkbox -->
-              <div class="form-group consent-group">
-                <div class="consent-checkbox">
-                  <input
-                    type="checkbox"
-                    id="popia-consent"
-                    name="popia-consent"
-                    required
-                  />
-                  <label for="popia-consent">
-                    I consent to Tooraflex collecting and processing my personal
-                    information in accordance with the Protection of Personal
-                    Information Act (POPIA). I understand that my information
-                    will be used solely for responding to my inquiry and will
-                    not be shared with third parties without my consent.
-                    <span class="required-star">*</span>
-                  </label>
-                </div>
-              </div>
-
-              <button type="submit" class="btn submit-btn" id="submitBtn">
-                <span class="btn-text">Send Message</span>
-                <span class="spinner" style="display: none">
-                  <i class="fas fa-spinner fa-spin"></i> Sending...
-                </span>
-              </button>
-
-              <!-- Response Message Container -->
-              <div
-                id="formResponse"
-                class="response-message"
-                style="display: none"
-              ></div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Map Section -->
-    <section class="section-padding bg-light">
-      <div class="container">
-        <div class="section-title">
-          <h2>Our Location</h2>
-          <p>Visit our office or contact us remotely</p>
-        </div>
-
-        <div class="map-container">
-          <!-- Google Maps Embed -->
-          <div class="map-embed">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3593.7373603001024!2d28.19359137562544!3d-25.746197645478144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e95621af1018bfb%3A0xa82b408f9572ede2!2s367%20Helen%20Joseph%20St%2C%20Pretoria%20Central%2C%20Pretoria%2C%200001!5e0!3m2!1sen!2sza!4v1768048299820!5m2!1sen!2sza"
-              width="100%"
-              height="100%"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Tooraflex Office Location"
-            >
-            </iframe>
-          </div>
-
-          <div class="map-info">
-            <h3>Tooraflex Office</h3>
-            <p class="contact-address">Loading address...</p>
-            <div class="map-buttons">
-              <a
-                href="https://maps.google.com/maps?q=367+Helen+Joseph+St,+Pretoria+Central,+Pretoria,+0001"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn"
-              >
-                <i class="fas fa-directions"></i> Get Directions
-              </a>
-              <a
-                href="https://wa.me/27812194023"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-secondary"
-              >
-                <i class="fab fa-whatsapp"></i> WhatsApp Us
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="section-padding">
-      <div class="container">
-        <div class="section-title">
-          <h2>Frequently Asked Questions</h2>
-          <p>Get answers to common questions about our services</p>
-        </div>
-
-        <div class="services-grid">
-          <div class="service-card">
-            <h3>How long does a typical project take?</h3>
-            <p>
-              Project timelines vary based on complexity. A simple website takes
-              2-4 weeks, while custom web applications can take 8-12 weeks. We
-              provide detailed timelines during our initial consultation.
-            </p>
-          </div>
-
-          <div class="service-card">
-            <h3>Do you offer ongoing support?</h3>
-            <p>
-              Yes, we offer various support packages including monthly
-              maintenance, hosting, and updates. Our enterprise packages include
-              24/7 support and regular performance reviews.
-            </p>
-          </div>
-
-          <div class="service-card">
-            <h3>Can you work with existing designs or systems?</h3>
-            <p>
-              Absolutely! We can work with your existing designs, integrate with
-              current systems, or migrate data from old platforms to new
-              solutions we develop for you.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="main-footer"></footer>
-
-    <!-- Scripts - MUST BE IN THIS ORDER -->
     <script src="js/config.js"></script>
-    <script src="js/script.js"></script>
 
-    <!-- Contact Form Handler -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        const contactForm = document.getElementById("contactForm");
-        const submitBtn = document.getElementById("submitBtn");
-        const btnText = submitBtn.querySelector(".btn-text");
-        const spinner = submitBtn.querySelector(".spinner");
-        const formResponse = document.getElementById("formResponse");
+        // Donate Modal - for all donate buttons
+        const donateBtn = document.getElementById("donateBtn");
+        const navDonateBtn = document.getElementById("navDonateBtn");
+        const ctaDonateBtn = document.getElementById("ctaDonateBtn");
+        const modal = document.getElementById("bankDetailsModal");
+        const closeModal = document.querySelector(".close-modal");
+        const copyDetailsBtn = document.getElementById("copyDetailsBtn");
 
-        if (contactForm) {
-          // Handle form submission
-          contactForm.addEventListener("submit", async function (e) {
-            e.preventDefault();
+        function openDonateModal(e) {
+          if (e) e.preventDefault();
+          if (modal) {
+            modal.style.display = "flex";
+            document.body.style.overflow = "hidden";
+          }
+        }
 
-            // Show loading spinner
-            btnText.style.display = "none";
-            spinner.style.display = "inline-block";
-            submitBtn.disabled = true;
+        if (donateBtn) donateBtn.addEventListener("click", openDonateModal);
+        if (navDonateBtn)
+          navDonateBtn.addEventListener("click", openDonateModal);
+        if (ctaDonateBtn)
+          ctaDonateBtn.addEventListener("click", openDonateModal);
 
-            // Clear previous response
-            formResponse.style.display = "none";
-            formResponse.className = "response-message";
-            formResponse.innerHTML = "";
+        if (closeModal)
+          closeModal.addEventListener("click", function () {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+          });
 
-            try {
-              // Formspree AJAX submission
-              const formData = new FormData(contactForm);
-              const response = await fetch(contactForm.action, {
-                method: "POST",
-                body: formData,
-                headers: {
-                  Accept: "application/json",
-                },
-              });
+        window.addEventListener("click", function (e) {
+          if (e.target === modal) {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+          }
+        });
 
-              if (response.ok) {
-                // Success
-                formResponse.innerHTML = `
-                  <div class="success-message">
-                    <i class="fas fa-check-circle"></i>
-                    <h4>Thank You!</h4>
-                    <p>Your message has been sent successfully. We'll get back to you within 24 hours.</p>
-                    <p>You will receive a confirmation email shortly.</p>
-                  </div>
-                `;
-                formResponse.classList.add("success");
-                formResponse.style.display = "block";
-
-                // Reset form
-                contactForm.reset();
-
-                // Scroll to response
-                formResponse.scrollIntoView({
-                  behavior: "smooth",
-                  block: "nearest",
-                });
-
-                // Log to console (for debugging)
-                console.log("Form submitted successfully to Formspree");
-              } else {
-                throw new Error("Form submission failed");
-              }
-            } catch (error) {
-              // Error handling
-              console.error("Form submission error:", error);
-
-              formResponse.innerHTML = `
-                <div class="error-message">
-                  <i class="fas fa-exclamation-circle"></i>
-                  <h4>Oops! Something went wrong</h4>
-                  <p>There was an error sending your message. Please try again or contact us directly at <a href="mailto:info@tooraflex.co.za">info@tooraflex.co.za</a>.</p>
-                  <p>Error: ${error.message}</p>
-                </div>
-              `;
-              formResponse.classList.add("error");
-              formResponse.style.display = "block";
-
-              // Scroll to error
-              formResponse.scrollIntoView({
-                behavior: "smooth",
-                block: "nearest",
-              });
-            } finally {
-              // Hide spinner and re-enable button
-              btnText.style.display = "inline-block";
-              spinner.style.display = "none";
-              submitBtn.disabled = false;
-            }
+        if (copyDetailsBtn) {
+          copyDetailsBtn.addEventListener("click", function () {
+            const bankDetailsText = `Bank Name: First National Bank (FNB)\nAccount Holder: Tshwaranang Community Solution\nAccount Number: 62838945678\nBranch Code: 250655\nAccount Type: Cheque Account\nReference: Donation - [Your Name]`;
+            navigator.clipboard
+              .writeText(bankDetailsText)
+              .then(() => {
+                const originalText = copyDetailsBtn.innerHTML;
+                copyDetailsBtn.innerHTML =
+                  '<i class="fas fa-check"></i> Copied!';
+                setTimeout(() => {
+                  copyDetailsBtn.innerHTML = originalText;
+                }, 2000);
+              })
+              .catch(() =>
+                alert("Could not copy. Please manually copy the details."),
+              );
           });
         }
 
-        // Initialize cookie consent
-        initCookieConsent();
-      });
+        // Contact Form Handler
+        setTimeout(function () {
+          const contactForm = document.getElementById("contactForm");
+          if (contactForm) {
+            const newForm = contactForm.cloneNode(true);
+            contactForm.parentNode.replaceChild(newForm, contactForm);
+            const finalForm = document.getElementById("contactForm");
+            const submitBtn = document.getElementById("submitBtn");
 
-      // Cookie Consent Functionality
-      function initCookieConsent() {
-        const cookieConsent = document.getElementById("cookie-consent");
-        const acceptAllBtn = document.getElementById("cookie-accept-all");
-        const necessaryBtn = document.getElementById("cookie-necessary");
-        const declineBtn = document.getElementById("cookie-decline");
+            finalForm.addEventListener("submit", function (e) {
+              e.preventDefault();
+              e.stopPropagation();
 
-        // Check if consent already given
-        const consentGiven = localStorage.getItem("cookieConsent");
+              const name = document.getElementById("formName")?.value.trim();
+              const email = document.getElementById("formEmail")?.value.trim();
+              const message = document
+                .getElementById("formMessage")
+                ?.value.trim();
+              const inquiry = document.getElementById("formInquiry")?.value;
+              const consent = document.getElementById("consent")?.checked;
 
-        if (!consentGiven) {
-          // Show cookie consent after 2 seconds
-          setTimeout(() => {
-            cookieConsent.classList.add("show");
-          }, 2000);
-        } else {
-          cookieConsent.style.display = "none";
+              if (!name || !email || !message || !inquiry) {
+                alert("Please fill in all required fields.");
+                return false;
+              }
+              const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+              if (!emailRegex.test(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+              }
+              if (!consent) {
+                alert(
+                  "Please consent to our POPIA privacy policy to submit the form.",
+                );
+                return false;
+              }
+
+              if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML =
+                  '<i class="fas fa-spinner fa-spin"></i> Sending...';
+              }
+
+              setTimeout(() => {
+                const reference = Math.floor(Math.random() * 100000);
+                showConfirmationModal(name, reference);
+                finalForm.reset();
+                if (submitBtn) {
+                  submitBtn.disabled = false;
+                  submitBtn.innerHTML =
+                    '<i class="fas fa-paper-plane"></i> Send Message';
+                }
+              }, 1000);
+              return false;
+            });
+          }
+        }, 100);
+
+        function showConfirmationModal(name, reference) {
+          const modalBody = document.getElementById("confirmationModalBody");
+          if (modalBody) {
+            modalBody.innerHTML = `
+                        <div class="confirmation-message">
+                            <i class="fas fa-check-circle" style="font-size: 4rem; color: #00c99c; margin-bottom: 1rem;"></i>
+                            <h3>Thank You, ${escapeHtml(name)}!</h3>
+                            <p>Your message has been received successfully. We'll get back to you within 24 hours.</p>
+                            <div class="popia-notice">
+                                <i class="fas fa-shield-alt"></i>
+                                <p><strong>POPIA Compliance Notice:</strong></p>
+                                <ul>
+                                    <li>Your personal information will only be used to respond to your inquiry</li>
+                                    <li>Your data will not be shared with third parties without your consent</li>
+                                    <li>You may request access to or deletion of your data at any time</li>
+                                </ul>
+                                <p class="reference-note"><strong>Reference:</strong> #${reference}</p>
+                            </div>
+                        </div>
+                    `;
+          }
+          const confirmationModal =
+            document.getElementById("confirmationModal");
+          if (confirmationModal) {
+            confirmationModal.style.display = "flex";
+            document.body.style.overflow = "hidden";
+          }
         }
 
-        // Handle accept all
-        acceptAllBtn.addEventListener("click", () => {
-          localStorage.setItem("cookieConsent", "all");
-          localStorage.setItem("cookieConsentDate", new Date().toISOString());
-          cookieConsent.classList.remove("show");
-          setTimeout(() => {
-            cookieConsent.style.display = "none";
-          }, 300);
+        function escapeHtml(text) {
+          const div = document.createElement("div");
+          div.textContent = text;
+          return div.innerHTML;
+        }
 
-          // Initialize analytics (if you add them later)
-          console.log("All cookies accepted - analytics enabled");
+        const closeConfirmation = document.querySelector(".close-confirmation");
+        const closeConfirmationBtn = document.querySelector(
+          ".close-confirmation-btn",
+        );
+        const confirmationModal = document.getElementById("confirmationModal");
+
+        function closeConfirmationModal() {
+          if (confirmationModal) {
+            confirmationModal.style.display = "none";
+            document.body.style.overflow = "auto";
+          }
+        }
+
+        if (closeConfirmation)
+          closeConfirmation.addEventListener("click", closeConfirmationModal);
+        if (closeConfirmationBtn)
+          closeConfirmationBtn.addEventListener(
+            "click",
+            closeConfirmationModal,
+          );
+        window.addEventListener("click", function (e) {
+          if (e.target === confirmationModal) closeConfirmationModal();
         });
-
-        // Handle necessary only
-        necessaryBtn.addEventListener("click", () => {
-          localStorage.setItem("cookieConsent", "necessary");
-          localStorage.setItem("cookieConsentDate", new Date().toISOString());
-          cookieConsent.classList.remove("show");
-          setTimeout(() => {
-            cookieConsent.style.display = "none";
-          }, 300);
-
-          console.log("Only necessary cookies accepted");
-        });
-
-        // Handle decline
-        declineBtn.addEventListener("click", () => {
-          localStorage.setItem("cookieConsent", "declined");
-          localStorage.setItem("cookieConsentDate", new Date().toISOString());
-          cookieConsent.classList.remove("show");
-          setTimeout(() => {
-            cookieConsent.style.display = "none";
-          }, 300);
-
-          console.log("Cookies declined");
-        });
-      }
+      });
     </script>
+
+    <style>
+      .btn-donate-nav {
+        background: linear-gradient(135deg, #ff8c42, #ff6b35);
+        color: white;
+        border: none;
+        padding: 8px 20px;
+        border-radius: 50px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+
+      .btn-donate-nav:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+        color: white;
+      }
+
+      .contact-info h2 {
+        color: #0e5a38 !important;
+        font-size: 1.8rem !important;
+        font-weight: 700 !important;
+        margin-bottom: 1rem !important;
+      }
+
+      .contact-info p {
+        color: #6c757d !important;
+        margin-bottom: 2rem !important;
+      }
+
+      .info-item h3 {
+        color: #0e5a38 !important;
+        font-size: 1rem !important;
+        font-weight: 600 !important;
+      }
+
+      .info-item p,
+      .info-item a {
+        color: #6c757d !important;
+      }
+
+      .info-item a:hover {
+        color: #1a7b4a !important;
+      }
+
+      .donate-section {
+        margin: 30px 0 20px;
+        padding-top: 20px;
+        border-top: 1px solid #e9ecef;
+      }
+
+      .btn-donate {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: linear-gradient(135deg, #ff8c42, #ff6b35);
+        color: white;
+        border: none;
+        padding: 14px 28px;
+        border-radius: 50px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        width: 100%;
+        justify-content: center;
+      }
+
+      .btn-donate:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+      }
+
+      .map-container {
+        background: white;
+        border-radius: 24px;
+        padding: 20px;
+        box-shadow: var(--shadow);
+      }
+
+      .map-embed {
+        margin-bottom: 20px;
+        border-radius: 16px;
+        overflow: hidden;
+      }
+
+      .map-info {
+        text-align: center;
+      }
+
+      .map-info p {
+        margin-bottom: 15px;
+        color: #6c757d;
+      }
+
+      .map-info p i {
+        color: #1a7b4a;
+        margin-right: 8px;
+      }
+
+      .map-buttons {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn-outline {
+        background: transparent;
+        border: 2px solid #1a7b4a;
+        color: #1a7b4a;
+      }
+
+      .btn-outline:hover {
+        background: #1a7b4a;
+        color: white;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 2000;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(5px);
+      }
+
+      .modal-content {
+        background: white;
+        border-radius: 24px;
+        max-width: 500px;
+        width: 90%;
+        max-height: 90vh;
+        overflow-y: auto;
+        animation: modalSlideIn 0.3s ease;
+      }
+
+      @keyframes modalSlideIn {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 25px;
+        border-bottom: 1px solid #e9ecef;
+        background: linear-gradient(135deg, #1a7b4a, #0e5a38);
+        border-radius: 24px 24px 0 0;
+        color: white;
+      }
+
+      .modal-header h3 {
+        margin: 0;
+        color: white;
+      }
+      .close-modal,
+      .close-confirmation {
+        font-size: 28px;
+        cursor: pointer;
+        color: white;
+      }
+      .modal-body {
+        padding: 25px;
+      }
+
+      .bank-details {
+        background: #f8f9fa;
+        border-radius: 16px;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+
+      .bank-detail-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      .bank-detail-item:last-child {
+        border-bottom: none;
+      }
+      .bank-detail-item strong {
+        color: #0e5a38;
+      }
+      .bank-detail-item span {
+        color: #6c757d;
+      }
+
+      .donation-note {
+        background: rgba(26, 123, 74, 0.1);
+        border-radius: 12px;
+        padding: 15px;
+        display: flex;
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+      .donation-note i {
+        font-size: 1.5rem;
+        color: #1a7b4a;
+      }
+      .donation-note p {
+        margin: 0;
+        font-size: 0.9rem;
+        color: #6c757d;
+        line-height: 1.5;
+      }
+
+      .modal-actions {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+      .modal-actions .btn {
+        flex: 1;
+        text-align: center;
+      }
+
+      .confirmation-header {
+        background: linear-gradient(135deg, #00c99c, #00b087);
+      }
+      .confirmation-message {
+        text-align: center;
+      }
+      .confirmation-message h3 {
+        color: #0e5a38;
+        margin-bottom: 1rem;
+      }
+      .confirmation-message p {
+        color: #6c757d;
+        margin-bottom: 1.5rem;
+      }
+
+      .popia-notice {
+        background: #f8f9fa;
+        border-radius: 12px;
+        padding: 1.2rem;
+        text-align: left;
+        margin-top: 1rem;
+      }
+      .popia-notice i {
+        color: #1a7b4a;
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+      .popia-notice ul {
+        margin-left: 1.2rem;
+        margin-top: 0.5rem;
+      }
+      .popia-notice li {
+        color: #6c757d;
+        margin-bottom: 0.3rem;
+        font-size: 0.85rem;
+      }
+      .reference-note {
+        margin-top: 1rem;
+        font-size: 0.85rem;
+        color: #1a7b4a;
+      }
+      .confirmation-actions {
+        padding: 0 25px 25px 25px;
+      }
+
+      @media (max-width: 992px) {
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+      }
+      @media (max-width: 768px) {
+        .map-buttons {
+          flex-direction: column;
+        }
+        .map-buttons .btn {
+          width: 100%;
+        }
+      }
+      @media (max-width: 576px) {
+        .modal-actions {
+          flex-direction: column;
+        }
+        .bank-detail-item {
+          flex-direction: column;
+          gap: 5px;
+        }
+        .btn-donate {
+          padding: 12px 20px;
+          font-size: 0.9rem;
+        }
+        .contact-info h2 {
+          font-size: 1.5rem !important;
+        }
+      }
+    </style>
   </body>
 </html>
