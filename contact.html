@@ -6,11 +6,13 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
     />
-    <title>Services & Products - Tooraflex</title>
+    <title>Contact Us | Tooraflex - Get in Touch</title>
     <meta
       name="description"
-      content="Comprehensive digital solutions including website design, web applications, hosting, analytics, and graphic design services."
+      content="Get in touch with Tooraflex for your digital solution needs. We're here to help your business grow online with website design, web apps, and digital solutions."
     />
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/whatsapp-float.css" />
     <link
@@ -24,21 +26,348 @@
       rel="stylesheet"
     />
     <link rel="icon" type="image/x-icon" href="images/logo/logo.ico" />
+
+    <!-- Modern Contact Page Enhancements -->
+    <style>
+      /* Modern Hero with gradient matching homepage */
+      .contact-hero-modern {
+        background: linear-gradient(135deg, #0a2b3e 0%, #1a4a6e 100%);
+        padding: 80px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-hero-modern::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path fill="rgba(255,255,255,0.03)" d="M100 0L200 100L100 200L0 100L100 0z"/></svg>')
+          repeat;
+        opacity: 0.1;
+      }
+
+      .contact-hero-modern .container {
+        position: relative;
+        z-index: 2;
+      }
+
+      .contact-hero-modern h1 {
+        font-size: 3rem;
+        color: white;
+        margin-bottom: 1rem;
+        animation: fadeUp 0.8s ease-out;
+      }
+
+      .contact-hero-modern p {
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 0.9);
+        max-width: 600px;
+        animation: fadeUp 0.8s ease-out 0.1s both;
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Enhanced Contact Grid */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .contact-card {
+        background: white;
+        border-radius: 16px;
+        padding: 1.8rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        border: 1px solid #eef2ff;
+      }
+
+      .contact-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        border-color: transparent;
+      }
+
+      .contact-icon-wrap {
+        width: 55px;
+        height: 55px;
+        background: linear-gradient(135deg, #2a5bd7 0%, #1d4ac4 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.2rem;
+      }
+
+      .contact-icon-wrap i {
+        font-size: 1.4rem;
+        color: white;
+      }
+
+      .contact-card h4 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .contact-card p,
+      .contact-card a {
+        color: #6c757d;
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      .contact-card a:hover {
+        color: var(--primary);
+      }
+
+      /* Enhanced Form */
+      .form-modern {
+        background: white;
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      }
+
+      .form-modern h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        color: var(--dark);
+      }
+
+      .form-group {
+        margin-bottom: 1.2rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: var(--dark);
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 12px 16px;
+        border: 2px solid #e9ecef;
+        border-radius: 12px;
+        font-family: "Poppins", sans-serif;
+        transition: all 0.3s ease;
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(42, 91, 215, 0.1);
+      }
+
+      textarea.form-control {
+        resize: vertical;
+        min-height: 100px;
+      }
+
+      .submit-btn {
+        width: 100%;
+        padding: 14px;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #2a5bd7 0%, #1d4ac4 100%);
+      }
+
+      .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(42, 91, 215, 0.3);
+      }
+
+      /* Two-column layout for contact section */
+      .contact-two-col {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 2.5rem;
+      }
+
+      /* Social links section */
+      .social-section-modern {
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+      }
+
+      .social-section-modern h4 {
+        margin-bottom: 1rem;
+      }
+
+      /* Map Container */
+      .map-container-modern {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      .map-embed {
+        height: 380px;
+        width: 100%;
+      }
+
+      .map-embed iframe {
+        width: 100%;
+        height: 100%;
+      }
+
+      .map-info-modern {
+        padding: 1.5rem;
+        text-align: center;
+        background: white;
+      }
+
+      .map-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+      }
+
+      /* FAQ Grid */
+      .faq-grid-modern {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .faq-item {
+        background: white;
+        border-radius: 16px;
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+        border: 1px solid #e9ecef;
+      }
+
+      .faq-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        border-color: transparent;
+      }
+
+      .faq-icon {
+        width: 45px;
+        height: 45px;
+        background: rgba(42, 91, 215, 0.1);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+      }
+
+      .faq-icon i {
+        font-size: 1.3rem;
+        color: var(--primary);
+      }
+
+      .faq-item h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .faq-item p {
+        color: #6c757d;
+        line-height: 1.6;
+      }
+
+      /* Scroll reveal */
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.7s ease;
+      }
+
+      .scroll-reveal.revealed {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Responsive */
+      @media (max-width: 992px) {
+        .contact-two-col {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .contact-hero-modern {
+          padding: 50px 0;
+        }
+        .contact-hero-modern h1 {
+          font-size: 2rem;
+        }
+        .contact-hero-modern p {
+          font-size: 1rem;
+        }
+        .map-embed {
+          height: 280px;
+        }
+        .map-buttons {
+          flex-direction: column;
+        }
+        .map-buttons .btn {
+          width: 100%;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .form-modern {
+          padding: 1.5rem;
+        }
+        .contact-card {
+          padding: 1.3rem;
+        }
+      }
+
+      /* Business hours styling */
+      .hours-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .hours-list li {
+        padding: 4px 0;
+        color: #6c757d;
+        font-size: 0.9rem;
+      }
+      .hours-list li span {
+        font-weight: 500;
+        color: #1a1d28;
+      }
+    </style>
   </head>
   <body>
-    <!-- Cookie Consent Banner for POPIA -->
+    <!-- Cookie Consent Banner -->
     <div id="cookie-consent" class="cookie-consent">
       <div class="cookie-content">
         <div class="cookie-text">
           <h3><i class="fas fa-cookie-bite"></i> Cookie Consent</h3>
           <p>
-            We use cookies to improve your experience on our site and to show
-            you relevant content. By clicking "Accept All", you agree to the use
-            of all cookies as per the Protection of Personal Information Act
-            (POPIA).
-            <a href="privacy.html" class="cookie-link"
-              >Learn more about our privacy policy</a
-            >.
+            We use cookies to improve your experience on our site. By clicking
+            "Accept All", you agree to the use of all cookies as per POPIA.
+            <a href="privacy.html" class="cookie-link">Learn more</a>.
           </p>
         </div>
         <div class="cookie-buttons">
@@ -58,500 +387,458 @@
     <!-- Floating WhatsApp Button -->
     <div class="whatsapp-float" id="whatsapp-float"></div>
 
-    <!-- Header -->
+    <!-- Header (loaded dynamically by script.js) -->
     <header id="main-header"></header>
 
-    <!-- Page Hero -->
-    <section class="hero page-hero">
+    <!-- Modern Hero Section -->
+    <section class="contact-hero-modern">
       <div class="container">
-        <div class="hero-text page-hero-text">
-          <h1>Services & Products</h1>
-          <p>
-            Discover our comprehensive suite of digital solutions designed to
-            help your business succeed in the digital age.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Product Categories -->
-    <section class="section-padding">
-      <div class="container">
-        <div class="product-categories">
-          <button class="category-btn active" data-category="all">
-            All Services
-          </button>
-          <button class="category-btn" data-category="design">Design</button>
-          <button class="category-btn" data-category="development">
-            Development
-          </button>
-          <button class="category-btn" data-category="analytics">
-            Analytics
-          </button>
-          <button class="category-btn" data-category="hosting">Hosting</button>
-        </div>
-
-        <!-- Services Grid -->
-        <div class="services-grid">
-          <!-- Website Design -->
-          <div class="service-card" data-category="design">
-            <div class="service-icon">
-              <i class="fas fa-laptop-code"></i>
-            </div>
-            <h3>Website Design & Development</h3>
-            <p>
-              Custom, responsive websites designed to engage visitors and
-              convert them into customers. We create beautiful, functional
-              websites that work across all devices.
-            </p>
-            <div class="product-features">
-              <div class="feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>Responsive Design</span>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>SEO Optimized</span>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>CMS Integration</span>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>E-commerce Solutions</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Web Applications -->
-          <div class="service-card" data-category="development">
-            <div class="service-icon">
-              <i class="fas fa-mobile-alt"></i>
-            </div>
-            <h3>Web Applications</h3>
-            <p>
-              Interactive web applications built with modern technologies. From
-              e-commerce platforms to business management tools, we develop
-              solutions that drive efficiency.
-            </p>
-            <div class="product-features">
-              <div class="feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>Custom Development</span>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>API Integration</span>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>Real-time Features</span>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>Progressive Web Apps</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Graphic Design -->
-          <div class="service-card" data-category="design">
-            <div class="service-icon">
-              <i class="fas fa-palette"></i>
-            </div>
-            <h3>Graphic Design</h3>
-            <p>
-              Creative graphic design services including logos, branding
-              materials, marketing collateral, and UI/UX design that captures
-              your brand's essence.
-            </p>
-            <div class="product-features">
-              <div class="feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>Brand Identity</span>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>UI/UX Design</span>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>Marketing Materials</span>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>Social Media Graphics</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Hosting Solutions -->
-          <div class="service-card" data-category="hosting">
-            <div class="service-icon">
-              <i class="fas fa-server"></i>
-            </div>
-            <h3>Hosting Solutions</h3>
-            <p>
-              Reliable, secure, and fast hosting services with 99.9% uptime
-              guarantee. We ensure your website and applications are always
-              accessible to your customers.
-            </p>
-            <div class="product-features">
-              <div class="feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>99.9% Uptime</span>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>24/7 Support</span>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>SSL Certificates</span>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>Daily Backups</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Power BI & Analytics -->
-          <div class="service-card" data-category="analytics">
-            <div class="service-icon">
-              <i class="fas fa-chart-line"></i>
-            </div>
-            <h3>Power BI & Data Analytics</h3>
-            <p>
-              Business intelligence solutions with Power BI dashboards and
-              comprehensive data management services to transform your data into
-              actionable insights.
-            </p>
-            <div class="product-features">
-              <div class="feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>Custom Dashboards</span>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>Data Visualization</span>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>Real-time Reporting</span>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>Data Integration</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Surveys & Analytics -->
-          <div class="service-card" data-category="analytics">
-            <div class="service-icon">
-              <i class="fas fa-poll"></i>
-            </div>
-            <h3>Surveys & Customer Analytics</h3>
-            <p>
-              Custom survey creation and implementation to gather valuable
-              customer insights. We help you understand your audience and make
-              data-driven decisions.
-            </p>
-            <div class="product-features">
-              <div class="feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>Custom Surveys</span>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>Data Analysis</span>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>Insight Reports</span>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-check-circle"></i>
-                <span>Customer Journey Mapping</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Products Package -->
-    <section class="section-padding bg-light">
-      <div class="container">
-        <div class="section-title">
-          <h2>Product Packages</h2>
-          <p>Choose the perfect package for your business needs</p>
-        </div>
-
-        <div class="packages-grid">
-          <div class="package-card">
-            <div class="package-header">
-              <div class="package-icon">
-                <i class="fas fa-star"></i>
-              </div>
-              <h3>Starter Package</h3>
-              <p class="package-subtitle">
-                Perfect for small businesses and startups
-              </p>
-            </div>
-
-            <ul class="package-features">
-              <li>
-                <i class="fas fa-check"></i>
-                <span>Responsive Website</span>
-              </li>
-              <li>
-                <i class="fas fa-check"></i>
-                <span>Basic SEO Setup</span>
-              </li>
-              <li>
-                <i class="fas fa-check"></i>
-                <span>Contact Form</span>
-              </li>
-              <li>
-                <i class="fas fa-check"></i>
-                <span>Social Media Integration</span>
-              </li>
-            </ul>
-
-            <div class="package-price">
-              <span>R 2999.99</span>
-            </div>
-
-            <a href="contact.html" class="btn package-btn">Get Started</a>
-          </div>
-
-          <div class="package-card featured">
-            <div class="package-badge">Most Popular</div>
-            <div class="package-header">
-              <div class="package-icon">
-                <i class="fas fa-crown"></i>
-              </div>
-              <h3>Business Package</h3>
-              <p class="package-subtitle">
-                Our most popular package for growing businesses
-              </p>
-            </div>
-
-            <ul class="package-features">
-              <li>
-                <i class="fas fa-check"></i>
-                <span>Custom Web Design</span>
-              </li>
-              <li>
-                <i class="fas fa-check"></i>
-                <span>E-commerce Functionality</span>
-              </li>
-              <li>
-                <i class="fas fa-check"></i>
-                <span>CMS Integration</span>
-              </li>
-              <li>
-                <i class="fas fa-check"></i>
-                <span>Advanced SEO</span>
-              </li>
-              <li>
-                <i class="fas fa-check"></i>
-                <span>6 Months Hosting</span>
-              </li>
-            </ul>
-
-            <div class="package-price">
-              <span>R5000.00</span>
-            </div>
-
-            <a href="contact.html" class="btn package-btn">Get Started</a>
-          </div>
-
-          <div class="package-card">
-            <div class="package-header">
-              <div class="package-icon">
-                <i class="fas fa-rocket"></i>
-              </div>
-              <h3>Enterprise Package</h3>
-              <p class="package-subtitle">
-                Complete digital solution for established businesses
-              </p>
-            </div>
-
-            <ul class="package-features">
-              <li>
-                <i class="fas fa-check"></i>
-                <span>Custom Web Application</span>
-              </li>
-              <li>
-                <i class="fas fa-check"></i>
-                <span>Power BI Analytics</span>
-              </li>
-              <li>
-                <i class="fas fa-check"></i>
-                <span>Full Branding Package</span>
-              </li>
-              <li>
-                <i class="fas fa-check"></i>
-                <span>1 Year Hosting & Support</span>
-              </li>
-              <li>
-                <i class="fas fa-check"></i>
-                <span>Monthly Analytics Reports</span>
-              </li>
-            </ul>
-
-            <div class="package-price">
-              <span>Custom Quote</span>
-            </div>
-
-            <a href="contact.html" class="btn package-btn">Contact for Quote</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Companies We've Worked With -->
-    <section class="section-padding">
-      <div class="container">
-        <div class="section-title">
-          <h2>Companies We've Worked With</h2>
-          <p>Trusted by businesses of all sizes across various industries</p>
-        </div>
-
-        <!-- Client Logo Marquee -->
-        <div class="client-marquee-container">
-          <div class="client-marquee">
-            <!-- Client logos will be populated by JavaScript -->
-          </div>
-        </div>
-
-        <div class="text-center" style="margin-top: 40px">
-          <p>And many more satisfied clients...</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Google Reviews -->
-    <section class="section-padding bg-light">
-      <div class="container">
-        <div class="section-title">
-          <h2>What Our Clients Say</h2>
-          <p>Read reviews from our satisfied customers</p>
-        </div>
-
-        <div class="reviews-grid">
-          <!-- Reviews will be populated by JavaScript -->
-        </div>
-
-        <div class="text-center" style="margin-top: 40px">
-          <a
-            href="https://g.page/r/CftNF6rwIo0IEBM/review"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn"
-          >
-            <i class="fab fa-google"></i> Write a Review on Google
-          </a>
-          <a
-            href="https://g.page/r/CftNF6rwIo0IEBM/review"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-secondary"
-            style="margin-left: 15px"
-          >
-            <i class="fas fa-star"></i> Read More Reviews
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta">
-      <div class="container">
-        <h2>Need a Custom Solution?</h2>
+        <h1>Let's Create Something Amazing</h1>
         <p>
-          Contact us for a personalized quote tailored to your specific business
-          requirements.
+          We're excited to hear about your project. Reach out and let's start a
+          conversation about how we can help your business grow online.
         </p>
-        <a href="contact.html" class="btn btn-secondary"
-          >Request Custom Quote</a
-        >
       </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Contact Section -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="contact-two-col">
+          <!-- Left Column - Contact Info -->
+          <div>
+            <div class="contact-card scroll-reveal">
+              <div class="contact-icon-wrap">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <h4>Visit Our Office</h4>
+              <p class="contact-address">Loading address...</p>
+            </div>
+
+            <div class="contact-card scroll-reveal" style="margin-top: 1.5rem">
+              <div class="contact-icon-wrap">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <h4>Call Us</h4>
+              <p>
+                <a href="tel:+27664575904" class="contact-phone"
+                  >Loading phone...</a
+                >
+              </p>
+              <p style="font-size: 0.85rem; margin-top: 0.5rem">
+                Mon-Fri, 9am-6pm
+              </p>
+            </div>
+
+            <div class="contact-card scroll-reveal" style="margin-top: 1.5rem">
+              <div class="contact-icon-wrap">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <h4>Email Us</h4>
+              <p>
+                <a href="mailto:info@tooraflex.co.za" class="contact-email"
+                  >info@tooraflex.co.za</a
+                >
+              </p>
+            </div>
+
+            <div class="contact-card scroll-reveal" style="margin-top: 1.5rem">
+              <div class="contact-icon-wrap">
+                <i class="fab fa-whatsapp"></i>
+              </div>
+              <h4>WhatsApp</h4>
+              <p><a href="https://wa.me/27664575904">+27 66 457 5904</a></p>
+              <p style="font-size: 0.85rem">Quick responses within hours</p>
+            </div>
+
+            <div class="contact-card scroll-reveal" style="margin-top: 1.5rem">
+              <div class="contact-icon-wrap"><i class="fas fa-clock"></i></div>
+              <h4>Business Hours</h4>
+              <ul class="hours-list">
+                <li><span>Monday - Friday:</span> 9:00 AM - 6:00 PM</li>
+                <li><span>Saturday:</span> 10:00 AM - 2:00 PM</li>
+                <li><span>Sunday:</span> Closed</li>
+              </ul>
+            </div>
+
+            <div
+              class="social-section-modern scroll-reveal"
+              style="margin-top: 1.5rem"
+            >
+              <h4>Follow Us</h4>
+              <div class="social-links">
+                <a href="#" aria-label="Facebook"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a href="#" aria-label="Twitter"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a href="#" aria-label="LinkedIn"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+                <a href="#" aria-label="Instagram"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column - Contact Form -->
+          <div class="form-modern scroll-reveal">
+            <h3>Send us a Message</h3>
+            <form
+              id="contactForm"
+              action="https://formspree.io/f/mykprlvy"
+              method="POST"
+            >
+              <input
+                type="hidden"
+                name="_replyto"
+                value="info@tooraflex.co.za"
+              />
+              <input
+                type="hidden"
+                name="_subject"
+                value="New Contact Form Submission from Tooraflex Website"
+              />
+              <input
+                type="hidden"
+                name="_next"
+                value="https://tooraflex.co.za/thank-you.html"
+              />
+              <input type="text" name="_gotcha" style="display: none" />
+
+              <div class="form-group">
+                <label for="name"
+                  >Full Name <span class="required-star">*</span></label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="form-control"
+                  placeholder="Your Name"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="email"
+                  >Email Address <span class="required-star">*</span></label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-control"
+                  placeholder="Your Email"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  class="form-control"
+                  placeholder="Your Phone Number"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="service"
+                  >Service Interested In
+                  <span class="required-star">*</span></label
+                >
+                <select
+                  id="service"
+                  name="service"
+                  class="form-control"
+                  required
+                >
+                  <option value="">Select a Service</option>
+                  <option value="website-design">Website Design</option>
+                  <option value="web-apps">Web Applications</option>
+                  <option value="hosting">Hosting Solutions</option>
+                  <option value="surveys">Surveys & Analytics</option>
+                  <option value="graphic-design">Graphic Design</option>
+                  <option value="power-bi">Power BI & Data Management</option>
+                  <option value="starter-package">Starter Package</option>
+                  <option value="business-package">Business Package</option>
+                  <option value="enterprise-package">Enterprise Package</option>
+                  <option value="multiple">Multiple Services</option>
+                  <option value="custom">Custom Solution</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="budget">Project Budget</label>
+                <select id="budget" name="budget" class="form-control">
+                  <option value="">Select Budget Range</option>
+                  <option value="under-5k">Under R5,000</option>
+                  <option value="5k-10k">R5,000 - R10,000</option>
+                  <option value="10k-25k">R10,000 - R25,000</option>
+                  <option value="25k-50k">R25,000 - R50,000</option>
+                  <option value="50k-plus">R50,000+</option>
+                  <option value="not-sure">Not Sure Yet</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message"
+                  >Project Details <span class="required-star">*</span></label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  class="form-control"
+                  rows="5"
+                  placeholder="Tell us about your project, goals, and timeline..."
+                  required
+                ></textarea>
+              </div>
+
+              <div class="consent-group">
+                <div class="consent-checkbox">
+                  <input
+                    type="checkbox"
+                    id="popia-consent"
+                    name="popia-consent"
+                    required
+                  />
+                  <label for="popia-consent"
+                    >I consent to Tooraflex collecting and processing my
+                    personal information in accordance with POPIA.
+                    <span class="required-star">*</span></label
+                  >
+                </div>
+              </div>
+
+              <button type="submit" class="btn submit-btn" id="submitBtn">
+                <span class="btn-text">Send Message</span>
+                <span class="spinner" style="display: none"
+                  ><i class="fas fa-spinner fa-spin"></i> Sending...</span
+                >
+              </button>
+
+              <div
+                id="formResponse"
+                class="response-message"
+                style="display: none"
+              ></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="section-padding bg-light">
+      <div class="container">
+        <div class="section-title scroll-reveal">
+          <h2>Find Us Here</h2>
+          <p>Visit our office or connect remotely</p>
+        </div>
+
+        <div class="map-container-modern scroll-reveal">
+          <div class="map-embed">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3593.7373603001024!2d28.19359137562544!3d-25.746197645478144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e95621af1018bfb%3A0xa82b408f9572ede2!2s367%20Helen%20Joseph%20St%2C%20Pretoria%20Central%2C%20Pretoria%2C%200001!5e0!3m2!1sen!2sza!4v1768048299820!5m2!1sen!2sza"
+              width="100%"
+              height="100%"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              title="Tooraflex Office Location"
+            ></iframe>
+          </div>
+          <div class="map-info-modern">
+            <h3>Tooraflex Headquarters</h3>
+            <p class="contact-address">Loading address...</p>
+            <div class="map-buttons">
+              <a
+                href="https://maps.google.com/maps?q=367+Helen+Joseph+St,+Pretoria+Central,+Pretoria,+0001"
+                target="_blank"
+                class="btn"
+                ><i class="fas fa-directions"></i> Get Directions</a
+              >
+              <a
+                href="https://wa.me/27664575904"
+                target="_blank"
+                class="btn btn-secondary"
+                ><i class="fab fa-whatsapp"></i> WhatsApp Us</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="section-title scroll-reveal">
+          <h2>Frequently Asked Questions</h2>
+          <p>Everything you need to know about working with us</p>
+        </div>
+
+        <div class="faq-grid-modern">
+          <div class="faq-item scroll-reveal">
+            <div class="faq-icon"><i class="fas fa-clock"></i></div>
+            <h3>How long does a typical project take?</h3>
+            <p>
+              Project timelines vary based on complexity. A simple website takes
+              2-4 weeks, while custom web applications can take 8-12 weeks. We
+              provide detailed timelines during our initial consultation.
+            </p>
+          </div>
+
+          <div class="faq-item scroll-reveal">
+            <div class="faq-icon"><i class="fas fa-headset"></i></div>
+            <h3>Do you offer ongoing support?</h3>
+            <p>
+              Yes, we offer various support packages including monthly
+              maintenance, hosting, and updates. Our enterprise packages include
+              24/7 support and regular performance reviews.
+            </p>
+          </div>
+
+          <div class="faq-item scroll-reveal">
+            <div class="faq-icon"><i class="fas fa-code-branch"></i></div>
+            <h3>Can you work with existing designs?</h3>
+            <p>
+              Absolutely! We can work with your existing designs, integrate with
+              current systems, or migrate data from old platforms to new
+              solutions we develop for you.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer (loaded dynamically by script.js) -->
     <footer id="main-footer"></footer>
 
-    <!-- Scripts -->
+    <!-- Scripts - These load header and footer dynamically -->
     <script src="js/config.js"></script>
     <script src="js/script.js"></script>
 
-    <!-- Cookie Consent Script -->
+    <!-- Contact Page Enhancements (runs after scripts load) -->
     <script>
-      // Cookie Consent Functionality
-      function initCookieConsent() {
+      // Wait for script.js to load and initialize
+      setTimeout(function () {
+        // Scroll reveal for contact cards
+        const revealElements = document.querySelectorAll(".scroll-reveal");
+        const revealObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("revealed");
+                revealObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1 },
+        );
+        revealElements.forEach((el) => revealObserver.observe(el));
+
+        // Populate service dropdown from config if available
+        const serviceSelect = document.getElementById("service");
+        if (serviceSelect && window.siteConfig && window.siteConfig.services) {
+          while (serviceSelect.options.length > 1) serviceSelect.remove(1);
+          window.siteConfig.services.forEach((service) => {
+            const option = document.createElement("option");
+            option.value = service.id;
+            option.textContent = service.name;
+            serviceSelect.appendChild(option);
+          });
+        }
+      }, 500);
+
+      // Form submission handler
+      document.addEventListener("DOMContentLoaded", function () {
+        const contactForm = document.getElementById("contactForm");
+        const submitBtn = document.getElementById("submitBtn");
+        const formResponse = document.getElementById("formResponse");
+
+        if (contactForm && submitBtn) {
+          contactForm.addEventListener("submit", async function (e) {
+            e.preventDefault();
+            const btnText = submitBtn.querySelector(".btn-text");
+            const spinner = submitBtn.querySelector(".spinner");
+
+            if (btnText && spinner) {
+              btnText.style.display = "none";
+              spinner.style.display = "inline-block";
+              submitBtn.disabled = true;
+            }
+            formResponse.style.display = "none";
+
+            try {
+              const formData = new FormData(contactForm);
+              const response = await fetch(contactForm.action, {
+                method: "POST",
+                body: formData,
+                headers: { Accept: "application/json" },
+              });
+
+              if (response.ok) {
+                formResponse.innerHTML = `<div class="success-message"><i class="fas fa-check-circle"></i> <strong>Thank You!</strong><br>Your message has been sent successfully. We'll get back to you within 24 hours.</div>`;
+                formResponse.classList.add("success");
+                formResponse.style.display = "block";
+                contactForm.reset();
+              } else {
+                throw new Error("Submission failed");
+              }
+            } catch (error) {
+              formResponse.innerHTML = `<div class="error-message"><i class="fas fa-exclamation-circle"></i> <strong>Something went wrong!</strong><br>Please try again or email us directly at info@tooraflex.co.za</div>`;
+              formResponse.classList.add("error");
+              formResponse.style.display = "block";
+            } finally {
+              if (btnText && spinner) {
+                btnText.style.display = "inline-block";
+                spinner.style.display = "none";
+                submitBtn.disabled = false;
+              }
+            }
+          });
+        }
+
+        // Cookie consent
         const cookieConsent = document.getElementById("cookie-consent");
-        const acceptAllBtn = document.getElementById("cookie-accept-all");
-        const necessaryBtn = document.getElementById("cookie-necessary");
-        const declineBtn = document.getElementById("cookie-decline");
+        const acceptAll = document.getElementById("cookie-accept-all");
+        const necessary = document.getElementById("cookie-necessary");
+        const decline = document.getElementById("cookie-decline");
 
-        // Check if consent already given
-        const consentGiven = localStorage.getItem("cookieConsent");
-
-        if (!consentGiven) {
-          // Show cookie consent after 2 seconds
-          setTimeout(() => {
-            cookieConsent.classList.add("show");
-          }, 2000);
-        } else {
+        if (cookieConsent && !localStorage.getItem("cookieConsent")) {
+          setTimeout(() => cookieConsent.classList.add("show"), 2000);
+        } else if (cookieConsent && localStorage.getItem("cookieConsent")) {
           cookieConsent.style.display = "none";
         }
 
-        // Handle accept all
-        acceptAllBtn.addEventListener("click", () => {
-          localStorage.setItem("cookieConsent", "all");
-          localStorage.setItem("cookieConsentDate", new Date().toISOString());
-          cookieConsent.classList.remove("show");
-          setTimeout(() => {
-            cookieConsent.style.display = "none";
-          }, 300);
-
-          // Initialize analytics (if you add them later)
-          console.log("All cookies accepted - analytics enabled");
-        });
-
-        // Handle necessary only
-        necessaryBtn.addEventListener("click", () => {
-          localStorage.setItem("cookieConsent", "necessary");
-          localStorage.setItem("cookieConsentDate", new Date().toISOString());
-          cookieConsent.classList.remove("show");
-          setTimeout(() => {
-            cookieConsent.style.display = "none";
-          }, 300);
-
-          console.log("Only necessary cookies accepted");
-        });
-
-        // Handle decline
-        declineBtn.addEventListener("click", () => {
-          localStorage.setItem("cookieConsent", "declined");
-          localStorage.setItem("cookieConsentDate", new Date().toISOString());
-          cookieConsent.classList.remove("show");
-          setTimeout(() => {
-            cookieConsent.style.display = "none";
-          }, 300);
-
-          console.log("Cookies declined");
-        });
-      }
-
-      // Initialize on page load
-      document.addEventListener("DOMContentLoaded", function () {
-        initCookieConsent();
+        if (acceptAll) {
+          acceptAll.addEventListener("click", () => {
+            localStorage.setItem("cookieConsent", "all");
+            cookieConsent.classList.remove("show");
+            setTimeout(() => (cookieConsent.style.display = "none"), 300);
+          });
+        }
+        if (necessary) {
+          necessary.addEventListener("click", () => {
+            localStorage.setItem("cookieConsent", "necessary");
+            cookieConsent.classList.remove("show");
+            setTimeout(() => (cookieConsent.style.display = "none"), 300);
+          });
+        }
+        if (decline) {
+          decline.addEventListener("click", () => {
+            localStorage.setItem("cookieConsent", "declined");
+            cookieConsent.classList.remove("show");
+            setTimeout(() => (cookieConsent.style.display = "none"), 300);
+          });
+        }
       });
     </script>
   </body>
