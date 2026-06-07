@@ -53,9 +53,8 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/whatsapp-float.css" />
 
-    <!-- Modern Slideshow Overlay Styles (replaces landing.css) -->
+    <!-- Modern Slideshow Overlay Styles -->
     <style>
-      /* ========= MODERN SLIDESHOW (replaces landing-section entirely) ========= */
       .modern-slideshow {
         position: relative;
         width: 100%;
@@ -186,7 +185,6 @@
         }
       }
 
-      /* Scroll reveal animation */
       .fade-up-scroll {
         opacity: 0;
         transform: translateY(35px);
@@ -199,7 +197,6 @@
         transform: translateY(0);
       }
 
-      /* Enhanced card hover effects */
       .service-card,
       .review-card {
         transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
@@ -208,16 +205,6 @@
       .review-card:hover {
         transform: translateY(-10px) scale(1.02);
         box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15);
-      }
-
-      /* Ensure header is visible */
-      header {
-        background-color: white;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        width: 100%;
       }
 
       @media (max-width: 768px) {
@@ -266,41 +253,10 @@
     <!-- Floating WhatsApp Button -->
     <div class="whatsapp-float" id="whatsapp-float"></div>
 
-    <!-- Header - DIRECT HTML (ensures navigation always shows) -->
-    <header>
-      <div class="container header-container">
-        <a href="index.html" class="logo" aria-label="TooraFlex Home">
-          <img
-            src="images/logo/logo-mark.png"
-            alt="TooraFlex Logo"
-            class="logo-img"
-            width="40"
-            height="40"
-            onerror="this.src = 'https://placehold.co/40x40?text=TF'"
-          />
-          <div class="logo-text">Toora<span>flex</span></div>
-        </a>
+    <!-- Header (loaded dynamically by script.js - same as working services page) -->
+    <header id="main-header"></header>
 
-        <button
-          class="mobile-menu-btn"
-          id="mobileMenuBtn"
-          aria-label="Toggle navigation menu"
-          aria-expanded="false"
-        >
-          <i class="fas fa-bars"></i>
-        </button>
-
-        <ul class="nav-links" id="navLinks">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services & Products</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="contact.html" class="btn">Get Quote</a></li>
-        </ul>
-      </div>
-    </header>
-
-    <!-- MODERN SLIDESHOW SECTION (replaces old landing-section) -->
+    <!-- MODERN SLIDESHOW SECTION -->
     <section class="modern-slideshow" id="heroSlideshow">
       <div class="slideshow-container">
         <div class="slideshow-overlay"></div>
@@ -397,63 +353,17 @@
       </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer (loaded dynamically by script.js) -->
     <footer id="main-footer"></footer>
 
-    <!-- Scripts -->
+    <!-- Scripts - These load header/footer and handle mobile menu -->
     <script src="js/config.js"></script>
     <script src="js/script.js"></script>
 
-    <!-- Mobile menu and slideshow initialization -->
+    <!-- Slideshow and animations initialization (no mobile menu code - let script.js handle it) -->
     <script>
       (function () {
-        // Initialize mobile menu toggle
-        function initMobileMenu() {
-          const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-          const navLinks = document.getElementById("navLinks");
-
-          if (mobileMenuBtn && navLinks) {
-            mobileMenuBtn.addEventListener("click", function (e) {
-              e.stopPropagation();
-              navLinks.classList.toggle("active");
-              const isExpanded = navLinks.classList.contains("active");
-              mobileMenuBtn.setAttribute("aria-expanded", isExpanded);
-              mobileMenuBtn.innerHTML = isExpanded
-                ? '<i class="fas fa-times"></i>'
-                : '<i class="fas fa-bars"></i>';
-              document.body.style.overflow = isExpanded ? "hidden" : "auto";
-            });
-
-            // Close menu when clicking outside
-            document.addEventListener("click", function (e) {
-              if (
-                navLinks.classList.contains("active") &&
-                !navLinks.contains(e.target) &&
-                !mobileMenuBtn.contains(e.target)
-              ) {
-                navLinks.classList.remove("active");
-                mobileMenuBtn.setAttribute("aria-expanded", "false");
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                document.body.style.overflow = "auto";
-              }
-            });
-
-            // Close menu on window resize (desktop)
-            window.addEventListener("resize", function () {
-              if (
-                window.innerWidth > 768 &&
-                navLinks.classList.contains("active")
-              ) {
-                navLinks.classList.remove("active");
-                mobileMenuBtn.setAttribute("aria-expanded", "false");
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                document.body.style.overflow = "auto";
-              }
-            });
-          }
-        }
-
-        // Initialize slideshow
+        // Initialize slideshow only (mobile menu is handled by script.js)
         function initSlideshow() {
           const slideData = [
             {
@@ -571,7 +481,7 @@
           fadeElements.forEach((el) => observer.observe(el));
         }
 
-        // Cookie consent
+        // Cookie consent (will be handled by script.js as well, but keeping for redundancy)
         function initCookieConsent() {
           const cookieConsent = document.getElementById("cookie-consent");
           const acceptAllBtn = document.getElementById("cookie-accept-all");
@@ -617,19 +527,16 @@
           }
         }
 
-        // Initialize everything when DOM is ready
+        // Initialize when DOM is ready
         if (document.readyState === "loading") {
           document.addEventListener("DOMContentLoaded", function () {
-            initMobileMenu();
             initSlideshow();
             initScrollReveal();
             initCookieConsent();
             document.title =
               "Toora Flex | Website Design & Digital Solutions South Africa";
-            console.log("Navigation menu and slideshow initialized");
           });
         } else {
-          initMobileMenu();
           initSlideshow();
           initScrollReveal();
           initCookieConsent();
