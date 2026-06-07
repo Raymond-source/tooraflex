@@ -6,10 +6,10 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
     />
-    <title>Contact Us - Tooraflex</title>
+    <title>Services & Products - Tooraflex</title>
     <meta
       name="description"
-      content="Get in touch with Tooraflex for your digital solution needs. We're here to help your business grow online."
+      content="Comprehensive digital solutions including website design, web applications, hosting, analytics, and graphic design services."
     />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/whatsapp-float.css" />
@@ -65,445 +65,433 @@
     <section class="hero page-hero">
       <div class="container">
         <div class="hero-text page-hero-text">
-          <h1>Contact Us</h1>
+          <h1>Services & Products</h1>
           <p>
-            Get in touch with our team to discuss your project. We're excited to
-            hear about your ideas and help bring them to life.
+            Discover our comprehensive suite of digital solutions designed to
+            help your business succeed in the digital age.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Product Categories -->
     <section class="section-padding">
       <div class="container">
-        <div class="contact-content">
-          <div class="contact-info">
-            <h3>Get In Touch</h3>
+        <div class="product-categories">
+          <button class="category-btn active" data-category="all">
+            All Services
+          </button>
+          <button class="category-btn" data-category="design">Design</button>
+          <button class="category-btn" data-category="development">
+            Development
+          </button>
+          <button class="category-btn" data-category="analytics">
+            Analytics
+          </button>
+          <button class="category-btn" data-category="hosting">Hosting</button>
+        </div>
+
+        <!-- Services Grid -->
+        <div class="services-grid">
+          <!-- Website Design -->
+          <div class="service-card" data-category="design">
+            <div class="service-icon">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <h3>Website Design & Development</h3>
             <p>
-              Have a project in mind? We'd love to hear about it. Send us a
-              message and we'll respond as soon as possible.
+              Custom, responsive websites designed to engage visitors and
+              convert them into customers. We create beautiful, functional
+              websites that work across all devices.
             </p>
-
-            <div class="contact-detail">
-              <i class="fas fa-map-marker-alt"></i>
-              <div>
-                <h4>Our Office</h4>
-                <p class="contact-address">Loading address...</p>
+            <div class="product-features">
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Responsive Design</span>
               </div>
-            </div>
-
-            <div class="contact-detail">
-              <i class="fas fa-phone-alt"></i>
-              <div>
-                <h4>Phone Number</h4>
-                <p>
-                  <a href="tel:+27812194023" class="contact-phone"
-                    >Loading phone...</a
-                  >
-                </p>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>SEO Optimized</span>
               </div>
-            </div>
-
-            <div class="contact-detail">
-              <i class="fas fa-envelope"></i>
-              <div>
-                <h4>Email Address</h4>
-                <p>
-                  <a href="mailto:info@tooraflex.co.za" class="contact-email"
-                    >info@tooraflex.co.za</a
-                  >
-                </p>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>CMS Integration</span>
               </div>
-            </div>
-
-            <div class="contact-detail">
-              <i class="fas fa-clock"></i>
-              <div>
-                <h4>Business Hours</h4>
-                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                <p>Saturday: 10:00 AM - 2:00 PM</p>
-                <p>Sunday: Closed</p>
-              </div>
-            </div>
-
-            <div class="contact-detail">
-              <i class="fas fa-exclamation-circle"></i>
-              <div>
-                <h4>Emergency Contact</h4>
-                <p>
-                  <a href="tel:+27664575904" class="contact-emergency"
-                    >Loading emergency...</a
-                  >
-                </p>
-              </div>
-            </div>
-
-            <div class="social-section">
-              <h4>Follow Us</h4>
-              <div class="social-links">
-                <a href="#" aria-label="Facebook"
-                  ><i class="fab fa-facebook-f"></i
-                ></a>
-                <a href="#" aria-label="Twitter"
-                  ><i class="fab fa-twitter"></i
-                ></a>
-                <a href="#" aria-label="LinkedIn"
-                  ><i class="fab fa-linkedin-in"></i
-                ></a>
-                <a href="#" aria-label="Instagram"
-                  ><i class="fab fa-instagram"></i
-                ></a>
-                <a href="#" aria-label="GitHub"
-                  ><i class="fab fa-github"></i
-                ></a>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>E-commerce Solutions</span>
               </div>
             </div>
           </div>
 
-          <div class="contact-form">
-            <form
-              id="contactForm"
-              action="https://formspree.io/f/mykprlvy"
-              method="POST"
-            >
-              <h3>Send us a Message</h3>
-
-              <!-- Hidden field for the recipient email -->
-              <input
-                type="hidden"
-                name="_replyto"
-                value="info@tooraflex.co.za"
-              />
-              <input
-                type="hidden"
-                name="_subject"
-                value="New Contact Form Submission from Tooraflex Website"
-              />
-
-              <!-- Formspree redirect after success -->
-              <input
-                type="hidden"
-                name="_next"
-                value="https://yourdomain.co.za/thank-you.html"
-              />
-
-              <!-- Honey pot field for spam protection -->
-              <input type="text" name="_gotcha" style="display: none" />
-
-              <div class="form-group">
-                <label for="name">Full Name *</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  class="form-control"
-                  placeholder="Your Name"
-                  required
-                />
+          <!-- Web Applications -->
+          <div class="service-card" data-category="development">
+            <div class="service-icon">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h3>Web Applications</h3>
+            <p>
+              Interactive web applications built with modern technologies. From
+              e-commerce platforms to business management tools, we develop
+              solutions that drive efficiency.
+            </p>
+            <div class="product-features">
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Custom Development</span>
               </div>
-
-              <div class="form-group">
-                <label for="email">Email Address *</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  class="form-control"
-                  placeholder="Your Email"
-                  required
-                />
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>API Integration</span>
               </div>
-
-              <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  class="form-control"
-                  placeholder="Your Phone Number"
-                />
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Real-time Features</span>
               </div>
-
-              <div class="form-group">
-                <label for="service">Service Interested In *</label>
-                <select
-                  id="service"
-                  name="service"
-                  class="form-control"
-                  required
-                >
-                  <option value="">Select a Service</option>
-                  <option value="website-design">Website Design</option>
-                  <option value="web-apps">Web Applications</option>
-                  <option value="hosting">Hosting Solutions</option>
-                  <option value="surveys">Surveys & Analytics</option>
-                  <option value="graphic-design">Graphic Design</option>
-                  <option value="power-bi">Power BI & Data Management</option>
-                  <option value="starter-package">Starter Package</option>
-                  <option value="business-package">Business Package</option>
-                  <option value="enterprise-package">Enterprise Package</option>
-                  <option value="multiple">Multiple Services</option>
-                  <option value="custom">Custom Solution</option>
-                </select>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Progressive Web Apps</span>
               </div>
+            </div>
+          </div>
 
-              <div class="form-group">
-                <label for="budget">Project Budget</label>
-                <select id="budget" name="budget" class="form-control">
-                  <option value="">Select Budget Range</option>
-                  <option value="under-5k">Under R5,000</option>
-                  <option value="5k-10k">R5,000 - R10,000</option>
-                  <option value="10k-25k">R10,000 - R25,000</option>
-                  <option value="25k-50k">R25,000 - R50,000</option>
-                  <option value="50k-plus">R50,000+</option>
-                  <option value="not-sure">Not Sure Yet</option>
-                </select>
+          <!-- Graphic Design -->
+          <div class="service-card" data-category="design">
+            <div class="service-icon">
+              <i class="fas fa-palette"></i>
+            </div>
+            <h3>Graphic Design</h3>
+            <p>
+              Creative graphic design services including logos, branding
+              materials, marketing collateral, and UI/UX design that captures
+              your brand's essence.
+            </p>
+            <div class="product-features">
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Brand Identity</span>
               </div>
-
-              <div class="form-group">
-                <label for="message">Project Details *</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  class="form-control"
-                  rows="5"
-                  placeholder="Tell us about your project, goals, and timeline..."
-                  required
-                ></textarea>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>UI/UX Design</span>
               </div>
-
-              <!-- POPIA Consent Checkbox -->
-              <div class="form-group consent-group">
-                <div class="consent-checkbox">
-                  <input
-                    type="checkbox"
-                    id="popia-consent"
-                    name="popia-consent"
-                    required
-                  />
-                  <label for="popia-consent">
-                    I consent to Tooraflex collecting and processing my personal
-                    information in accordance with the Protection of Personal
-                    Information Act (POPIA). I understand that my information
-                    will be used solely for responding to my inquiry and will
-                    not be shared with third parties without my consent.
-                    <span class="required-star">*</span>
-                  </label>
-                </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Marketing Materials</span>
               </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Social Media Graphics</span>
+              </div>
+            </div>
+          </div>
 
-              <button type="submit" class="btn submit-btn" id="submitBtn">
-                <span class="btn-text">Send Message</span>
-                <span class="spinner" style="display: none">
-                  <i class="fas fa-spinner fa-spin"></i> Sending...
-                </span>
-              </button>
+          <!-- Hosting Solutions -->
+          <div class="service-card" data-category="hosting">
+            <div class="service-icon">
+              <i class="fas fa-server"></i>
+            </div>
+            <h3>Hosting Solutions</h3>
+            <p>
+              Reliable, secure, and fast hosting services with 99.9% uptime
+              guarantee. We ensure your website and applications are always
+              accessible to your customers.
+            </p>
+            <div class="product-features">
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>99.9% Uptime</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>24/7 Support</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>SSL Certificates</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Daily Backups</span>
+              </div>
+            </div>
+          </div>
 
-              <!-- Response Message Container -->
-              <div
-                id="formResponse"
-                class="response-message"
-                style="display: none"
-              ></div>
-            </form>
+          <!-- Power BI & Analytics -->
+          <div class="service-card" data-category="analytics">
+            <div class="service-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Power BI & Data Analytics</h3>
+            <p>
+              Business intelligence solutions with Power BI dashboards and
+              comprehensive data management services to transform your data into
+              actionable insights.
+            </p>
+            <div class="product-features">
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Custom Dashboards</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Data Visualization</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Real-time Reporting</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Data Integration</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Surveys & Analytics -->
+          <div class="service-card" data-category="analytics">
+            <div class="service-icon">
+              <i class="fas fa-poll"></i>
+            </div>
+            <h3>Surveys & Customer Analytics</h3>
+            <p>
+              Custom survey creation and implementation to gather valuable
+              customer insights. We help you understand your audience and make
+              data-driven decisions.
+            </p>
+            <div class="product-features">
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Custom Surveys</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Data Analysis</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Insight Reports</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Customer Journey Mapping</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Map Section -->
+    <!-- Products Package -->
     <section class="section-padding bg-light">
       <div class="container">
         <div class="section-title">
-          <h2>Our Location</h2>
-          <p>Visit our office or contact us remotely</p>
+          <h2>Product Packages</h2>
+          <p>Choose the perfect package for your business needs</p>
         </div>
 
-        <div class="map-container">
-          <!-- Google Maps Embed -->
-          <div class="map-embed">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3593.7373603001024!2d28.19359137562544!3d-25.746197645478144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e95621af1018bfb%3A0xa82b408f9572ede2!2s367%20Helen%20Joseph%20St%2C%20Pretoria%20Central%2C%20Pretoria%2C%200001!5e0!3m2!1sen!2sza!4v1768048299820!5m2!1sen!2sza"
-              width="100%"
-              height="100%"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Tooraflex Office Location"
-            >
-            </iframe>
+        <div class="packages-grid">
+          <div class="package-card">
+            <div class="package-header">
+              <div class="package-icon">
+                <i class="fas fa-star"></i>
+              </div>
+              <h3>Starter Package</h3>
+              <p class="package-subtitle">
+                Perfect for small businesses and startups
+              </p>
+            </div>
+
+            <ul class="package-features">
+              <li>
+                <i class="fas fa-check"></i>
+                <span>Responsive Website</span>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <span>Basic SEO Setup</span>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <span>Contact Form</span>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <span>Social Media Integration</span>
+              </li>
+            </ul>
+
+            <div class="package-price">
+              <span>R 2999.99</span>
+            </div>
+
+            <a href="contact.html" class="btn package-btn">Get Started</a>
           </div>
 
-          <div class="map-info">
-            <h3>Tooraflex Office</h3>
-            <p class="contact-address">Loading address...</p>
-            <div class="map-buttons">
-              <a
-                href="https://maps.google.com/maps?q=367+Helen+Joseph+St,+Pretoria+Central,+Pretoria,+0001"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn"
-              >
-                <i class="fas fa-directions"></i> Get Directions
-              </a>
-              <a
-                href="https://wa.me/27812194023"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-secondary"
-              >
-                <i class="fab fa-whatsapp"></i> WhatsApp Us
-              </a>
+          <div class="package-card featured">
+            <div class="package-badge">Most Popular</div>
+            <div class="package-header">
+              <div class="package-icon">
+                <i class="fas fa-crown"></i>
+              </div>
+              <h3>Business Package</h3>
+              <p class="package-subtitle">
+                Our most popular package for growing businesses
+              </p>
             </div>
+
+            <ul class="package-features">
+              <li>
+                <i class="fas fa-check"></i>
+                <span>Custom Web Design</span>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <span>E-commerce Functionality</span>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <span>CMS Integration</span>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <span>Advanced SEO</span>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <span>6 Months Hosting</span>
+              </li>
+            </ul>
+
+            <div class="package-price">
+              <span>R5000.00</span>
+            </div>
+
+            <a href="contact.html" class="btn package-btn">Get Started</a>
+          </div>
+
+          <div class="package-card">
+            <div class="package-header">
+              <div class="package-icon">
+                <i class="fas fa-rocket"></i>
+              </div>
+              <h3>Enterprise Package</h3>
+              <p class="package-subtitle">
+                Complete digital solution for established businesses
+              </p>
+            </div>
+
+            <ul class="package-features">
+              <li>
+                <i class="fas fa-check"></i>
+                <span>Custom Web Application</span>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <span>Power BI Analytics</span>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <span>Full Branding Package</span>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <span>1 Year Hosting & Support</span>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <span>Monthly Analytics Reports</span>
+              </li>
+            </ul>
+
+            <div class="package-price">
+              <span>Custom Quote</span>
+            </div>
+
+            <a href="contact.html" class="btn package-btn">Contact for Quote</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FAQ Section -->
+    <!-- Companies We've Worked With -->
     <section class="section-padding">
       <div class="container">
         <div class="section-title">
-          <h2>Frequently Asked Questions</h2>
-          <p>Get answers to common questions about our services</p>
+          <h2>Companies We've Worked With</h2>
+          <p>Trusted by businesses of all sizes across various industries</p>
         </div>
 
-        <div class="services-grid">
-          <div class="service-card">
-            <h3>How long does a typical project take?</h3>
-            <p>
-              Project timelines vary based on complexity. A simple website takes
-              2-4 weeks, while custom web applications can take 8-12 weeks. We
-              provide detailed timelines during our initial consultation.
-            </p>
-          </div>
-
-          <div class="service-card">
-            <h3>Do you offer ongoing support?</h3>
-            <p>
-              Yes, we offer various support packages including monthly
-              maintenance, hosting, and updates. Our enterprise packages include
-              24/7 support and regular performance reviews.
-            </p>
-          </div>
-
-          <div class="service-card">
-            <h3>Can you work with existing designs or systems?</h3>
-            <p>
-              Absolutely! We can work with your existing designs, integrate with
-              current systems, or migrate data from old platforms to new
-              solutions we develop for you.
-            </p>
+        <!-- Client Logo Marquee -->
+        <div class="client-marquee-container">
+          <div class="client-marquee">
+            <!-- Client logos will be populated by JavaScript -->
           </div>
         </div>
+
+        <div class="text-center" style="margin-top: 40px">
+          <p>And many more satisfied clients...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Google Reviews -->
+    <section class="section-padding bg-light">
+      <div class="container">
+        <div class="section-title">
+          <h2>What Our Clients Say</h2>
+          <p>Read reviews from our satisfied customers</p>
+        </div>
+
+        <div class="reviews-grid">
+          <!-- Reviews will be populated by JavaScript -->
+        </div>
+
+        <div class="text-center" style="margin-top: 40px">
+          <a
+            href="https://g.page/r/CftNF6rwIo0IEBM/review"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn"
+          >
+            <i class="fab fa-google"></i> Write a Review on Google
+          </a>
+          <a
+            href="https://g.page/r/CftNF6rwIo0IEBM/review"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-secondary"
+            style="margin-left: 15px"
+          >
+            <i class="fas fa-star"></i> Read More Reviews
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="container">
+        <h2>Need a Custom Solution?</h2>
+        <p>
+          Contact us for a personalized quote tailored to your specific business
+          requirements.
+        </p>
+        <a href="contact.html" class="btn btn-secondary"
+          >Request Custom Quote</a
+        >
       </div>
     </section>
 
     <!-- Footer -->
     <footer id="main-footer"></footer>
 
-    <!-- Scripts - MUST BE IN THIS ORDER -->
+    <!-- Scripts -->
     <script src="js/config.js"></script>
     <script src="js/script.js"></script>
 
-    <!-- Contact Form Handler -->
+    <!-- Cookie Consent Script -->
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const contactForm = document.getElementById("contactForm");
-        const submitBtn = document.getElementById("submitBtn");
-        const btnText = submitBtn.querySelector(".btn-text");
-        const spinner = submitBtn.querySelector(".spinner");
-        const formResponse = document.getElementById("formResponse");
-
-        if (contactForm) {
-          // Handle form submission
-          contactForm.addEventListener("submit", async function (e) {
-            e.preventDefault();
-
-            // Show loading spinner
-            btnText.style.display = "none";
-            spinner.style.display = "inline-block";
-            submitBtn.disabled = true;
-
-            // Clear previous response
-            formResponse.style.display = "none";
-            formResponse.className = "response-message";
-            formResponse.innerHTML = "";
-
-            try {
-              // Formspree AJAX submission
-              const formData = new FormData(contactForm);
-              const response = await fetch(contactForm.action, {
-                method: "POST",
-                body: formData,
-                headers: {
-                  Accept: "application/json",
-                },
-              });
-
-              if (response.ok) {
-                // Success
-                formResponse.innerHTML = `
-                  <div class="success-message">
-                    <i class="fas fa-check-circle"></i>
-                    <h4>Thank You!</h4>
-                    <p>Your message has been sent successfully. We'll get back to you within 24 hours.</p>
-                    <p>You will receive a confirmation email shortly.</p>
-                  </div>
-                `;
-                formResponse.classList.add("success");
-                formResponse.style.display = "block";
-
-                // Reset form
-                contactForm.reset();
-
-                // Scroll to response
-                formResponse.scrollIntoView({
-                  behavior: "smooth",
-                  block: "nearest",
-                });
-
-                // Log to console (for debugging)
-                console.log("Form submitted successfully to Formspree");
-              } else {
-                throw new Error("Form submission failed");
-              }
-            } catch (error) {
-              // Error handling
-              console.error("Form submission error:", error);
-
-              formResponse.innerHTML = `
-                <div class="error-message">
-                  <i class="fas fa-exclamation-circle"></i>
-                  <h4>Oops! Something went wrong</h4>
-                  <p>There was an error sending your message. Please try again or contact us directly at <a href="mailto:info@tooraflex.co.za">info@tooraflex.co.za</a>.</p>
-                  <p>Error: ${error.message}</p>
-                </div>
-              `;
-              formResponse.classList.add("error");
-              formResponse.style.display = "block";
-
-              // Scroll to error
-              formResponse.scrollIntoView({
-                behavior: "smooth",
-                block: "nearest",
-              });
-            } finally {
-              // Hide spinner and re-enable button
-              btnText.style.display = "inline-block";
-              spinner.style.display = "none";
-              submitBtn.disabled = false;
-            }
-          });
-        }
-
-        // Initialize cookie consent
-        initCookieConsent();
-      });
-
       // Cookie Consent Functionality
       function initCookieConsent() {
         const cookieConsent = document.getElementById("cookie-consent");
@@ -560,6 +548,11 @@
           console.log("Cookies declined");
         });
       }
+
+      // Initialize on page load
+      document.addEventListener("DOMContentLoaded", function () {
+        initCookieConsent();
+      });
     </script>
   </body>
 </html>
