@@ -679,6 +679,7 @@ const Components = {
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="services.html">Services & Products</a></li>
+          <li><a href="ecommerce.html">E-Commerce</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="contact.html" class="btn">Get Quote</a></li>
