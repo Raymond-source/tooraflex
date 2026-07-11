@@ -1,0 +1,954 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Multi‑Tenant Platform · Tooraflex</title>
+    <meta
+      name="description"
+      content="Launch your branded eCommerce store with hosting, email, and analytics included. Multi-tenant platform for South African entrepreneurs."
+    />
+
+    <!-- Stylesheets (original CSS kept) -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/whatsapp-float.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="images/logo/logo.ico" />
+
+    <style>
+      /* keep original style.css, only add minimal adjustments for pricing cards */
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+      }
+      .pricing-card {
+        background: white;
+        border-radius: 12px;
+        padding: 30px 24px 28px;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        border: 1px solid #eef2f7;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        height: 100%;
+      }
+      .pricing-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        border-color: #cddefa;
+      }
+      .pricing-card .plan-badge {
+        position: absolute;
+        top: -10px;
+        right: 20px;
+        background: var(--primary);
+        color: white;
+        padding: 4px 16px;
+        border-radius: 40px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+      }
+      .pricing-card .plan-badge.green {
+        background: #0c8c6e;
+      }
+      .pricing-card .plan-badge.purple {
+        background: #6b3fa0;
+      }
+      .pricing-card .plan-icon {
+        font-size: 2.2rem;
+        margin-bottom: 12px;
+        color: var(--primary);
+        background: rgba(42, 91, 215, 0.08);
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 18px;
+      }
+      .pricing-card.starter .plan-icon {
+        background: #dff0e8;
+        color: #0b7a5e;
+      }
+      .pricing-card.growth .plan-icon {
+        background: #eee5f7;
+        color: #6b3fa0;
+      }
+      .pricing-card h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 6px 0 2px;
+      }
+      .pricing-card .price {
+        font-size: 2.2rem;
+        font-weight: 800;
+        margin: 12px 0 16px;
+        color: #0b1f32;
+      }
+      .pricing-card .price small {
+        font-size: 1rem;
+        font-weight: 500;
+        color: #64748b;
+        margin-left: 4px;
+      }
+      .pricing-card .feature-list {
+        list-style: none;
+        margin: 6px 0 18px;
+        flex: 1;
+      }
+      .pricing-card .feature-list li {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 8px 0;
+        font-size: 0.95rem;
+        border-bottom: 1px solid #f0f5fc;
+      }
+      .pricing-card .feature-list li:last-child {
+        border-bottom: 0;
+      }
+      .pricing-card .feature-list i {
+        color: var(--primary);
+        font-size: 1rem;
+        width: 20px;
+        text-align: center;
+      }
+      .pricing-card.starter .feature-list i {
+        color: #0b7a5e;
+      }
+      .pricing-card.growth .feature-list i {
+        color: #6b3fa0;
+      }
+      .btn-plan {
+        background: #0b1f32;
+        color: white;
+        border: none;
+        padding: 14px 12px;
+        border-radius: 60px;
+        font-weight: 700;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: 0.2s;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 6px;
+        width: 100%;
+      }
+      .btn-plan:hover {
+        background: var(--primary);
+        transform: scale(1.01);
+        box-shadow: 0 8px 18px #0047ab30;
+      }
+      .pricing-card.starter .btn-plan {
+        background: #0c8c6e;
+      }
+      .pricing-card.starter .btn-plan:hover {
+        background: #0a7a5e;
+      }
+      .pricing-card.growth .btn-plan {
+        background: #6b3fa0;
+      }
+      .pricing-card.growth .btn-plan:hover {
+        background: #563282;
+      }
+
+      .brand-highlight {
+        background: #eaf1fd;
+        border-radius: 60px;
+        padding: 12px 24px;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        margin: 32px 0 8px;
+        font-weight: 500;
+        color: #00337a;
+      }
+      .brand-highlight i {
+        font-size: 1.2rem;
+      }
+
+      .tenant-note {
+        background: white;
+        border-radius: 28px;
+        padding: 24px 28px;
+        margin-top: 40px;
+        border: 1px solid #e5effa;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .tenant-note p {
+        font-size: 1rem;
+        font-weight: 500;
+        color: #14324d;
+        margin: 0;
+      }
+      .tenant-note i {
+        color: var(--primary);
+        margin-right: 10px;
+      }
+      .tenant-note .badge-cta {
+        background: #0b1f32;
+        color: white;
+        padding: 8px 28px;
+        border-radius: 40px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: 0.2s;
+        white-space: nowrap;
+      }
+      .tenant-note .badge-cta:hover {
+        background: var(--primary);
+      }
+
+      /* Client Logo Marquee - Right to Left with clickable images */
+      .client-logo-marquee {
+        margin: 32px 0 16px;
+        padding: 20px 0;
+        background: white;
+        border-radius: 20px;
+        border: 1px solid #eef2f7;
+        overflow: hidden;
+        position: relative;
+      }
+      .client-logo-marquee::before,
+      .client-logo-marquee::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 80px;
+        height: 100%;
+        z-index: 2;
+        pointer-events: none;
+      }
+      .client-logo-marquee::before {
+        left: 0;
+        background: linear-gradient(to right, white, transparent);
+      }
+      .client-logo-marquee::after {
+        right: 0;
+        background: linear-gradient(to left, white, transparent);
+      }
+      .marquee-track {
+        display: flex;
+        gap: 40px;
+        width: max-content;
+        animation: scrollRightToLeft 50s linear infinite; /* Slower speed */
+        will-change: transform;
+      }
+      .marquee-track:hover {
+        animation-play-state: paused;
+      }
+      .marquee-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        flex-shrink: 0;
+        background: #f8faff;
+        padding: 8px 24px 8px 12px;
+        border-radius: 60px;
+        border: 1px solid #eef2f7;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .marquee-item:hover {
+        background: white;
+        border-color: var(--primary);
+        box-shadow: 0 4px 20px rgba(42, 91, 215, 0.12);
+        transform: scale(1.04);
+      }
+      .marquee-item .store-logo {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #eef2f7;
+        transition: all 0.3s ease;
+        flex-shrink: 0;
+        background: white;
+      }
+      .marquee-item:hover .store-logo {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(42, 91, 215, 0.15);
+      }
+      .marquee-item .store-name {
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: #1a2a44;
+        letter-spacing: -0.01em;
+      }
+      .marquee-item .store-badge {
+        font-size: 0.65rem;
+        background: rgba(42, 91, 215, 0.08);
+        color: var(--primary);
+        padding: 2px 12px;
+        border-radius: 20px;
+        font-weight: 600;
+      }
+      .marquee-item .visit-icon {
+        color: var(--primary);
+        font-size: 0.8rem;
+        opacity: 0;
+        transition: all 0.3s ease;
+        margin-left: 4px;
+      }
+      .marquee-item:hover .visit-icon {
+        opacity: 1;
+        transform: translateX(4px);
+      }
+
+      @keyframes scrollRightToLeft {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      @media (max-width: 640px) {
+        .pricing-card {
+          padding: 24px 18px;
+        }
+        .tenant-note {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .brand-highlight {
+          flex-wrap: wrap;
+        }
+        .marquee-item {
+          padding: 6px 14px 6px 8px;
+          gap: 8px;
+        }
+        .marquee-item .store-logo {
+          width: 32px;
+          height: 32px;
+        }
+        .marquee-item .store-name {
+          font-size: 0.75rem;
+        }
+        .marquee-item .store-badge {
+          font-size: 0.55rem;
+          padding: 1px 8px;
+        }
+        .marquee-item .visit-icon {
+          display: none;
+        }
+        .client-logo-marquee::before,
+        .client-logo-marquee::after {
+          width: 40px;
+        }
+        .marquee-track {
+          gap: 20px;
+        }
+        .client-logo-marquee {
+          padding: 12px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-consent" class="cookie-consent">
+      <div class="cookie-content">
+        <div class="cookie-text">
+          <h3><i class="fas fa-cookie-bite"></i> Cookie Consent</h3>
+          <p>
+            We use cookies to improve your experience. By clicking "Accept All",
+            you agree to the use of all cookies as per POPIA.
+            <a href="privacy.html" class="cookie-link">Learn more</a>.
+          </p>
+        </div>
+        <div class="cookie-buttons">
+          <button id="cookie-accept-all" class="btn cookie-btn accept-btn">
+            <i class="fas fa-check"></i> Accept All
+          </button>
+          <button id="cookie-necessary" class="btn cookie-btn necessary-btn">
+            <i class="fas fa-cog"></i> Necessary Only
+          </button>
+          <button id="cookie-decline" class="btn cookie-btn decline-btn">
+            <i class="fas fa-times"></i> Decline
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="whatsapp-float" id="whatsapp-float"></div>
+
+    <!-- Header -->
+    <header id="main-header">
+      <div class="header-container container">
+        <a href="index.html" class="logo" aria-label="Tooraflex Home">
+          <img
+            src="images/logo/logo.svg"
+            alt="Tooraflex Logo"
+            class="logo-img"
+          />
+          <span class="logo-text">Toora<span>flex</span></span>
+        </a>
+
+        <button
+          class="mobile-menu-btn"
+          id="mobileMenuBtn"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li>
+            <a
+              href="platform.html"
+              style="color: var(--primary); font-weight: 600"
+              >Platform</a
+            >
+          </li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" class="btn">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section
+      class="hero"
+      style="
+        padding: 60px 0;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      "
+    >
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1>
+              Your store, <span>your brand.</span><br />Multi‑tenant eCommerce.
+            </h1>
+            <p>
+              Launch a professionally branded online store with hosting, email,
+              and analytics — all in one platform. Every store is uniquely
+              yours.
+            </p>
+            <div class="hero-buttons">
+              <a href="#pricing" class="btn">View Plans</a>
+              <a href="contact.html" class="btn btn-secondary">Contact Sales</a>
+            </div>
+          </div>
+          <div class="hero-image">
+            <img
+              src="images/hero-image.svg"
+              alt="Multi-tenant platform illustration"
+              style="width: 100%; max-width: 500px; border-radius: 12px"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Platform Pricing Section -->
+    <section class="section-padding" id="pricing">
+      <div class="container">
+        <div class="section-title">
+          <h2>Choose your plan</h2>
+          <p>
+            Start selling online with a secure, professional eCommerce store
+            built for your business.
+          </p>
+        </div>
+
+        <div class="brand-highlight">
+          <i class="fas fa-store-alt"></i> Every store is professionally branded
+          with your own logo, colours, and business information.
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Basic Plan – R199 -->
+          <div class="pricing-card">
+            <span class="plan-badge">Essential</span>
+            <div class="plan-icon"><i class="fas fa-seedling"></i></div>
+            <h3>Basic</h3>
+            <div class="price">R199 <small>/ month</small></div>
+            <ul class="feature-list">
+              <li><i class="fas fa-check-circle"></i> Up to 50 Products</li>
+              <li><i class="fas fa-check-circle"></i> Hosting Included</li>
+              <li><i class="fas fa-check-circle"></i> Mobile-Friendly Store</li>
+              <li>
+                <i class="fas fa-check-circle"></i> Your Logo &amp; Brand
+                Colours
+              </li>
+            </ul>
+            <a href="#" class="btn-plan">Start with Basic</a>
+          </div>
+
+          <!-- Starter Plan – R499 -->
+          <div class="pricing-card starter">
+            <span class="plan-badge green">Popular</span>
+            <div class="plan-icon"><i class="fas fa-rocket"></i></div>
+            <h3>Starter</h3>
+            <div class="price">R499 <small>/ month</small></div>
+            <ul class="feature-list">
+              <li><i class="fas fa-check-circle"></i> 100–200 Products</li>
+              <li><i class="fas fa-check-circle"></i> 1 Professional Email</li>
+              <li>
+                <i class="fas fa-check-circle"></i> <strong>FREE</strong> Domain
+              </li>
+              <li><i class="fas fa-check-circle"></i> Hosting Included</li>
+              <li>
+                <i class="fas fa-check-circle"></i> Your Logo &amp; Brand
+                Colours
+              </li>
+            </ul>
+            <a href="#" class="btn-plan">Choose Starter</a>
+          </div>
+
+          <!-- Growth Plan – R799 -->
+          <div class="pricing-card growth">
+            <span class="plan-badge purple">Advanced</span>
+            <div class="plan-icon"><i class="fas fa-chart-simple"></i></div>
+            <h3>Growth</h3>
+            <div class="price">R799 <small>/ month</small></div>
+            <ul class="feature-list">
+              <li><i class="fas fa-check-circle"></i> Up to 500 Products</li>
+              <li><i class="fas fa-check-circle"></i> 3 Professional Emails</li>
+              <li>
+                <i class="fas fa-check-circle"></i> <strong>FREE</strong> Domain
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> Advanced Analytics &amp;
+                Promotions
+              </li>
+              <li><i class="fas fa-check-circle"></i> Hosting Included</li>
+              <li>
+                <i class="fas fa-check-circle"></i> Your Logo &amp; Brand
+                Colours
+              </li>
+            </ul>
+            <a href="#" class="btn-plan">Go Growth</a>
+          </div>
+        </div>
+
+        <!-- Tenant Note with Right-to-Left Logo Marquee below it -->
+        <div class="tenant-note">
+          <p>
+            <i class="fas fa-check-circle" style="color: #0b7a5e"></i>
+            <strong>✨ Every store is professionally branded</strong> — your
+            logo, colours, and business information. Start selling online with a
+            secure, professional eCommerce store built for your business.
+          </p>
+          <a href="contact.html" class="badge-cta">Get started</a>
+        </div>
+
+        <!-- Professional Right-to-Left Client Logo Marquee with clickable images -->
+        <div class="client-logo-marquee">
+          <div class="marquee-track">
+            <!-- Client 1 - Afro Chic -->
+            <a
+              href="www.terraflex.co.za"
+              target="_blank"
+              class="marquee-item"
+              title="Visit Afro Chic Store"
+            >
+              <img
+                src="https://placehold.co/200x200/1a4a6e/white?text=AC"
+                alt="Afro Chic"
+                class="store-logo"
+              />
+              <span class="store-name">Afro Chic</span>
+              <span class="store-badge">Growth</span>
+              <i class="fas fa-arrow-right visit-icon"></i>
+            </a>
+
+            <!-- Client 2 - Green Market -->
+            <a
+              href="#"
+              target="_blank"
+              class="marquee-item"
+              title="Visit Green Market Store"
+            >
+              <img
+                src="https://placehold.co/200x200/0c8c6e/white?text=GM"
+                alt="Green Market"
+                class="store-logo"
+              />
+              <span class="store-name">Green Market</span>
+              <span class="store-badge">Starter</span>
+              <i class="fas fa-arrow-right visit-icon"></i>
+            </a>
+
+            <!-- Client 3 - Tech Hive -->
+            <a
+              href="#"
+              target="_blank"
+              class="marquee-item"
+              title="Visit Tech Hive Store"
+            >
+              <img
+                src="https://placehold.co/200x200/6b3fa0/white?text=TH"
+                alt="Tech Hive"
+                class="store-logo"
+              />
+              <span class="store-name">Tech Hive</span>
+              <span class="store-badge">Growth</span>
+              <i class="fas fa-arrow-right visit-icon"></i>
+            </a>
+
+            <!-- Client 4 - Home Essentials -->
+            <a
+              href="#"
+              target="_blank"
+              class="marquee-item"
+              title="Visit Home Essentials Store"
+            >
+              <img
+                src="https://placehold.co/200x200/2a5bd7/white?text=HE"
+                alt="Home Essentials"
+                class="store-logo"
+              />
+              <span class="store-name">Home Essentials</span>
+              <span class="store-badge">Basic</span>
+              <i class="fas fa-arrow-right visit-icon"></i>
+            </a>
+
+            <!-- Client 5 - Fit Life -->
+            <a
+              href="#"
+              target="_blank"
+              class="marquee-item"
+              title="Visit Fit Life Store"
+            >
+              <img
+                src="https://placehold.co/200x200/d45d2a/white?text=FL"
+                alt="Fit Life"
+                class="store-logo"
+              />
+              <span class="store-name">Fit Life SA</span>
+              <span class="store-badge">Starter</span>
+              <i class="fas fa-arrow-right visit-icon"></i>
+            </a>
+
+            <!-- Client 6 - Pet Paradise -->
+            <a
+              href="#"
+              target="_blank"
+              class="marquee-item"
+              title="Visit Pet Paradise Store"
+            >
+              <img
+                src="https://placehold.co/200x200/2d8f6f/white?text=PP"
+                alt="Pet Paradise"
+                class="store-logo"
+              />
+              <span class="store-name">Pet Paradise</span>
+              <span class="store-badge">Growth</span>
+              <i class="fas fa-arrow-right visit-icon"></i>
+            </a>
+
+            <!-- Client 7 - Urban Threads -->
+            <a
+              href="#"
+              target="_blank"
+              class="marquee-item"
+              title="Visit Urban Threads Store"
+            >
+              <img
+                src="https://placehold.co/200x200/c0392b/white?text=UT"
+                alt="Urban Threads"
+                class="store-logo"
+              />
+              <span class="store-name">Urban Threads</span>
+              <span class="store-badge">Starter</span>
+              <i class="fas fa-arrow-right visit-icon"></i>
+            </a>
+
+            <!-- Client 8 - Fresh Bites -->
+            <a
+              href="#"
+              target="_blank"
+              class="marquee-item"
+              title="Visit Fresh Bites Store"
+            >
+              <img
+                src="https://placehold.co/200x200/e67e22/white?text=FB"
+                alt="Fresh Bites"
+                class="store-logo"
+              />
+              <span class="store-name">Fresh Bites</span>
+              <span class="store-badge">Basic</span>
+              <i class="fas fa-arrow-right visit-icon"></i>
+            </a>
+
+            <!-- Duplicate for seamless loop -->
+            <a
+              href="#"
+              target="_blank"
+              class="marquee-item"
+              title="Visit Afro Chic Store"
+            >
+              <img
+                src="https://placehold.co/200x200/1a4a6e/white?text=AC"
+                alt="Afro Chic"
+                class="store-logo"
+              />
+              <span class="store-name">Afro Chic</span>
+              <span class="store-badge">Growth</span>
+              <i class="fas fa-arrow-right visit-icon"></i>
+            </a>
+            <a
+              href="#"
+              target="_blank"
+              class="marquee-item"
+              title="Visit Green Market Store"
+            >
+              <img
+                src="https://placehold.co/200x200/0c8c6e/white?text=GM"
+                alt="Green Market"
+                class="store-logo"
+              />
+              <span class="store-name">Green Market</span>
+              <span class="store-badge">Starter</span>
+              <i class="fas fa-arrow-right visit-icon"></i>
+            </a>
+            <a
+              href="#"
+              target="_blank"
+              class="marquee-item"
+              title="Visit Tech Hive Store"
+            >
+              <img
+                src="https://placehold.co/200x200/6b3fa0/white?text=TH"
+                alt="Tech Hive"
+                class="store-logo"
+              />
+              <span class="store-name">Tech Hive</span>
+              <span class="store-badge">Growth</span>
+              <i class="fas fa-arrow-right visit-icon"></i>
+            </a>
+            <a
+              href="#"
+              target="_blank"
+              class="marquee-item"
+              title="Visit Home Essentials Store"
+            >
+              <img
+                src="https://placehold.co/200x200/2a5bd7/white?text=HE"
+                alt="Home Essentials"
+                class="store-logo"
+              />
+              <span class="store-name">Home Essentials</span>
+              <span class="store-badge">Basic</span>
+              <i class="fas fa-arrow-right visit-icon"></i>
+            </a>
+            <a
+              href="#"
+              target="_blank"
+              class="marquee-item"
+              title="Visit Fit Life Store"
+            >
+              <img
+                src="https://placehold.co/200x200/d45d2a/white?text=FL"
+                alt="Fit Life"
+                class="store-logo"
+              />
+              <span class="store-name">Fit Life SA</span>
+              <span class="store-badge">Starter</span>
+              <i class="fas fa-arrow-right visit-icon"></i>
+            </a>
+            <a
+              href="#"
+              target="_blank"
+              class="marquee-item"
+              title="Visit Pet Paradise Store"
+            >
+              <img
+                src="https://placehold.co/200x200/2d8f6f/white?text=PP"
+                alt="Pet Paradise"
+                class="store-logo"
+              />
+              <span class="store-name">Pet Paradise</span>
+              <span class="store-badge">Growth</span>
+              <i class="fas fa-arrow-right visit-icon"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+      <div class="container">
+        <h2>Ready to launch your branded store?</h2>
+        <p>
+          Join the growing community of South African entrepreneurs who trust us
+          to power their online business.
+        </p>
+        <a
+          href="contact.html"
+          class="btn btn-secondary"
+          style="background: white; color: var(--primary)"
+          >Contact us today</a
+        >
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="main-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-col">
+            <h3>Tooraflex</h3>
+            <p style="color: #aaa; font-size: 0.9rem; line-height: 1.7">
+              Digital solutions for South African businesses. We build websites,
+              apps, and analytics that drive growth.
+            </p>
+            <div class="social-links">
+              <a href="#" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="#" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="products.html">Products</a></li>
+              <li><a href="platform.html">Platform</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Contact</h3>
+            <ul class="footer-links">
+              <li>
+                <a href="mailto:info@tooraflex.co.za"
+                  ><i class="fas fa-envelope" style="margin-right: 8px"></i>
+                  info@tooraflex.co.za</a
+                >
+              </li>
+              <li>
+                <a href="tel:+27123456789"
+                  ><i class="fas fa-phone" style="margin-right: 8px"></i> +27 12
+                  345 6789</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i
+                    class="fas fa-map-marker-alt"
+                    style="margin-right: 8px"
+                  ></i>
+                  Pretoria, South Africa</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>
+            &copy; 2026
+            <a href="index.html" class="tooraflex-name">
+              <span class="terra-part">Toora</span
+              ><span class="flex-part">flex</span>
+            </a>
+            All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/script.js"></script>
+
+    <!-- Cookie & mobile menu -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Cookie consent
+        const cookieConsent = document.getElementById("cookie-consent");
+        const acceptAll = document.getElementById("cookie-accept-all");
+        const necessary = document.getElementById("cookie-necessary");
+        const decline = document.getElementById("cookie-decline");
+
+        if (cookieConsent && !localStorage.getItem("cookieConsent")) {
+          setTimeout(() => cookieConsent.classList.add("show"), 1500);
+        } else if (cookieConsent && localStorage.getItem("cookieConsent")) {
+          cookieConsent.style.display = "none";
+        }
+
+        if (acceptAll) {
+          acceptAll.addEventListener("click", () => {
+            localStorage.setItem("cookieConsent", "all");
+            cookieConsent.classList.remove("show");
+            setTimeout(() => (cookieConsent.style.display = "none"), 300);
+          });
+        }
+        if (necessary) {
+          necessary.addEventListener("click", () => {
+            localStorage.setItem("cookieConsent", "necessary");
+            cookieConsent.classList.remove("show");
+            setTimeout(() => (cookieConsent.style.display = "none"), 300);
+          });
+        }
+        if (decline) {
+          decline.addEventListener("click", () => {
+            localStorage.setItem("cookieConsent", "declined");
+            cookieConsent.classList.remove("show");
+            setTimeout(() => (cookieConsent.style.display = "none"), 300);
+          });
+        }
+
+        // Mobile menu toggle
+        const mobileBtn = document.getElementById("mobileMenuBtn");
+        const navLinks = document.getElementById("navLinks");
+        if (mobileBtn && navLinks) {
+          mobileBtn.addEventListener("click", function () {
+            navLinks.classList.toggle("active");
+            const icon = this.querySelector("i");
+            if (icon) {
+              icon.classList.toggle("fa-bars");
+              icon.classList.toggle("fa-times");
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
