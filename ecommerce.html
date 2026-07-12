@@ -1,34 +1,220 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Google Analytics (replace G-XXXXXXXXXX) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-XXXXXXXXXX");
+    </script>
+
     <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     />
-    <title>Multi‑Tenant Platform · Tooraflex</title>
+    <title>Toora Flex | Multi‑Tenant Platform · Smart Digital Solutions</title>
     <meta
       name="description"
       content="Launch your branded eCommerce store with hosting, email, and analytics included. Multi-tenant platform for South African entrepreneurs."
     />
+    <link rel="canonical" href="https://www.tooraflex.co.za/platform" />
+    <meta property="og:title" content="Toora Flex - Multi‑Tenant Platform" />
+    <meta
+      property="og:description"
+      content="Launch your branded eCommerce store with hosting, email, and analytics. Every store is uniquely yours."
+    />
+    <meta property="og:url" content="https://www.tooraflex.co.za/platform" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://www.tooraflex.co.za/images/logo/logo.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- Stylesheets (original CSS kept) -->
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/whatsapp-float.css" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/images/logo/logo.ico" />
+    <link rel="apple-touch-icon" href="/images/logo/apple-touch-icon.png" />
+
+    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" type="image/x-icon" href="images/logo/logo.ico" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/whatsapp-float.css" />
 
     <style>
-      /* keep original style.css, only add minimal adjustments for pricing cards */
+      /* ----- Hero Slideshow (from homepage) ----- */
+      .hero-slideshow {
+        position: relative;
+        width: 100%;
+        min-height: 650px;
+        overflow: hidden;
+        background: #0a1f44;
+      }
+      .slideshow-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+      }
+      .hero-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0;
+        transform: scale(1.08);
+        transition:
+          opacity 1.2s ease-in-out,
+          transform 8s ease-out;
+        will-change: transform, opacity;
+      }
+      .hero-slide.active {
+        opacity: 1;
+        transform: scale(1);
+        z-index: 1;
+      }
+      .slideshow-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(10, 31, 68, 0.85) 0%,
+          rgba(42, 91, 215, 0.75) 100%
+        );
+        z-index: 2;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 3;
+        padding: 80px 0 100px;
+        min-height: 650px;
+        display: flex;
+        align-items: center;
+      }
+      .hero-badge {
+        display: inline-block;
+        background: rgba(0, 201, 156, 0.15);
+        color: #00c99c;
+        padding: 6px 16px;
+        border-radius: 30px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        margin-bottom: 1.5rem;
+      }
+      .hero-content h1 {
+        font-size: 3.5rem;
+        color: white;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+      .hero-content h1 span {
+        color: #00c99c;
+      }
+      .hero-subtitle {
+        font-size: 1.3rem;
+        color: rgba(255, 255, 255, 0.9);
+        max-width: 600px;
+        margin-bottom: 2rem;
+      }
+      .hero-buttons {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-bottom: 3rem;
+      }
+      .btn-primary {
+        background: #00c99c;
+        color: #1a1d28;
+        padding: 14px 32px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .btn-primary:hover {
+        background: #00b087;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(0, 201, 156, 0.3);
+      }
+      .btn-outline {
+        background: transparent;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .btn-outline:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: white;
+        transform: translateY(-3px);
+      }
+      .hero-stats {
+        display: flex;
+        gap: 3rem;
+        flex-wrap: wrap;
+      }
+      .stat-item h3 {
+        font-size: 2rem;
+        color: white;
+        margin-bottom: 0;
+      }
+      .stat-item p {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+      }
+      .slide-dots-hero {
+        position: absolute;
+        bottom: 30px;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        z-index: 4;
+      }
+      .slide-dot-hero {
+        width: 10px;
+        height: 10px;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .slide-dot-hero.active {
+        width: 28px;
+        background: #00c99c;
+        border-radius: 12px;
+      }
+
+      /* ----- pricing cards (from platform page) ----- */
       .pricing-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -39,8 +225,8 @@
         background: white;
         border-radius: 12px;
         padding: 30px 24px 28px;
-        box-shadow: var(--shadow);
-        transition: var(--transition);
+        box-shadow: var(--shadow, 0 4px 20px rgba(0, 0, 0, 0.05));
+        transition: var(--transition, 0.3s ease);
         border: 1px solid #eef2f7;
         display: flex;
         flex-direction: column;
@@ -56,7 +242,7 @@
         position: absolute;
         top: -10px;
         right: 20px;
-        background: var(--primary);
+        background: #2a5bd7;
         color: white;
         padding: 4px 16px;
         border-radius: 40px;
@@ -74,7 +260,7 @@
       .pricing-card .plan-icon {
         font-size: 2.2rem;
         margin-bottom: 12px;
-        color: var(--primary);
+        color: #2a5bd7;
         background: rgba(42, 91, 215, 0.08);
         width: 60px;
         height: 60px;
@@ -125,7 +311,7 @@
         border-bottom: 0;
       }
       .pricing-card .feature-list i {
-        color: var(--primary);
+        color: #2a5bd7;
         font-size: 1rem;
         width: 20px;
         text-align: center;
@@ -153,7 +339,7 @@
         width: 100%;
       }
       .btn-plan:hover {
-        background: var(--primary);
+        background: #2a5bd7;
         transform: scale(1.01);
         box-shadow: 0 8px 18px #0047ab30;
       }
@@ -204,7 +390,7 @@
         margin: 0;
       }
       .tenant-note i {
-        color: var(--primary);
+        color: #2a5bd7;
         margin-right: 10px;
       }
       .tenant-note .badge-cta {
@@ -219,10 +405,10 @@
         white-space: nowrap;
       }
       .tenant-note .badge-cta:hover {
-        background: var(--primary);
+        background: #2a5bd7;
       }
 
-      /* Client Logo Marquee - Right to Left with clickable images */
+      /* client logo marquee (right-to-left) */
       .client-logo-marquee {
         margin: 32px 0 16px;
         padding: 20px 0;
@@ -254,7 +440,7 @@
         display: flex;
         gap: 40px;
         width: max-content;
-        animation: scrollRightToLeft 50s linear infinite; /* Slower speed */
+        animation: scrollRightToLeft 50s linear infinite;
         will-change: transform;
       }
       .marquee-track:hover {
@@ -277,7 +463,7 @@
       }
       .marquee-item:hover {
         background: white;
-        border-color: var(--primary);
+        border-color: #2a5bd7;
         box-shadow: 0 4px 20px rgba(42, 91, 215, 0.12);
         transform: scale(1.04);
       }
@@ -292,25 +478,24 @@
         background: white;
       }
       .marquee-item:hover .store-logo {
-        border-color: var(--primary);
+        border-color: #2a5bd7;
         box-shadow: 0 0 0 3px rgba(42, 91, 215, 0.15);
       }
       .marquee-item .store-name {
         font-weight: 600;
         font-size: 0.9rem;
         color: #1a2a44;
-        letter-spacing: -0.01em;
       }
       .marquee-item .store-badge {
         font-size: 0.65rem;
         background: rgba(42, 91, 215, 0.08);
-        color: var(--primary);
+        color: #2a5bd7;
         padding: 2px 12px;
         border-radius: 20px;
         font-weight: 600;
       }
       .marquee-item .visit-icon {
-        color: var(--primary);
+        color: #2a5bd7;
         font-size: 0.8rem;
         opacity: 0;
         transition: all 0.3s ease;
@@ -370,6 +555,31 @@
           padding: 12px 0;
         }
       }
+
+      @media (max-width: 768px) {
+        .hero-content {
+          padding: 50px 0 70px;
+          min-height: 550px;
+        }
+        .hero-content h1 {
+          font-size: 2.2rem;
+        }
+        .hero-subtitle {
+          font-size: 1rem;
+        }
+        .hero-buttons {
+          flex-direction: column;
+        }
+        .hero-buttons .btn-primary,
+        .hero-buttons .btn-outline {
+          text-align: center;
+          justify-content: center;
+        }
+        .hero-stats {
+          justify-content: center;
+          text-align: center;
+        }
+      }
     </style>
   </head>
   <body>
@@ -379,8 +589,8 @@
         <div class="cookie-text">
           <h3><i class="fas fa-cookie-bite"></i> Cookie Consent</h3>
           <p>
-            We use cookies to improve your experience. By clicking "Accept All",
-            you agree to the use of all cookies as per POPIA.
+            We use cookies to improve your experience on our site. By clicking
+            "Accept All", you agree to the use of all cookies as per POPIA.
             <a href="privacy.html" class="cookie-link">Learn more</a>.
           </p>
         </div>
@@ -401,73 +611,47 @@
     <!-- Floating WhatsApp Button -->
     <div class="whatsapp-float" id="whatsapp-float"></div>
 
-    <!-- Header -->
-    <header id="main-header">
-      <div class="header-container container">
-        <a href="index.html" class="logo" aria-label="Tooraflex Home">
-          <img
-            src="images/logo/logo.svg"
-            alt="Tooraflex Logo"
-            class="logo-img"
-          />
-          <span class="logo-text">Toora<span>flex</span></span>
-        </a>
+    <!-- Header (loaded dynamically by script.js) -->
+    <header id="main-header"></header>
 
-        <button
-          class="mobile-menu-btn"
-          id="mobileMenuBtn"
-          aria-label="Toggle navigation"
-        >
-          <i class="fas fa-bars"></i>
-        </button>
-
-        <ul class="nav-links" id="navLinks">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="products.html">Products</a></li>
-          <li>
-            <a
-              href="platform.html"
-              style="color: var(--primary); font-weight: 600"
-              >Platform</a
-            >
-          </li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html" class="btn">Contact</a></li>
-        </ul>
+    <!-- Hero Section with Slideshow Background (from homepage) -->
+    <section class="hero-slideshow" id="heroSection">
+      <div class="slideshow-container" id="heroSlideshowContainer">
+        <!-- Slides injected by JavaScript -->
       </div>
-    </header>
-
-    <!-- Hero -->
-    <section
-      class="hero"
-      style="
-        padding: 60px 0;
-        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-      "
-    >
-      <div class="container">
-        <div class="hero-content">
-          <div class="hero-text">
-            <h1>
-              Your store, <span>your brand.</span><br />Multi‑tenant eCommerce.
-            </h1>
-            <p>
-              Launch a professionally branded online store with hosting, email,
-              and analytics — all in one platform. Every store is uniquely
-              yours.
-            </p>
-            <div class="hero-buttons">
-              <a href="#pricing" class="btn">View Plans</a>
-              <a href="contact.html" class="btn btn-secondary">Contact Sales</a>
-            </div>
+      <div class="slideshow-overlay"></div>
+      <div class="slide-dots-hero" id="heroSlideDots"></div>
+      <div class="hero-content">
+        <div class="container">
+          <div class="hero-badge">MULTI‑TENANT PLATFORM</div>
+          <h1 id="heroMainTitle">
+            Your store, <span>your brand.</span><br />Multi‑tenant eCommerce.
+          </h1>
+          <p class="hero-subtitle" id="heroMainDesc">
+            Launch a professionally branded online store with hosting, email,
+            and analytics — all in one platform. Every store is uniquely yours.
+          </p>
+          <div class="hero-buttons">
+            <a href="#pricing" class="btn-primary"
+              >View Plans <i class="fas fa-arrow-right"></i
+            ></a>
+            <a href="contact.html" class="btn-outline"
+              >Contact Sales <i class="fas fa-calendar-alt"></i
+            ></a>
           </div>
-          <div class="hero-image">
-            <img
-              src="images/hero-image.svg"
-              alt="Multi-tenant platform illustration"
-              style="width: 100%; max-width: 500px; border-radius: 12px"
-            />
+          <div class="hero-stats">
+            <div class="stat-item">
+              <h3>50+</h3>
+              <p>Stores Launched</p>
+            </div>
+            <div class="stat-item">
+              <h3>98%</h3>
+              <p>Client Satisfaction</p>
+            </div>
+            <div class="stat-item">
+              <h3>24/7</h3>
+              <p>Support Available</p>
+            </div>
           </div>
         </div>
       </div>
@@ -490,7 +674,7 @@
         </div>
 
         <div class="pricing-grid">
-          <!-- Basic Plan – R199 -->
+          <!-- Basic Plan -->
           <div class="pricing-card">
             <span class="plan-badge">Essential</span>
             <div class="plan-icon"><i class="fas fa-seedling"></i></div>
@@ -508,7 +692,7 @@
             <a href="#" class="btn-plan">Start with Basic</a>
           </div>
 
-          <!-- Starter Plan – R499 -->
+          <!-- Starter Plan -->
           <div class="pricing-card starter">
             <span class="plan-badge green">Popular</span>
             <div class="plan-icon"><i class="fas fa-rocket"></i></div>
@@ -529,7 +713,7 @@
             <a href="#" class="btn-plan">Choose Starter</a>
           </div>
 
-          <!-- Growth Plan – R799 -->
+          <!-- Growth Plan -->
           <div class="pricing-card growth">
             <span class="plan-badge purple">Advanced</span>
             <div class="plan-icon"><i class="fas fa-chart-simple"></i></div>
@@ -555,7 +739,7 @@
           </div>
         </div>
 
-        <!-- Tenant Note with Right-to-Left Logo Marquee below it -->
+        <!-- Tenant Note -->
         <div class="tenant-note">
           <p>
             <i class="fas fa-check-circle" style="color: #0b7a5e"></i>
@@ -566,12 +750,12 @@
           <a href="contact.html" class="badge-cta">Get started</a>
         </div>
 
-        <!-- Professional Right-to-Left Client Logo Marquee with clickable images -->
+        <!-- Client Logo Marquee -->
         <div class="client-logo-marquee">
           <div class="marquee-track">
             <!-- Client 1 - Lebaba-inware -->
             <a
-              href="https://lebaba-inware.co.za"
+              href="https://www.lebaba-inware.co.za"
               target="_blank"
               class="marquee-item"
               title="Visit Lebaba-inware Store"
@@ -585,7 +769,6 @@
               <span class="store-badge">Growth</span>
               <i class="fas fa-arrow-right visit-icon"></i>
             </a>
-
             <!-- Client 2 - Green Market -->
             <a
               href="#"
@@ -602,7 +785,6 @@
               <span class="store-badge">Starter</span>
               <i class="fas fa-arrow-right visit-icon"></i>
             </a>
-
             <!-- Client 3 - Tech Hive -->
             <a
               href="#"
@@ -619,7 +801,6 @@
               <span class="store-badge">Growth</span>
               <i class="fas fa-arrow-right visit-icon"></i>
             </a>
-
             <!-- Client 4 - Home Essentials -->
             <a
               href="#"
@@ -636,7 +817,6 @@
               <span class="store-badge">Basic</span>
               <i class="fas fa-arrow-right visit-icon"></i>
             </a>
-
             <!-- Client 5 - Fit Life -->
             <a
               href="#"
@@ -653,7 +833,6 @@
               <span class="store-badge">Starter</span>
               <i class="fas fa-arrow-right visit-icon"></i>
             </a>
-
             <!-- Client 6 - Pet Paradise -->
             <a
               href="#"
@@ -670,7 +849,6 @@
               <span class="store-badge">Growth</span>
               <i class="fas fa-arrow-right visit-icon"></i>
             </a>
-
             <!-- Client 7 - Urban Threads -->
             <a
               href="#"
@@ -687,7 +865,6 @@
               <span class="store-badge">Starter</span>
               <i class="fas fa-arrow-right visit-icon"></i>
             </a>
-
             <!-- Client 8 - Fresh Bites -->
             <a
               href="#"
@@ -704,7 +881,6 @@
               <span class="store-badge">Basic</span>
               <i class="fas fa-arrow-right visit-icon"></i>
             </a>
-
             <!-- Duplicate for seamless loop -->
             <a
               href="#"
@@ -812,143 +988,166 @@
         <a
           href="contact.html"
           class="btn btn-secondary"
-          style="background: white; color: var(--primary)"
-          >Contact us today</a
+          style="background: white; color: #2a5bd7"
         >
+          Contact us today
+        </a>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer id="main-footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-col">
-            <h3>Tooraflex</h3>
-            <p style="color: #aaa; font-size: 0.9rem; line-height: 1.7">
-              Digital solutions for South African businesses. We build websites,
-              apps, and analytics that drive growth.
-            </p>
-            <div class="social-links">
-              <a href="#" aria-label="Facebook"
-                ><i class="fab fa-facebook-f"></i
-              ></a>
-              <a href="#" aria-label="Twitter"
-                ><i class="fab fa-twitter"></i
-              ></a>
-              <a href="#" aria-label="LinkedIn"
-                ><i class="fab fa-linkedin-in"></i
-              ></a>
-              <a href="#" aria-label="Instagram"
-                ><i class="fab fa-instagram"></i
-              ></a>
-            </div>
-          </div>
-          <div class="footer-col">
-            <h3>Quick Links</h3>
-            <ul class="footer-links">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="services.html">Services</a></li>
-              <li><a href="products.html">Products</a></li>
-              <li><a href="platform.html">Platform</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="contact.html">Contact</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h3>Contact</h3>
-            <ul class="footer-links">
-              <li>
-                <a href="mailto:info@tooraflex.co.za"
-                  ><i class="fas fa-envelope" style="margin-right: 8px"></i>
-                  info@tooraflex.co.za</a
-                >
-              </li>
-              <li>
-                <a href="tel:+27123456789"
-                  ><i class="fas fa-phone" style="margin-right: 8px"></i> +27 12
-                  345 6789</a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><i
-                    class="fas fa-map-marker-alt"
-                    style="margin-right: 8px"
-                  ></i>
-                  Pretoria, South Africa</a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="copyright">
-          <p>
-            &copy; 2026
-            <a href="index.html" class="tooraflex-name">
-              <span class="terra-part">Toora</span
-              ><span class="flex-part">flex</span>
-            </a>
-            All rights reserved.
-          </p>
-        </div>
-      </div>
-    </footer>
+    <footer id="main-footer"></footer>
 
     <!-- Scripts -->
     <script src="js/config.js"></script>
     <script src="js/script.js"></script>
 
-    <!-- Cookie & mobile menu -->
+    <!-- Slideshow and additional initialization -->
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
+      (function () {
+        // Slideshow data using your existing slide images
+        const slideData = [
+          {
+            img: "images/slides/PromoSlide1.png",
+            title:
+              "Your store, <span>your brand.</span><br />Multi‑tenant eCommerce.",
+            desc: "Launch a professionally branded online store with hosting, email, and analytics — all in one platform. Every store is uniquely yours.",
+          },
+          {
+            img: "images/slides/PromoSlide2.png",
+            title: "Your Brand, <span>Your Store</span>",
+            desc: "Fully customize your storefront with your own branding, domain, and business identity.",
+          },
+          {
+            img: "images/slides/PromoSlide3.png",
+            title: "Sell More, <span>Manage Less</span>",
+            desc: "Streamline sales, appointments, inventory, and customer management in one place.",
+          },
+          {
+            img: "images/slides/PromoSlide4.png",
+            title: "Built for <span>Growing Businesses</span>",
+            desc: "A scalable e-commerce and booking solution designed to grow alongside your business.",
+          },
+          {
+            img: "images/slides/PromoSlide5.png",
+            title: "Everything You Need <span>Online</span>",
+            desc: "From online sales to appointment scheduling, manage your digital operations effortlessly.",
+          },
+        ];
+
+        let currentSlideIdx = 0;
+        let slideInterval;
+
+        function buildSlides() {
+          const container = document.getElementById("heroSlideshowContainer");
+          if (!container) return;
+          container.innerHTML = "";
+          slideData.forEach((data, idx) => {
+            const slideDiv = document.createElement("div");
+            slideDiv.className = `hero-slide ${idx === 0 ? "active" : ""}`;
+            slideDiv.style.backgroundImage = `url('${data.img}')`;
+            container.appendChild(slideDiv);
+          });
+        }
+
+        function updateContentAndDots() {
+          const titleEl = document.getElementById("heroMainTitle");
+          const descEl = document.getElementById("heroMainDesc");
+          if (titleEl) titleEl.innerHTML = slideData[currentSlideIdx].title;
+          if (descEl) descEl.innerText = slideData[currentSlideIdx].desc;
+
+          const slides = document.querySelectorAll(".hero-slide");
+          slides.forEach((slide, i) => {
+            if (i === currentSlideIdx) slide.classList.add("active");
+            else slide.classList.remove("active");
+          });
+
+          const dots = document.querySelectorAll(".slide-dot-hero");
+          dots.forEach((dot, i) => {
+            if (i === currentSlideIdx) dot.classList.add("active");
+            else dot.classList.remove("active");
+          });
+        }
+
+        function generateDots() {
+          const dotsContainer = document.getElementById("heroSlideDots");
+          if (!dotsContainer) return;
+          dotsContainer.innerHTML = "";
+          slideData.forEach((_, idx) => {
+            const dot = document.createElement("div");
+            dot.classList.add("slide-dot-hero");
+            if (idx === currentSlideIdx) dot.classList.add("active");
+            dot.addEventListener("click", () => {
+              clearInterval(slideInterval);
+              currentSlideIdx = idx;
+              updateContentAndDots();
+              startAutoSlide();
+            });
+            dotsContainer.appendChild(dot);
+          });
+        }
+
+        function nextSlide() {
+          currentSlideIdx = (currentSlideIdx + 1) % slideData.length;
+          updateContentAndDots();
+        }
+
+        function startAutoSlide() {
+          if (slideInterval) clearInterval(slideInterval);
+          slideInterval = setInterval(nextSlide, 5500);
+        }
+
         // Cookie consent
-        const cookieConsent = document.getElementById("cookie-consent");
-        const acceptAll = document.getElementById("cookie-accept-all");
-        const necessary = document.getElementById("cookie-necessary");
-        const decline = document.getElementById("cookie-decline");
+        function initCookieConsent() {
+          const cookieConsent = document.getElementById("cookie-consent");
+          const acceptAllBtn = document.getElementById("cookie-accept-all");
+          const necessaryBtn = document.getElementById("cookie-necessary");
+          const declineBtn = document.getElementById("cookie-decline");
 
-        if (cookieConsent && !localStorage.getItem("cookieConsent")) {
-          setTimeout(() => cookieConsent.classList.add("show"), 1500);
-        } else if (cookieConsent && localStorage.getItem("cookieConsent")) {
-          cookieConsent.style.display = "none";
+          if (cookieConsent && !localStorage.getItem("cookieConsent")) {
+            setTimeout(() => cookieConsent.classList.add("show"), 2000);
+          } else if (cookieConsent && localStorage.getItem("cookieConsent")) {
+            cookieConsent.style.display = "none";
+          }
+
+          if (acceptAllBtn) {
+            acceptAllBtn.addEventListener("click", () => {
+              localStorage.setItem("cookieConsent", "all");
+              cookieConsent.classList.remove("show");
+              setTimeout(() => (cookieConsent.style.display = "none"), 300);
+            });
+          }
+          if (necessaryBtn) {
+            necessaryBtn.addEventListener("click", () => {
+              localStorage.setItem("cookieConsent", "necessary");
+              cookieConsent.classList.remove("show");
+              setTimeout(() => (cookieConsent.style.display = "none"), 300);
+            });
+          }
+          if (declineBtn) {
+            declineBtn.addEventListener("click", () => {
+              localStorage.setItem("cookieConsent", "declined");
+              cookieConsent.classList.remove("show");
+              setTimeout(() => (cookieConsent.style.display = "none"), 300);
+            });
+          }
         }
 
-        if (acceptAll) {
-          acceptAll.addEventListener("click", () => {
-            localStorage.setItem("cookieConsent", "all");
-            cookieConsent.classList.remove("show");
-            setTimeout(() => (cookieConsent.style.display = "none"), 300);
-          });
-        }
-        if (necessary) {
-          necessary.addEventListener("click", () => {
-            localStorage.setItem("cookieConsent", "necessary");
-            cookieConsent.classList.remove("show");
-            setTimeout(() => (cookieConsent.style.display = "none"), 300);
-          });
-        }
-        if (decline) {
-          decline.addEventListener("click", () => {
-            localStorage.setItem("cookieConsent", "declined");
-            cookieConsent.classList.remove("show");
-            setTimeout(() => (cookieConsent.style.display = "none"), 300);
-          });
+        function initAll() {
+          buildSlides();
+          generateDots();
+          startAutoSlide();
+          initCookieConsent();
+          document.title =
+            "Toora Flex | Multi‑Tenant Platform · Smart Digital Solutions";
         }
 
-        // Mobile menu toggle
-        const mobileBtn = document.getElementById("mobileMenuBtn");
-        const navLinks = document.getElementById("navLinks");
-        if (mobileBtn && navLinks) {
-          mobileBtn.addEventListener("click", function () {
-            navLinks.classList.toggle("active");
-            const icon = this.querySelector("i");
-            if (icon) {
-              icon.classList.toggle("fa-bars");
-              icon.classList.toggle("fa-times");
-            }
-          });
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", initAll);
+        } else {
+          initAll();
         }
-      });
+      })();
     </script>
   </body>
 </html>
