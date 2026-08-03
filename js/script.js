@@ -1,975 +1,765 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- ============================================ -->
-    <!-- GOOGLE ANALYTICS                            -->
-    <!-- ============================================ -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-XXXXXXXXXX");
-    </script>
+// js/script.js
 
-    <!-- ============================================ -->
-    <!-- PRIMARY META TAGS                           -->
-    <!-- ============================================ -->
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-    />
-    <title>Toora Flex | Smart Digital Solutions & Web Development South Africa</title>
-    <meta
-      name="description"
-      content="Toora Flex delivers modern website design, web applications, hosting, analytics, and digital solutions for South African businesses. Smart solutions for a digital world."
-    />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://www.tooraflex.co.za/" />
-    
-    <!-- ============================================ -->
-    <!-- SITE NAME OPTIMIZATION - CRITICAL FIX       -->
-    <!-- ============================================ -->
-    <meta name="application-name" content="Toora Flex" />
-    <meta name="apple-mobile-web-app-title" content="Toora Flex" />
-    <meta property="og:site_name" content="Toora Flex" />
-    <meta name="twitter:site" content="@TooraFlex" />
+// ============================================
+// CONFIGURATION & HELPERS
+// ============================================
 
-    <!-- ============================================ -->
-    <!-- OPEN GRAPH TAGS                             -->
-    <!-- ============================================ -->
-    <meta property="og:title" content="Toora Flex - Smart Digital Solutions & Web Development" />
-    <meta property="og:description" content="Custom website design, web applications, hosting, analytics, and digital solutions for South African businesses. We help you grow online." />
-    <meta property="og:url" content="https://www.tooraflex.co.za/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://www.tooraflex.co.za/images/og-image.jpg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Toora Flex - Smart Digital Solutions for South African Businesses" />
-    <meta property="og:locale" content="en_ZA" />
+// Function to get logo path
+function getLogoPath(filename) {
+  return `images/logo/${filename}`;
+}
 
-    <!-- ============================================ -->
-    <!-- TWITTER CARD TAGS                           -->
-    <!-- ============================================ -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Toora Flex - Smart Digital Solutions & Web Development" />
-    <meta name="twitter:description" content="Custom website design, web applications, hosting, analytics, and digital solutions for South African businesses." />
-    <meta name="twitter:image" content="https://www.tooraflex.co.za/images/og-image.jpg" />
-    <meta name="twitter:image:alt" content="Toora Flex - Smart Digital Solutions for South African Businesses" />
+// Format phone number for display
+function formatPhoneNumber(phone) {
+  if (!phone) return "";
+  const digits = phone.replace(/\D/g, "");
+  if (digits.length === 11 && digits.startsWith("27")) {
+    return `+${digits.slice(0, 2)} ${digits.slice(2, 5)} ${digits.slice(5, 8)} ${digits.slice(8)}`;
+  }
+  if (digits.length >= 10) {
+    return `+${digits}`;
+  }
+  return phone;
+}
 
-    <!-- ============================================ -->
-    <!-- PERFORMANCE OPTIMIZATION                    -->
-    <!-- ============================================ -->
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
-    <link rel="preload" as="image" href="/images/logo/logo-mark.png" />
+// ============================================
+// FAVICON
+// ============================================
 
-    <!-- ============================================ -->
-    <!-- FAVICON                                     -->
-    <!-- ============================================ -->
-    <link rel="icon" type="image/x-icon" href="/images/logo/logo.ico" />
-    <link rel="apple-touch-icon" href="/images/logo/apple-touch-icon.png" />
+function setFavicon() {
+  const existingFavicon = document.querySelector('link[rel="icon"]');
+  if (existingFavicon) {
+    existingFavicon.parentNode.removeChild(existingFavicon);
+  }
+  const existingAppleIcon = document.querySelector('link[rel="apple-touch-icon"]');
+  if (existingAppleIcon) {
+    existingAppleIcon.parentNode.removeChild(existingAppleIcon);
+  }
 
-    <!-- ============================================ -->
-    <!-- JSON-LD STRUCTURED DATA - SITE NAME FIX     -->
-    <!-- ============================================ -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Toora Flex",
-        "alternateName": "TooraFlex",
-        "description": "Toora Flex provides modern website design, web applications, hosting, analytics, and digital solutions for South African businesses.",
-        "url": "https://www.tooraflex.co.za",
-        "logo": "https://www.tooraflex.co.za/images/logo/logo.png",
-        "image": "https://www.tooraflex.co.za/images/og-image.jpg",
-        "foundingDate": "2023",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "012 Central, 367 Helen Joseph Street",
-          "addressLocality": "Pretoria",
-          "addressRegion": "Gauteng",
-          "postalCode": "0002",
-          "addressCountry": "ZA"
-        },
-        "contactPoint": [
-          {
-            "@type": "ContactPoint",
-            "telephone": "+27664575904",
-            "contactType": "sales",
-            "availableLanguage": ["English", "Afrikaans"]
-          },
-          {
-            "@type": "ContactPoint",
-            "telephone": "+27664575904",
-            "contactType": "support",
-            "availableLanguage": ["English"]
+  const favicon = document.createElement("link");
+  favicon.rel = "icon";
+  favicon.type = "image/x-icon";
+  favicon.href = getLogoPath("logo.ico");
+  document.head.appendChild(favicon);
+
+  const appleTouchIcon = document.createElement("link");
+  appleTouchIcon.rel = "apple-touch-icon";
+  appleTouchIcon.href = getLogoPath("logo.ico");
+  document.head.appendChild(appleTouchIcon);
+}
+
+// ============================================
+// STATS ANIMATION
+// ============================================
+
+function animateValue(element, start, end, duration, suffix = "") {
+  let startTimestamp = null;
+  const step = (timestamp) => {
+    if (!startTimestamp) startTimestamp = timestamp;
+    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+    const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+    const currentValue = Math.floor(easeOutQuart * (end - start) + start);
+    element.textContent = currentValue + suffix;
+    if (progress < 1) {
+      window.requestAnimationFrame(step);
+    }
+  };
+  window.requestAnimationFrame(step);
+}
+
+function animateStats() {
+  const statNumbers = document.querySelectorAll(".stat-number[data-target]");
+  if (statNumbers.length === 0) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const statNumber = entry.target;
+          const target = parseInt(statNumber.getAttribute("data-target"));
+          const suffix = statNumber.textContent.replace(/[0-9]/g, "");
+          animateValue(statNumber, 0, target, 1500, suffix);
+          observer.unobserve(statNumber);
+        }
+      });
+    },
+    { threshold: 0.5, rootMargin: "0px 0px -100px 0px" }
+  );
+
+  statNumbers.forEach((statNumber) => {
+    observer.observe(statNumber);
+  });
+}
+
+// ============================================
+// CLIENT MARQUEE
+// ============================================
+
+function initClientMarquee() {
+  const marqueeTrack = document.querySelector(".client-marquee-track");
+  if (!marqueeTrack) return;
+
+  const clients = [
+    { name: "Lowveld Institute", logo: "images/logo/clients/lowveld-institute.png" },
+    { name: "Tshwaranang Community Solutions", logo: "images/logo/clients/Tshwaranang-Community-Solutions.png" },
+    { name: "Health Plus Medical", logo: "images/logo/clients/Health-Plus-Medical.png" },
+    { name: "Retail Masters", logo: "images/logo/clients/Retail-Masters.png" },
+    { name: "Tech Solutions", logo: "images/logo/clients/Tech-Solutions.png" },
+    { name: "Toora Flex Med", logo: "images/logo/clients/Toora-Flex-Med.png" },
+  ];
+
+  marqueeTrack.innerHTML = "";
+
+  [...clients, ...clients].forEach((client, index) => {
+    const logoDiv = document.createElement("div");
+    logoDiv.className = "client-logo";
+    const logoImg = document.createElement("img");
+    logoImg.src = client.logo;
+    logoImg.alt = `${client.name} - Client of Tooraflex`;
+    logoImg.loading = "lazy";
+    logoImg.style.width = "100%";
+    logoImg.style.height = "auto";
+    logoImg.style.objectFit = "contain";
+    logoDiv.title = client.name;
+    logoDiv.setAttribute("aria-label", `Client: ${client.name}`);
+    logoDiv.appendChild(logoImg);
+    marqueeTrack.appendChild(logoDiv);
+  });
+
+  setTimeout(() => {
+    setupMarqueeAnimation();
+  }, 500);
+
+  function setupMarqueeAnimation() {
+    let animationId;
+    let position = 0;
+    const speed = 0.8;
+    let isPaused = false;
+    let isAnimating = false;
+
+    function animate() {
+      if (!isAnimating) {
+        isAnimating = true;
+        if (!isPaused) {
+          position -= speed;
+          const logos = marqueeTrack.querySelectorAll(".client-logo");
+          if (logos.length > 0) {
+            const firstLogo = logos[0];
+            const logoWidth = firstLogo.offsetWidth || 180;
+            const gap = 40;
+            const totalWidth = (logoWidth + gap) * (logos.length / 2);
+            if (Math.abs(position) >= totalWidth) {
+              position = 0;
+            }
+            marqueeTrack.style.transform = `translateX(${position}px)`;
           }
-        ],
-        "sameAs": [
-          "https://www.facebook.com/profile.php?id=61586508505155",
-          "https://www.linkedin.com/company/toora-flex",
-          "https://twitter.com/TooraFlex"
-        ]
+        }
+        isAnimating = false;
       }
-    </script>
+      animationId = requestAnimationFrame(animate);
+    }
 
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Toora Flex",
-        "alternateName": "TooraFlex",
-        "url": "https://www.tooraflex.co.za",
-        "description": "Smart digital solutions for South African businesses. Website design, web applications, hosting, and analytics.",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://www.tooraflex.co.za/search?q={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
-      }
-    </script>
+    animate();
 
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Toora Flex",
-        "alternateName": "TooraFlex",
-        "description": "Digital solutions provider in Pretoria, South Africa. Website design, web applications, hosting, and analytics.",
-        "image": "https://www.tooraflex.co.za/images/logo/logo.png",
-        "url": "https://www.tooraflex.co.za",
-        "telephone": "+27664575904",
-        "email": "info@tooraflex.co.za",
-        "openingHours": "Mo-Fr 08:00-17:00",
-        "priceRange": "$$",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "012 Central, 367 Helen Joseph Street",
-          "addressLocality": "Pretoria",
-          "addressRegion": "Gauteng",
-          "postalCode": "0002",
-          "addressCountry": "ZA"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": "-25.7479",
-          "longitude": "28.2293"
-        },
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Digital Solutions",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Modern Websites",
-                "description": "Responsive, fast and SEO optimized websites that convert visitors into customers."
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Web Applications",
-                "description": "Custom web applications built for your business to streamline operations."
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Online Stores",
-                "description": "Sell products & services with ease using our powerful e-commerce platforms."
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Hosting & Security",
-                "description": "Reliable hosting with top-notch security and 99.9% uptime guarantee."
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Analytics & Insights",
-                "description": "Data-driven insights that drive growth and inform business decisions."
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Graphic Design",
-                "description": "Creative graphic design services including logos, branding, and marketing materials."
-              }
-            }
-          ]
-        }
-      }
-    </script>
+    marqueeTrack.addEventListener("mouseenter", () => {
+      isPaused = true;
+      marqueeTrack.style.cursor = "grab";
+    });
+    marqueeTrack.addEventListener("mouseleave", () => {
+      isPaused = false;
+      marqueeTrack.style.cursor = "default";
+    });
 
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://www.tooraflex.co.za/"
-          }
-        ]
-      }
-    </script>
+    let isDragging = false;
+    let startX = 0;
+    let scrollLeft = 0;
 
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What digital solutions does Toora Flex offer?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Toora Flex offers website design, web applications, online stores, hosting and security, analytics and insights, and graphic design services."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Where is Toora Flex located?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Toora Flex is located at 012 Central, 367 Helen Joseph Street, Pretoria CBD, Pretoria, South Africa."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How can Toora Flex help my business grow online?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Toora Flex provides custom digital solutions including modern websites, web applications, and analytics that help businesses streamline operations, engage customers, and grow online."
-            }
-          }
-        ]
-      }
-    </script>
+    marqueeTrack.addEventListener("mousedown", (e) => {
+      isDragging = true;
+      startX = e.pageX - marqueeTrack.offsetLeft;
+      scrollLeft = position;
+      marqueeTrack.style.cursor = "grabbing";
+      isPaused = true;
+    });
 
-    <!-- ============================================ -->
-    <!-- FONTS & STYLESHEETS                        -->
-    <!-- ============================================ -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/whatsapp-float.css" />
+    document.addEventListener("mouseup", () => {
+      isDragging = false;
+      marqueeTrack.style.cursor = "grab";
+      isPaused = false;
+    });
 
-    <!-- Existing styles remain the same -->
-    <style>
-      /* Hero Section with Slideshow Background */
-      .hero-slideshow {
-        position: relative;
-        width: 100%;
-        min-height: 650px;
-        overflow: hidden;
-        background: #0a1f44;
-      }
-      
-      .slideshow-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 0;
-      }
-      
-      .hero-slide {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        opacity: 0;
-        transform: scale(1.08);
-        transition: opacity 1.2s ease-in-out, transform 8s ease-out;
-        will-change: transform, opacity;
-      }
-      
-      .hero-slide.active {
-        opacity: 1;
-        transform: scale(1);
-        z-index: 1;
-      }
-      
-      .slideshow-overlay {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          135deg,
-          rgba(10, 31, 68, 0.85) 0%,
-          rgba(42, 91, 215, 0.75) 100%
-        );
-        z-index: 2;
-      }
-      
-      .hero-content {
-        position: relative;
-        z-index: 3;
-        padding: 80px 0 100px;
-        min-height: 650px;
-        display: flex;
-        align-items: center;
-      }
-      
-      .hero-badge {
-        display: inline-block;
-        background: rgba(0, 201, 156, 0.15);
-        color: #00c99c;
-        padding: 6px 16px;
-        border-radius: 30px;
-        font-size: 0.8rem;
-        font-weight: 600;
-        letter-spacing: 1px;
-        margin-bottom: 1.5rem;
-      }
-      
-      .hero-content h1 {
-        font-size: 3.5rem;
-        color: white;
-        margin-bottom: 1rem;
-        line-height: 1.2;
-      }
-      
-      .hero-subtitle {
-        font-size: 1.3rem;
-        color: rgba(255, 255, 255, 0.9);
-        max-width: 600px;
-        margin-bottom: 2rem;
-      }
-      
-      .hero-buttons {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-        margin-bottom: 3rem;
-      }
-      
-      .btn-primary {
-        background: #00c99c;
-        color: #1a1d28;
-        padding: 14px 32px;
-        border-radius: 50px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-      }
-      
-      .btn-primary:hover {
-        background: #00b087;
-        transform: translateY(-3px);
-        box-shadow: 0 10px 25px rgba(0, 201, 156, 0.3);
-      }
-      
-      .btn-outline {
-        background: transparent;
-        border: 2px solid rgba(255, 255, 255, 0.3);
-        color: white;
-        padding: 12px 30px;
-        border-radius: 50px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-      }
-      
-      .btn-outline:hover {
-        background: rgba(255, 255, 255, 0.1);
-        border-color: white;
-        transform: translateY(-3px);
-      }
-      
-      .hero-stats {
-        display: flex;
-        gap: 3rem;
-        flex-wrap: wrap;
-      }
-      
-      .stat-item h3 {
-        font-size: 2rem;
-        color: white;
-        margin-bottom: 0;
-      }
-      
-      .stat-item p {
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 0.9rem;
-      }
-      
-      /* Services Grid - 3x2 layout */
-      .services-modern {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 2rem;
-        margin-top: 2rem;
-      }
-      
-      .service-card-modern {
-        background: white;
-        border-radius: 20px;
-        padding: 2rem;
-        transition: all 0.4s ease;
-        border: 1px solid #eef2ff;
-        text-align: center;
-      }
-      
-      .service-card-modern:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        border-color: transparent;
-      }
-      
-      .service-icon-lg {
-        width: 70px;
-        height: 70px;
-        background: linear-gradient(135deg, #2a5bd7 0%, #1d4ac4 100%);
-        border-radius: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 1.2rem;
-      }
-      
-      .service-icon-lg i {
-        font-size: 32px;
-        color: white;
-      }
-      
-      .service-card-modern h3 {
-        font-size: 1.3rem;
-        margin-bottom: 0.8rem;
-      }
-      
-      .service-card-modern p {
-        color: #6c757d;
-        line-height: 1.6;
-      }
-      
-      /* Trust Bar */
-      .trust-bar {
-        background: #f8f9fa;
-        padding: 2rem 0;
-        text-align: center;
-      }
-      
-      .trust-bar p {
-        color: #6c757d;
-        margin-bottom: 1rem;
-        font-weight: 500;
-      }
-      
-      .trust-logos {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 3rem;
-        flex-wrap: wrap;
-        opacity: 0.6;
-      }
-      
-      .trust-logos span {
-        font-size: 1.2rem;
-        font-weight: 600;
-        color: #999;
-      }
-      
-      /* Value Props */
-      .value-props {
-        display: flex;
-        justify-content: center;
-        gap: 3rem;
-        flex-wrap: wrap;
-        margin-top: 2rem;
-      }
-      
-      .value-item {
-        text-align: center;
-      }
-      
-      .value-item i {
-        font-size: 2rem;
-        color: #00c99c;
-        margin-bottom: 0.5rem;
-      }
-      
-      .value-item h4 {
-        font-size: 1.1rem;
-        margin-bottom: 0.3rem;
-      }
-      
-      .value-item p {
-        color: #6c757d;
-        font-size: 0.9rem;
-      }
-      
-      /* Slide dots for slideshow */
-      .slide-dots-hero {
-        position: absolute;
-        bottom: 30px;
-        left: 0;
-        right: 0;
-        display: flex;
-        justify-content: center;
-        gap: 12px;
-        z-index: 4;
-      }
-      
-      .slide-dot-hero {
-        width: 10px;
-        height: 10px;
-        background: rgba(255, 255, 255, 0.5);
-        border-radius: 50%;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-      
-      .slide-dot-hero.active {
-        width: 28px;
-        background: #00c99c;
-        border-radius: 12px;
-      }
-      
-      @media (max-width: 768px) {
-        .hero-content {
-          padding: 50px 0 70px;
-          min-height: 550px;
-        }
-        .hero-content h1 {
-          font-size: 2.2rem;
-        }
-        .hero-subtitle {
-          font-size: 1rem;
-        }
-        .hero-buttons {
-          flex-direction: column;
-        }
-        .hero-buttons .btn-primary,
-        .hero-buttons .btn-outline {
-          text-align: center;
-          justify-content: center;
-        }
-        .hero-stats {
-          justify-content: center;
-          text-align: center;
-        }
-        .services-modern {
-          grid-template-columns: 1fr;
-        }
-      }
-      
-      @media (max-width: 576px) {
-        .service-card-modern {
-          padding: 1.5rem;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Cookie Consent Banner -->
-    <div id="cookie-consent" class="cookie-consent">
-      <div class="cookie-content">
-        <div class="cookie-text">
-          <h3><i class="fas fa-cookie-bite"></i> Cookie Consent</h3>
-          <p>
-            We use cookies to improve your experience on our site. By clicking
-            "Accept All", you agree to the use of all cookies as per POPIA.
-            <a href="privacy.html" class="cookie-link">Learn more</a>.
-          </p>
+    document.addEventListener("mousemove", (e) => {
+      if (!isDragging) return;
+      e.preventDefault();
+      const x = e.pageX - marqueeTrack.offsetLeft;
+      const walk = (x - startX) * 2;
+      position = scrollLeft - walk;
+      marqueeTrack.style.transform = `translateX(${position}px)`;
+    });
+
+    marqueeTrack.addEventListener("touchstart", (e) => {
+      isPaused = true;
+      startX = e.touches[0].pageX - marqueeTrack.offsetLeft;
+      scrollLeft = position;
+    });
+
+    marqueeTrack.addEventListener("touchmove", (e) => {
+      e.preventDefault();
+      const x = e.touches[0].pageX - marqueeTrack.offsetLeft;
+      const walk = (x - startX) * 2;
+      position = scrollLeft - walk;
+      marqueeTrack.style.transform = `translateX(${position}px)`;
+    });
+
+    marqueeTrack.addEventListener("touchend", () => {
+      isPaused = false;
+    });
+
+    document.addEventListener("visibilitychange", () => {
+      isPaused = document.hidden;
+    });
+
+    window.addEventListener("resize", () => {
+      position = 0;
+      marqueeTrack.style.transform = `translateX(${position}px)`;
+    });
+  }
+}
+
+// ============================================
+// REVIEWS
+// ============================================
+
+function initReviews() {
+  const reviewsGrid = document.querySelector(".reviews-grid");
+  if (!reviewsGrid) return;
+
+  const reviews = [
+    {
+      name: "John Smith",
+      role: "CEO, TechCorp",
+      rating: 5,
+      content: "TooraFlex transformed our online presence. Their team was professional, responsive, and delivered exceptional results.",
+      date: "2 weeks ago",
+      source: "Google",
+    },
+    {
+      name: "Sarah Johnson",
+      role: "Marketing Director",
+      rating: 5,
+      content: "Outstanding service! Our new website has increased conversions by 40%. Highly recommend TooraFlex for any digital project.",
+      date: "1 month ago",
+      source: "Google",
+    },
+    {
+      name: "Michael Brown",
+      role: "Business Owner",
+      rating: 4,
+      content: "Great experience working with TooraFlex. They understood our needs and delivered a solution that exceeded our expectations.",
+      date: "3 weeks ago",
+      source: "Google",
+    },
+    {
+      name: "Lisa Williams",
+      role: "Operations Manager",
+      rating: 5,
+      content: "The Power BI dashboards they created revolutionized our data analysis. Highly professional and skilled team!",
+      date: "1 month ago",
+      source: "Google",
+    },
+  ];
+
+  reviewsGrid.innerHTML = "";
+
+  reviews.forEach((review) => {
+    const reviewCard = document.createElement("div");
+    reviewCard.className = "review-card";
+
+    let stars = "";
+    for (let i = 0; i < 5; i++) {
+      stars += i < review.rating ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>';
+    }
+
+    reviewCard.innerHTML = `
+      <div class="review-header">
+        <div class="review-rating">
+          ${stars}
+          <span>${review.rating}.0</span>
         </div>
-        <div class="cookie-buttons">
-          <button id="cookie-accept-all" class="btn cookie-btn accept-btn">
-            <i class="fas fa-check"></i> Accept All
-          </button>
-          <button id="cookie-necessary" class="btn cookie-btn necessary-btn">
-            <i class="fas fa-cog"></i> Necessary Only
-          </button>
-          <button id="cookie-decline" class="btn cookie-btn decline-btn">
-            <i class="fas fa-times"></i> Decline
-          </button>
+        <div class="review-source">
+          <i class="fab fa-google"></i>
+          <span>${review.source}</span>
         </div>
       </div>
-    </div>
-
-    <!-- Floating WhatsApp Button -->
-    <div class="whatsapp-float" id="whatsapp-float"></div>
-
-    <!-- Header (loaded dynamically by script.js) -->
-    <header id="main-header"></header>
-
-    <!-- Hero Section with Slideshow Background -->
-    <section class="hero-slideshow" id="heroSection" aria-label="Hero banner showcasing Toora Flex digital solutions">
-      <div class="slideshow-container" id="heroSlideshowContainer">
-        <!-- Slides will be injected by JavaScript -->
+      <div class="review-content">
+        <p>${review.content}</p>
       </div>
-      <div class="slideshow-overlay"></div>
-      <div class="slide-dots-hero" id="heroSlideDots"></div>
-      <div class="hero-content">
-        <div class="container">
-          <div class="hero-badge">DIGITAL SOLUTIONS</div>
-          <h1 id="heroMainTitle">Smart Digital Solutions For South African Businesses</h1>
-          <p class="hero-subtitle" id="heroMainDesc">
-            We design and develop innovative digital solutions that help businesses streamline operations, engage customers and grow.
-          </p>
-          <div class="hero-buttons">
-            <a href="services.html" class="btn-primary" aria-label="Explore our digital solutions">Explore Solutions <i class="fas fa-arrow-right"></i></a>
-            <a href="contact.html" class="btn-outline" aria-label="Get a free consultation">Get a Free Consultation <i class="fas fa-calendar-alt"></i></a>
-          </div>
-          <div class="hero-stats">
-            <div class="stat-item">
-              <h3>50+</h3>
-              <p>Projects Delivered</p>
-            </div>
-            <div class="stat-item">
-              <h3>98%</h3>
-              <p>Client Satisfaction</p>
-            </div>
-            <div class="stat-item">
-              <h3>24/7</h3>
-              <p>Support Available</p>
-            </div>
-          </div>
+      <div class="review-author">
+        <div class="author-info">
+          <h4>${review.name}</h4>
+          <p>${review.role}</p>
+        </div>
+        <div class="review-date">
+          <i class="far fa-clock"></i>
+          <span>${review.date}</span>
         </div>
       </div>
-    </section>
+    `;
+    reviewsGrid.appendChild(reviewCard);
+  });
+}
 
-    <!-- Services Section -->
-    <section class="section-padding" aria-label="Our services">
-      <div class="container">
-        <div class="section-title fade-up-scroll">
-          <h2>What We Do</h2>
-          <p>Comprehensive digital solutions tailored to your business needs</p>
-        </div>
-        <div class="services-modern">
-          <article class="service-card-modern fade-up-scroll" aria-label="Modern Websites service">
-            <div class="service-icon-lg"><i class="fas fa-laptop-code" aria-hidden="true"></i></div>
-            <h3>Modern Websites</h3>
-            <p>Responsive, fast and SEO optimized websites that convert visitors into customers.</p>
-          </article>
-          <article class="service-card-modern fade-up-scroll" aria-label="Online Stores service">
-            <div class="service-icon-lg"><i class="fas fa-store" aria-hidden="true"></i></div>
-            <h3>Online Stores</h3>
-            <p>Sell products & services with ease using our powerful e-commerce platforms.</p>
-          </article>
-          <article class="service-card-modern fade-up-scroll" aria-label="Web Applications service">
-            <div class="service-icon-lg"><i class="fas fa-mobile-alt" aria-hidden="true"></i></div>
-            <h3>Web Applications</h3>
-            <p>Custom web applications built for your business to streamline operations.</p>
-          </article>
-          <article class="service-card-modern fade-up-scroll" aria-label="Hosting and Security service">
-            <div class="service-icon-lg"><i class="fas fa-server" aria-hidden="true"></i></div>
-            <h3>Hosting & Security</h3>
-            <p>Reliable hosting with top-notch security and 99.9% uptime guarantee.</p>
-          </article>
-          <article class="service-card-modern fade-up-scroll" aria-label="Analytics and Insights service">
-            <div class="service-icon-lg"><i class="fas fa-chart-line" aria-hidden="true"></i></div>
-            <h3>Analytics & Insights</h3>
-            <p>Data-driven insights that drive growth and inform business decisions.</p>
-          </article>
-          <article class="service-card-modern fade-up-scroll" aria-label="Graphic Design service">
-            <div class="service-icon-lg"><i class="fas fa-palette" aria-hidden="true"></i></div>
-            <h3>Graphic Design</h3>
-            <p>Creative graphic design services including logos, branding, and marketing materials.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+// ============================================
+// DYNAMIC FORMS
+// ============================================
 
-    <!-- Trust Bar -->
-    <section class="trust-bar" aria-label="Trusted by businesses">
-      <div class="container">
-        <p>Trusted by Businesses Across South Africa</p>
-        <div class="trust-logos">
-          <span>INDUSTRY LEADERS</span>
-          <span>INNOVATIVE COMPANIES</span>
-          <span>GROWING BUSINESSES</span>
-        </div>
-      </div>
-    </section>
+function initDynamicForms() {
+  const serviceSelect = document.getElementById("service");
+  if (!serviceSelect) return;
 
-    <!-- Value Propositions -->
-    <section class="section-padding bg-light" aria-label="Our values">
-      <div class="container">
-        <div class="value-props">
-          <div class="value-item">
-            <i class="fas fa-medal" aria-hidden="true"></i>
-            <h4>Quality Solutions</h4>
-            <p>Enterprise-grade solutions</p>
-          </div>
-          <div class="value-item">
-            <i class="fas fa-clock" aria-hidden="true"></i>
-            <h4>On-Time Delivery</h4>
-            <p>Projects delivered on schedule</p>
-          </div>
-          <div class="value-item">
-            <i class="fas fa-life-ring" aria-hidden="true"></i>
-            <h4>Ongoing Support</h4>
-            <p>We're here when you need us</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  if (typeof siteConfig === "undefined" || !siteConfig.services) {
+    console.error("siteConfig not available for dynamic forms");
+    return;
+  }
 
-    <!-- Companies Section -->
-    <section class="section-padding" aria-label="Companies we've worked with">
-      <div class="container">
-        <div class="section-title fade-up-scroll">
-          <h2>Companies We've Worked With</h2>
-          <p>Trusted by businesses across South Africa</p>
-        </div>
-        <div class="client-marquee-container">
-          <div class="client-marquee">
-            <div class="client-marquee-track" id="marqueeTrack"></div>
-          </div>
-        </div>
-      </div>
-    </section>
+  // Clear existing options except the first one
+  while (serviceSelect.options.length > 1) {
+    serviceSelect.remove(1);
+  }
 
-    <!-- Reviews Section -->
-    <section class="section-padding bg-light" aria-label="Client reviews">
-      <div class="container">
-        <div class="section-title fade-up-scroll">
-          <h2>What Our Clients Say</h2>
-          <p>Real feedback from our satisfied customers</p>
-        </div>
-        <div class="reviews-grid" id="reviewsGrid"></div>
-      </div>
-    </section>
+  siteConfig.services.forEach((service) => {
+    const option = document.createElement("option");
+    option.value = service.id;
+    option.textContent = service.name;
+    serviceSelect.appendChild(option);
+  });
+}
 
-    <!-- CTA Section -->
-    <section class="cta fade-up-scroll" aria-label="Call to action">
-      <div class="container">
-        <h2>Ready to Transform Your Digital Presence?</h2>
-        <p>
-          Get in touch today for a free consultation and discover how Toora Flex
-          can help your business grow online.
-        </p>
-        <a href="contact.html" class="btn btn-secondary" aria-label="Get your free consultation">
-          Get Your Free Consultation
-        </a>
-      </div>
-    </section>
+// ============================================
+// MOBILE MENU
+// ============================================
 
-    <!-- Footer -->
-    <footer id="main-footer"></footer>
+function initMobileMenu() {
+  const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+  const navLinks = document.querySelector(".nav-links");
 
-    <!-- ============================================ -->
-    <!-- SCRIPTS                                     -->
-    <!-- ============================================ -->
-    <script src="js/config.js" defer></script>
-    <script src="js/script.js" defer></script>
+  if (!mobileMenuBtn || !navLinks) return;
 
-    <!-- Slideshow and additional initialization -->
-    <script defer>
-      (function () {
-        // Slideshow data using your existing slide images
-        const slideData = [
-          {
-            img: "images/slides/PromoSlide1.png",
-            title: "Smart Digital Solutions For South African Businesses",
-            desc: "We design and develop innovative digital solutions that help businesses streamline operations, engage customers and grow.",
-          },
-          {
-            img: "images/slides/PromoSlide2.png",
-            title: "Your Brand, Your Store",
-            desc: "Fully customize your storefront with your own branding, domain, and business identity.",
-          },
-          {
-            img: "images/slides/PromoSlide3.png",
-            title: "Sell More, Manage Less",
-            desc: "Streamline sales, appointments, inventory, and customer management in one place.",
-          },
-          {
-            img: "images/slides/PromoSlide4.png",
-            title: "Built for Growing Businesses",
-            desc: "A scalable e-commerce and booking solution designed to grow alongside your business.",
-          },
-          {
-            img: "images/slides/PromoSlide5.png",
-            title: "Everything You Need Online",
-            desc: "From online sales to appointment scheduling, manage your digital operations effortlessly.",
-          },
-        ];
+  const closeMobileMenu = () => {
+    navLinks.classList.remove("active");
+    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+    mobileMenuBtn.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "auto";
+  };
 
-        let currentSlideIdx = 0;
-        let slideInterval;
+  const openMobileMenu = () => {
+    navLinks.classList.add("active");
+    mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+    mobileMenuBtn.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
+  };
 
-        function buildSlides() {
-          const container = document.getElementById("heroSlideshowContainer");
-          if (!container) return;
+  mobileMenuBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (navLinks.classList.contains("active")) {
+      closeMobileMenu();
+    } else {
+      openMobileMenu();
+    }
+  });
 
-          // Clear existing slides
-          container.innerHTML = "";
+  document.querySelectorAll(".nav-links a").forEach((link) => {
+    link.addEventListener("click", () => {
+      if (!link.classList.contains("btn")) {
+        closeMobileMenu();
+      }
+    });
+  });
 
-          // Add slides
-          slideData.forEach((data, idx) => {
-            const slideDiv = document.createElement("div");
-            slideDiv.className = `hero-slide ${idx === 0 ? "active" : ""}`;
-            slideDiv.style.backgroundImage = `url('${data.img}')`;
-            slideDiv.setAttribute("role", "img");
-            slideDiv.setAttribute("aria-label", `Slide ${idx + 1}: ${data.title}`);
-            container.appendChild(slideDiv);
-          });
-        }
+  document.addEventListener("click", (e) => {
+    if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target) && navLinks.classList.contains("active")) {
+      closeMobileMenu();
+    }
+  });
 
-        function updateContentAndDots() {
-          // Update text content
-          const titleEl = document.getElementById("heroMainTitle");
-          const descEl = document.getElementById("heroMainDesc");
-          if (titleEl) titleEl.innerText = slideData[currentSlideIdx].title;
-          if (descEl) descEl.innerText = slideData[currentSlideIdx].desc;
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && navLinks.classList.contains("active")) {
+      closeMobileMenu();
+    }
+  });
 
-          const slides = document.querySelectorAll(".hero-slide");
-          slides.forEach((slide, i) => {
-            if (i === currentSlideIdx) slide.classList.add("active");
-            else slide.classList.remove("active");
-          });
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768 && navLinks.classList.contains("active")) {
+      closeMobileMenu();
+    }
+  });
+}
 
-          const dots = document.querySelectorAll(".slide-dot-hero");
-          dots.forEach((dot, i) => {
-            if (i === currentSlideIdx) dot.classList.add("active");
-            else dot.classList.remove("active");
-          });
-        }
+// ============================================
+// SMOOTH SCROLLING
+// ============================================
 
-        function generateDots() {
-          const dotsContainer = document.getElementById("heroSlideDots");
-          if (!dotsContainer) return;
-          dotsContainer.innerHTML = "";
-          slideData.forEach((_, idx) => {
-            const dot = document.createElement("div");
-            dot.classList.add("slide-dot-hero");
-            if (idx === currentSlideIdx) dot.classList.add("active");
-            dot.setAttribute("role", "tab");
-            dot.setAttribute("aria-label", `Slide ${idx + 1}`);
-            dot.addEventListener("click", () => {
-              clearInterval(slideInterval);
-              currentSlideIdx = idx;
-              updateContentAndDots();
-              startAutoSlide();
-            });
-            dotsContainer.appendChild(dot);
-          });
-        }
+function initSmoothScrolling() {
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      const targetId = this.getAttribute("href");
+      if (targetId === "#" || targetId.includes(".html") || targetId.includes("://")) {
+        return;
+      }
+      e.preventDefault();
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        const headerHeight = document.querySelector("header")?.offsetHeight || 0;
+        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+        window.scrollTo({ top: targetPosition, behavior: "smooth" });
+      }
+    });
+  });
+}
 
-        function nextSlide() {
-          currentSlideIdx = (currentSlideIdx + 1) % slideData.length;
-          updateContentAndDots();
-        }
+// ============================================
+// PRODUCT FILTER
+// ============================================
 
-        function startAutoSlide() {
-          if (slideInterval) clearInterval(slideInterval);
-          slideInterval = setInterval(nextSlide, 5500);
-        }
+function initProductFilter() {
+  const categoryBtns = document.querySelectorAll(".category-btn");
+  const serviceCards = document.querySelectorAll(".service-card");
 
-        // Scroll reveal animation
-        function initScrollReveal() {
-          const fadeElements = document.querySelectorAll(".fade-up-scroll");
-          const observer = new IntersectionObserver(
-            (entries) => {
-              entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                  entry.target.classList.add("revealed");
-                  observer.unobserve(entry.target);
-                }
-              });
-            },
-            { threshold: 0.1, rootMargin: "0px 0px -30px 0px" },
-          );
-          fadeElements.forEach((el) => observer.observe(el));
-        }
-
-        // Cookie consent
-        function initCookieConsent() {
-          const cookieConsent = document.getElementById("cookie-consent");
-          const acceptAllBtn = document.getElementById("cookie-accept-all");
-          const necessaryBtn = document.getElementById("cookie-necessary");
-          const declineBtn = document.getElementById("cookie-decline");
-
-          if (cookieConsent && !localStorage.getItem("cookieConsent")) {
+  if (categoryBtns.length > 0 && serviceCards.length > 0) {
+    categoryBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        categoryBtns.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        const category = btn.dataset.category;
+        serviceCards.forEach((card) => {
+          if (category === "all" || card.dataset.category === category) {
+            card.style.display = "block";
             setTimeout(() => {
-              cookieConsent.classList.add("show");
-            }, 2000);
-          } else if (cookieConsent && localStorage.getItem("cookieConsent")) {
-            cookieConsent.style.display = "none";
+              card.style.opacity = "1";
+              card.style.transform = "translateY(0)";
+            }, 10);
+          } else {
+            card.style.opacity = "0";
+            card.style.transform = "translateY(20px)";
+            setTimeout(() => {
+              card.style.display = "none";
+            }, 300);
           }
+        });
+      });
+    });
+  }
+}
 
-          if (acceptAllBtn) {
-            acceptAllBtn.addEventListener("click", () => {
-              localStorage.setItem("cookieConsent", "all");
-              cookieConsent.classList.remove("show");
-              setTimeout(() => {
-                cookieConsent.style.display = "none";
-              }, 300);
-            });
-          }
+// ============================================
+// FORM HANDLING
+// ============================================
 
-          if (necessaryBtn) {
-            necessaryBtn.addEventListener("click", () => {
-              localStorage.setItem("cookieConsent", "necessary");
-              cookieConsent.classList.remove("show");
-              setTimeout(() => {
-                cookieConsent.style.display = "none";
-              }, 300);
-            });
-          }
+function initForms() {
+  const contactForm = document.getElementById("contactForm");
+  if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const name = document.getElementById("name")?.value.trim();
+      const email = document.getElementById("email")?.value.trim();
+      const message = document.getElementById("message")?.value.trim();
 
-          if (declineBtn) {
-            declineBtn.addEventListener("click", () => {
-              localStorage.setItem("cookieConsent", "declined");
-              cookieConsent.classList.remove("show");
-              setTimeout(() => {
-                cookieConsent.style.display = "none";
-              }, 300);
-            });
-          }
-        }
+      if (!name || !email || !message) {
+        alert("Please fill in all required fields.");
+        return;
+      }
 
-        // Initialize all
-        function initAll() {
-          buildSlides();
-          generateDots();
-          startAutoSlide();
-          initScrollReveal();
-          initCookieConsent();
-        }
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert("Please enter a valid email address.");
+        return;
+      }
 
-        if (document.readyState === "loading") {
-          document.addEventListener("DOMContentLoaded", initAll);
-        } else {
-          initAll();
-        }
-      })();
-    </script>
-  </body>
-</html>
+      alert(`Thank you ${name}! Your message has been received. We'll contact you at ${email} soon.`);
+      contactForm.reset();
+    });
+  }
+}
+
+// ============================================
+// SYSTEM CARDS
+// ============================================
+
+function initSystemCards() {
+  const cards = document.querySelectorAll(".system-card");
+  if (cards.length === 0) return;
+
+  cards.forEach((card) => {
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty("--mouse-x", `${x}px`);
+      card.style.setProperty("--mouse-y", `${y}px`);
+    });
+
+    card.addEventListener("click", () => {
+      if (window.innerWidth <= 768) {
+        card.classList.toggle("flipped");
+      }
+    });
+  });
+}
+
+// ============================================
+// MAIN INITIALIZATION
+// ============================================
+
+function initTooraFlex() {
+  console.log("initTooraFlex: Initializing...");
+
+  initMobileMenu();
+  initSmoothScrolling();
+  initProductFilter();
+  initForms();
+  initDynamicForms();
+  animateStats();
+  initClientMarquee();
+  initReviews();
+  initSystemCards();
+
+  console.log("initTooraFlex: Initialization complete");
+}
+
+// ============================================
+// COMPONENTS - HEADER, FOOTER, WHATSAPP
+// ============================================
+
+const Components = {
+  loadHeader: function () {
+    const header = document.getElementById("main-header");
+    if (!header) return;
+
+    header.innerHTML = `
+      <div class="container header-container">
+        <a href="index.html" class="logo" aria-label="TooraFlex Home">
+          <img
+            src="${getLogoPath("logo-mark.png")}"
+            alt="TooraFlex Logo"
+            class="logo-img"
+            width="40"
+            height="40"
+          />
+          <div class="logo-text">Toora<span>flex</span></div>
+        </a>
+
+        <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services & Products</a></li>
+          <li><a href="ecommerce.html">E-Commerce</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html" class="btn">Get Quote</a></li>
+        </ul>
+      </div>
+    `;
+  },
+
+  loadFooter: function () {
+    const footer = document.getElementById("main-footer");
+    if (!footer) return;
+
+    const siteConfig = window.siteConfig || {};
+
+    footer.innerHTML = `
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-col">
+            <h3>Toora Flex</h3>
+            <p>
+              Comprehensive digital solutions for modern businesses. We design,
+              develop, and deploy solutions that help your business grow.
+            </p>
+            <div class="social-links">
+              <a href="${siteConfig.socialLinks?.facebook || "#"}" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+              <a href="${siteConfig.socialLinks?.twitter || "#"}" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+              <a href="${siteConfig.socialLinks?.linkedin || "#"}" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+              <a href="${siteConfig.socialLinks?.instagram || "#"}" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="services.html">Services & Products</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>Our Services</h3>
+            <ul class="footer-links">
+              <li><a href="services.html">Website Design</a></li>
+              <li><a href="services.html">Web Applications</a></li>
+              <li><a href="services.html">Hosting Solutions</a></li>
+              <li><a href="services.html">Graphic Design</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>Contact Info</h3>
+            <ul class="footer-links">
+              <li>
+                <i class="fas fa-map-marker-alt"></i>
+                <span class="contact-address">${siteConfig.address || "012 Central, 367 Helen Joseph Street, Pretoria CBD, Pretoria, 0002"}</span>
+              </li>
+              <li>
+                <i class="fas fa-phone-alt"></i>
+                <a href="tel:+27664575904" class="contact-phone">+27 66 457 5904</a>
+              </li>
+              <li>
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:${siteConfig.email || "info@tooraflex.co.za"}" class="contact-email">${siteConfig.email || "info@tooraflex.co.za"}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="copyright">
+          <p>
+            &copy; <span class="current-year"></span> Tooraflex. All rights reserved. Site by
+            <a href="https://www.Tooraflex.co.za" target="_blank" rel="noopener noreferrer" class="tooraflex-name">
+              <span class="terra-part">Toora</span><span class="flex-part">flex</span>
+            </a>
+          </p>
+        </div>
+      </div>
+    `;
+  },
+
+  loadWhatsAppButton: function () {
+    const whatsappFloat = document.getElementById("whatsapp-float");
+    if (!whatsappFloat) return;
+
+    let whatsappUrl = "https://wa.me/27664575904?text=Hello%20Toora%20Flex%2C%20I'd%20like%20more%20information";
+    if (typeof getWhatsAppUrl !== "undefined") {
+      whatsappUrl = getWhatsAppUrl();
+    }
+
+    whatsappFloat.innerHTML = `
+      <a href="${whatsappUrl}" 
+         target="_blank" 
+         class="whatsapp-float-link"
+         aria-label="Chat with us on WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+      </a>
+      <div class="whatsapp-float-text">Chat with us</div>
+    `;
+  },
+
+  updateContactInfo: function () {
+    const siteConfig = window.siteConfig || {};
+    document.querySelectorAll(".contact-address").forEach((el) => {
+      if (siteConfig.address) el.textContent = siteConfig.address;
+    });
+  },
+
+  updateCurrentYear: function () {
+    const currentYear = new Date().getFullYear();
+    document.querySelectorAll(".current-year").forEach((el) => {
+      el.textContent = currentYear;
+    });
+  },
+
+  initAll: function () {
+    console.log("Components.initAll: Starting...");
+
+    setFavicon();
+    this.loadHeader();
+    this.loadFooter();
+    this.loadWhatsAppButton();
+    this.updateContactInfo();
+    this.updateCurrentYear();
+
+    setTimeout(() => {
+      initTooraFlex();
+    }, 100);
+
+    console.log("Components.initAll: Complete");
+  }
+};
+
+// ============================================
+// DOM READY - START EVERYTHING
+// ============================================
+
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("DOMContentLoaded: Starting...");
+
+  // Check if config is loaded
+  if (typeof siteConfig === "undefined") {
+    console.warn("siteConfig not found, loading from config.js...");
+    const script = document.createElement("script");
+    script.src = "js/config.js";
+    script.onload = function () {
+      console.log("Config loaded, initializing Components...");
+      Components.initAll();
+    };
+    document.head.appendChild(script);
+    return;
+  }
+
+  // Check if WhatsApp functions exist
+  if (typeof getWhatsAppUrl === "undefined") {
+    console.warn("WhatsApp functions not found, defining fallbacks...");
+    window.getWhatsAppUrl = function() {
+      return "https://wa.me/27664575904?text=Hello%20Toora%20Flex%2C%20I'd%20like%20more%20information";
+    };
+    window.getPhoneLink = function() {
+      return "tel:+27664575904";
+    };
+    window.getEmergencyPhoneLink = function() {
+      return "tel:+27812194023";
+    };
+  }
+
+  console.log("DOM ready, initializing Components...");
+  Components.initAll();
+});
+
+// ============================================
+// PAGE VISIBILITY - ENFORCE TAB TITLE
+// ============================================
+
+function enforceBrowserTabTitle() {
+  const desiredTitle = "Toora Flex | Smart Digital Solutions for South African Businesses";
+  if (document.title !== desiredTitle) {
+    document.title = desiredTitle;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", enforceBrowserTabTitle);
+document.addEventListener("visibilitychange", function () {
+  if (!document.hidden) {
+    enforceBrowserTabTitle();
+  }
+});
+
+// ============================================
+// EXPOSE FOR DEBUGGING
+// ============================================
+
+window.Components = Components;
+window.initTooraFlex = initTooraFlex;
+window.debugClientLogos = function () {
+  const logos = document.querySelectorAll(".client-logo img");
+  console.log(`Found ${logos.length} client logos`);
+  logos.forEach((logo, index) => {
+    console.log(`Logo ${index + 1}:`, {
+      src: logo.src,
+      alt: logo.alt,
+      loaded: logo.complete,
+    });
+  });
+};
