@@ -1,0 +1,13 @@
+# robots.txt for Toora Flex
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /includes/
+Disallow: /js/
+Disallow: /css/
+
+# Sitemap location
+Sitemap: https://www.tooraflex.co.za/sitemap.xml
+
+# Host directive for search engines
+Host: www.tooraflex.co.za
