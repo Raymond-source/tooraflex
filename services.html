@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <!-- ============================================ -->
-    <!-- GOOGLE ANALYTICS                            -->
+    <!-- GOOGLE ANALYTICS                             -->
     <!-- ============================================ -->
     <script
       async
@@ -18,7 +18,7 @@
     </script>
 
     <!-- ============================================ -->
-    <!-- PRIMARY META TAGS - OPTIMIZED               -->
+    <!-- PRIMARY META TAGS                            -->
     <!-- ============================================ -->
     <meta charset="UTF-8" />
     <meta
@@ -34,7 +34,7 @@
     <link rel="canonical" href="https://www.tooraflex.co.za/services.html" />
 
     <!-- ============================================ -->
-    <!-- SITE NAME OPTIMIZATION - CRITICAL FIX       -->
+    <!-- SITE NAME OPTIMIZATION                       -->
     <!-- ============================================ -->
     <meta name="application-name" content="Toora Flex" />
     <meta name="apple-mobile-web-app-title" content="Toora Flex" />
@@ -42,7 +42,7 @@
     <meta name="twitter:site" content="@TooraFlex" />
 
     <!-- ============================================ -->
-    <!-- OPEN GRAPH TAGS - COMPLETE                 -->
+    <!-- OPEN GRAPH TAGS                              -->
     <!-- ============================================ -->
     <meta property="og:title" content="Services & Products | Toora Flex - Digital Solutions" />
     <meta property="og:description" content="Comprehensive digital solutions including website design, web applications, hosting, analytics, and graphic design services for South African businesses." />
@@ -55,7 +55,7 @@
     <meta property="og:locale" content="en_ZA" />
 
     <!-- ============================================ -->
-    <!-- TWITTER CARD TAGS - COMPLETE               -->
+    <!-- TWITTER CARD TAGS                            -->
     <!-- ============================================ -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Services & Products | Toora Flex - Digital Solutions" />
@@ -64,7 +64,7 @@
     <meta name="twitter:image:alt" content="Toora Flex - Digital Solutions Services" />
 
     <!-- ============================================ -->
-    <!-- PERFORMANCE OPTIMIZATION                    -->
+    <!-- PERFORMANCE OPTIMIZATION                     -->
     <!-- ============================================ -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
@@ -73,21 +73,18 @@
     <link rel="preload" as="image" href="images/logo/logo-mark.png" />
 
     <!-- ============================================ -->
-    <!-- FAVICON                                     -->
+    <!-- FAVICON                                      -->
     <!-- ============================================ -->
     <link rel="icon" type="image/x-icon" href="images/logo/logo.ico" />
     <link rel="apple-touch-icon" href="images/logo/apple-touch-icon.png" />
 
     <!-- ============================================ -->
-    <!-- FONTS - SAME AS HOMEPAGE                    -->
+    <!-- FONTS                                        -->
     <!-- ============================================ -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
 
     <!-- ============================================ -->
-    <!-- STYLESHEETS                                 -->
+    <!-- STYLESHEETS                                  -->
     <!-- ============================================ -->
     <link
       rel="stylesheet"
@@ -97,10 +94,8 @@
     <link rel="stylesheet" href="css/whatsapp-float.css" />
 
     <!-- ============================================ -->
-    <!-- JSON-LD STRUCTURED DATA                     -->
+    <!-- JSON-LD STRUCTURED DATA                      -->
     <!-- ============================================ -->
-
-    <!-- ORGANIZATION SCHEMA -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -136,7 +131,6 @@
       }
     </script>
 
-    <!-- WEBSITE SCHEMA -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -148,7 +142,6 @@
       }
     </script>
 
-    <!-- BREADCRUMB SCHEMA -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -170,7 +163,6 @@
       }
     </script>
 
-    <!-- SERVICE SCHEMA -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -239,7 +231,6 @@
       }
     </script>
 
-    <!-- FAQ SCHEMA - FOR RICH RESULTS -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -282,13 +273,50 @@
     </script>
 
     <!-- ============================================ -->
-    <!-- MODERN SERVICES PAGE STYLES                 -->
+    <!-- CUSTOM STYLES (CLEAN & PROFESSIONAL SAAS)     -->
     <!-- ============================================ -->
     <style>
-      /* Modern Hero matching homepage */
+      :root {
+        --font-heading: 'Plus Jakarta Sans', -apple-system, sans-serif;
+        --font-body: 'Inter', -apple-system, sans-serif;
+        --color-slate-900: #0f172a;
+        --color-slate-800: #1e293b;
+        --color-slate-600: #475569;
+        --color-slate-100: #f1f5f9;
+        --color-slate-50: #f8fafc;
+        --color-blue-600: #2563eb;
+        --color-blue-700: #1d4ed8;
+        --color-blue-50: #eff6ff;
+        --border-color: #e2e8f0;
+        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+      }
+
+      body {
+        font-family: var(--font-body);
+        color: var(--color-slate-800);
+        background-color: #ffffff;
+        margin: 0;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        box-sizing: border-box;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      /* ----- Hero Section ----- */
       .services-hero-modern {
-        background: linear-gradient(135deg, #0a2b3e 0%, #1a4a6e 100%);
-        padding: 80px 0;
+        background-color: var(--color-slate-900);
+        padding: 96px 0 80px 0;
         position: relative;
         overflow: hidden;
       }
@@ -296,13 +324,9 @@
       .services-hero-modern::before {
         content: "";
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path fill="rgba(255,255,255,0.03)" d="M100 0L200 100L100 200L0 100L100 0z"/></svg>')
-          repeat;
-        opacity: 0.1;
+        inset: 0;
+        background: radial-gradient(circle at top right, rgba(37, 99, 235, 0.15), transparent 50%),
+                    linear-gradient(to bottom, rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.95));
       }
 
       .services-hero-modern .container {
@@ -311,308 +335,399 @@
       }
 
       .services-hero-modern h1 {
-        font-size: 3rem;
-        color: white;
-        margin-bottom: 1rem;
-        animation: fadeUp 0.8s ease-out;
-        font-family: 'Raleway', sans-serif;
+        font-family: var(--font-heading);
+        font-size: clamp(2.25rem, 4vw, 3.25rem);
+        color: #ffffff;
+        margin: 0 0 1rem 0;
         font-weight: 800;
+        letter-spacing: -0.025em;
       }
 
       .services-hero-modern p {
-        font-size: 1.2rem;
-        color: rgba(255, 255, 255, 0.9);
+        font-size: 1.125rem;
+        color: #94a3b8;
         max-width: 600px;
-        animation: fadeUp 0.8s ease-out 0.1s both;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 300;
+        margin: 0;
+        line-height: 1.6;
       }
 
-      @keyframes fadeUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      /* Category Buttons */
+      /* ----- Category Filters ----- */
       .category-filters {
         display: flex;
         justify-content: center;
-        gap: 1rem;
-        margin-bottom: 3rem;
+        gap: 8px;
+        margin-bottom: 48px;
         flex-wrap: wrap;
       }
 
       .category-btn-modern {
-        padding: 10px 24px;
-        background: transparent;
-        border: 2px solid #e9ecef;
-        border-radius: 50px;
+        padding: 8px 20px;
+        background: #ffffff;
+        border: 1px solid var(--border-color);
+        border-radius: 9999px;
         cursor: pointer;
-        transition: all 0.3s ease;
+        transition: all 0.2s ease;
         font-weight: 500;
-        font-size: 0.95rem;
-        font-family: 'Poppins', sans-serif;
-        color: #1a1d28;
+        font-size: 0.875rem;
+        color: var(--color-slate-600);
       }
 
       .category-btn-modern:hover {
-        border-color: #2a5bd7;
-        transform: translateY(-2px);
+        border-color: #cbd5e1;
+        color: var(--color-slate-900);
       }
 
       .category-btn-modern.active {
-        background: linear-gradient(135deg, #2a5bd7 0%, #1d4ac4 100%);
-        color: white;
-        border-color: transparent;
+        background: var(--color-blue-600);
+        color: #ffffff;
+        border-color: var(--color-blue-600);
+        box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
       }
 
-      /* Service Cards */
+      /* ----- Services Grid ----- */
+      .section-padding {
+        padding: 96px 0;
+      }
+
+      .bg-light {
+        background-color: var(--color-slate-50);
+      }
+
+      .section-title {
+        text-align: center;
+        max-width: 640px;
+        margin: 0 auto 56px auto;
+      }
+
+      .section-title h2 {
+        font-family: var(--font-heading);
+        font-size: 2.25rem;
+        font-weight: 800;
+        color: var(--color-slate-900);
+        letter-spacing: -0.025em;
+        margin: 0 0 12px 0;
+      }
+
+      .section-title p {
+        font-size: 1.125rem;
+        color: var(--color-slate-600);
+        margin: 0;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        gap: 24px;
+      }
+
       .service-card-modern {
-        background: white;
-        border-radius: 20px;
-        padding: 2rem;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        transition: all 0.4s ease;
-        height: 100%;
-        border: 1px solid #eef2ff;
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 32px;
+        box-shadow: var(--shadow-sm);
+        transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+        border: 1px solid var(--border-color);
+        display: flex;
+        flex-direction: column;
       }
 
       .service-card-modern:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        border-color: transparent;
+        box-shadow: var(--shadow-xl);
+        border-color: #cbd5e1;
       }
 
       .service-icon-modern {
-        width: 65px;
-        height: 65px;
-        background: linear-gradient(
-          135deg,
-          rgba(42, 91, 215, 0.1) 0%,
-          rgba(29, 74, 196, 0.05) 100%
-        );
-        border-radius: 18px;
+        width: 48px;
+        height: 48px;
+        background: var(--color-blue-50);
+        border-radius: 8px;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: 1.5rem;
+        margin-bottom: 20px;
       }
 
       .service-icon-modern i {
-        font-size: 28px;
-        color: #2a5bd7;
+        font-size: 20px;
+        color: var(--color-blue-600);
       }
 
       .service-card-modern h3 {
-        font-size: 1.4rem;
-        margin-bottom: 0.8rem;
-        font-family: 'Raleway', sans-serif;
+        font-family: var(--font-heading);
+        font-size: 1.25rem;
+        margin: 0 0 12px 0;
         font-weight: 700;
+        color: var(--color-slate-900);
       }
 
       .service-card-modern > p {
-        color: #6c757d;
+        color: var(--color-slate-600);
         line-height: 1.6;
-        margin-bottom: 1.2rem;
-        font-family: 'Poppins', sans-serif;
+        margin: 0 0 24px 0;
+        font-size: 0.9375rem;
+        flex: 1;
       }
 
       .features-list {
         list-style: none;
         padding: 0;
         margin: 0;
+        border-top: 1px solid var(--color-slate-100);
+        padding-top: 16px;
       }
 
       .features-list li {
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 10px;
         padding: 6px 0;
-        font-size: 0.9rem;
-        color: #6c757d;
-        font-family: 'Poppins', sans-serif;
+        font-size: 0.875rem;
+        color: var(--color-slate-600);
       }
 
       .features-list li i {
-        color: #00c99c;
-        font-size: 0.85rem;
+        color: var(--color-blue-600);
+        font-size: 0.875rem;
       }
 
-      /* Package Cards */
+      /* ----- Package Cards ----- */
       .packages-grid-modern {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 2rem;
-        margin-top: 2rem;
+        gap: 24px;
+        align-items: stretch;
       }
 
       .package-card-modern {
-        background: white;
-        border-radius: 24px;
-        padding: 2rem;
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 32px;
         position: relative;
-        transition: all 0.4s ease;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        border: 1px solid #eef2ff;
+        transition: box-shadow 0.2s ease, border-color 0.2s ease;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--border-color);
+        display: flex;
+        flex-direction: column;
       }
 
       .package-card-modern:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+        box-shadow: var(--shadow-xl);
+        border-color: #cbd5e1;
       }
 
       .package-card-modern.featured {
-        background: linear-gradient(135deg, #0a2b3e 0%, #1a4a6e 100%);
-        color: white;
-        transform: scale(1.02);
-      }
-
-      .package-card-modern.featured:hover {
-        transform: scale(1.02) translateY(-10px);
-      }
-
-      .package-card-modern.featured .package-icon-modern {
-        background: rgba(255, 255, 255, 0.15);
-      }
-
-      .package-card-modern.featured .package-icon-modern i {
-        color: white;
-      }
-
-      .package-card-modern.featured h3,
-      .package-card-modern.featured .package-subtitle {
-        color: white;
-      }
-
-      .package-card-modern.featured .package-features li {
-        color: rgba(255, 255, 255, 0.9);
-      }
-
-      .package-card-modern.featured .package-features li i {
-        color: #00c99c;
+        border: 2px solid var(--color-blue-600);
+        box-shadow: var(--shadow-md);
       }
 
       .package-badge-modern {
         position: absolute;
         top: -12px;
-        right: 20px;
-        background: linear-gradient(135deg, #2a5bd7 0%, #1d4ac4 100%);
+        right: 24px;
+        background: var(--color-blue-600);
         color: white;
-        padding: 5px 15px;
-        border-radius: 30px;
+        padding: 2px 12px;
+        border-radius: 9999px;
         font-size: 0.75rem;
         font-weight: 600;
-        font-family: 'Poppins', sans-serif;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
       }
 
       .package-icon-modern {
-        width: 60px;
-        height: 60px;
-        background: rgba(42, 91, 215, 0.1);
-        border-radius: 16px;
+        width: 48px;
+        height: 48px;
+        background: var(--color-blue-50);
+        border-radius: 8px;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: 1.2rem;
+        margin-bottom: 20px;
       }
 
       .package-icon-modern i {
-        font-size: 28px;
-        color: #2a5bd7;
+        font-size: 20px;
+        color: var(--color-blue-600);
       }
 
       .package-card-modern h3 {
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
-        font-family: 'Raleway', sans-serif;
+        font-family: var(--font-heading);
+        font-size: 1.25rem;
+        margin: 0 0 4px 0;
         font-weight: 700;
+        color: var(--color-slate-900);
       }
 
       .package-subtitle {
-        color: #6c757d;
-        font-size: 0.9rem;
-        margin-bottom: 1.5rem;
-        font-family: 'Poppins', sans-serif;
+        color: var(--color-slate-600);
+        font-size: 0.875rem;
+        margin-bottom: 24px;
       }
 
       .package-features {
         list-style: none;
         padding: 0;
-        margin: 0 0 1.5rem 0;
+        margin: 0 0 32px 0;
+        flex: 1;
       }
 
       .package-features li {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         gap: 10px;
         padding: 8px 0;
-        font-size: 0.9rem;
-        font-family: 'Poppins', sans-serif;
+        font-size: 0.875rem;
+        color: var(--color-slate-600);
       }
 
       .package-features li i {
-        color: #00c99c;
-        width: 18px;
+        color: var(--color-blue-600);
+        font-size: 0.875rem;
+        margin-top: 3px;
+        flex-shrink: 0;
       }
 
       .package-price {
-        font-size: 1.8rem;
-        font-weight: 700;
-        margin-bottom: 1.2rem;
-        font-family: 'Raleway', sans-serif;
+        font-family: var(--font-heading);
+        font-size: 2.25rem;
+        font-weight: 800;
+        margin-bottom: 20px;
+        color: var(--color-slate-900);
+        display: flex;
+        align-items: baseline;
       }
 
       .package-price span {
-        font-size: 0.9rem;
-        font-weight: normal;
-        color: #6c757d;
-        font-family: 'Poppins', sans-serif;
-      }
-
-      .package-card-modern.featured .package-price span {
-        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--color-slate-600);
+        margin-left: 6px;
       }
 
       .package-btn-modern {
         width: 100%;
         text-align: center;
         display: block;
-        padding: 12px;
-        border-radius: 12px;
-        background: linear-gradient(135deg, #2a5bd7 0%, #1d4ac4 100%);
+        padding: 12px 16px;
+        border-radius: 8px;
+        background: var(--color-slate-900);
         color: white;
         text-decoration: none;
         font-weight: 600;
-        transition: all 0.3s ease;
-        font-family: 'Poppins', sans-serif;
+        font-size: 0.9375rem;
+        transition: background-color 0.2s ease;
+        box-sizing: border-box;
       }
 
       .package-btn-modern:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 20px rgba(42, 91, 215, 0.3);
+        background: var(--color-slate-800);
       }
 
       .package-card-modern.featured .package-btn-modern {
-        background: #00c99c;
-        color: #1a1d28;
+        background: var(--color-blue-600);
       }
 
       .package-card-modern.featured .package-btn-modern:hover {
-        background: #00b087;
-        box-shadow: 0 10px 20px rgba(0, 201, 156, 0.3);
+        background: var(--color-blue-700);
       }
 
-      /* Scroll reveal */
+      /* ----- Social Proof / Reviews Sections ----- */
+      .client-marquee-container {
+        overflow: hidden;
+        position: relative;
+        background: var(--color-slate-50);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 24px;
+      }
+
+      .reviews-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 24px;
+      }
+
+      .review-card {
+        background: #ffffff;
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 28px;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.875rem;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        background: #ffffff;
+        border: 1px solid var(--border-color);
+        color: var(--color-slate-800);
+      }
+
+      .btn:hover {
+        background: var(--color-slate-100);
+      }
+
+      .btn-secondary {
+        background: var(--color-blue-600);
+        color: white;
+        border: none;
+      }
+
+      .btn-secondary:hover {
+        background: var(--color-blue-700);
+      }
+
+      /* ----- CTA Section ----- */
+      .cta-modern {
+        background: var(--color-slate-900);
+        padding: 80px 0;
+        text-align: center;
+        color: white;
+      }
+
+      .cta-modern h2 {
+        font-family: var(--font-heading);
+        font-size: 2rem;
+        margin: 0 0 12px 0;
+        font-weight: 800;
+        letter-spacing: -0.025em;
+      }
+
+      .cta-modern p {
+        max-width: 600px;
+        margin: 0 auto 28px auto;
+        color: #94a3b8;
+        font-size: 1.0625rem;
+      }
+
+      .cta-btn {
+        background: #ffffff;
+        color: var(--color-slate-900);
+        padding: 12px 32px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9375rem;
+        transition: background-color 0.2s ease;
+        display: inline-block;
+      }
+
+      .cta-btn:hover {
+        background: var(--color-slate-100);
+      }
+
+      /* ----- Animations ----- */
       .scroll-reveal {
         opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.7s ease;
+        transform: translateY(16px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
       }
 
       .scroll-reveal.revealed {
@@ -620,85 +735,23 @@
         transform: translateY(0);
       }
 
-      /* CTA Section */
-      .cta-modern {
-        background: linear-gradient(135deg, #0a2b3e 0%, #1a4a6e 100%);
-        padding: 60px 0;
-        text-align: center;
-        color: white;
-      }
-
-      .cta-modern h2 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        font-family: 'Raleway', sans-serif;
-        font-weight: 700;
-      }
-
-      .cta-modern p {
-        max-width: 600px;
-        margin: 0 auto 1.5rem;
-        opacity: 0.9;
-        font-family: 'Poppins', sans-serif;
-      }
-
-      .cta-btn {
-        background: #00c99c;
-        color: #1a1d28;
-        padding: 12px 32px;
-        border-radius: 50px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        display: inline-block;
-        font-family: 'Poppins', sans-serif;
-      }
-
-      .cta-btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 15px 30px rgba(0, 201, 156, 0.3);
-        background: #00b087;
-      }
-
-      /* Section Title */
-      .section-title h2 {
-        font-family: 'Raleway', sans-serif;
-        font-weight: 800;
-      }
-
-      .section-title p {
-        font-family: 'Poppins', sans-serif;
-      }
-
-      /* Responsive */
+      /* ----- Responsive ----- */
       @media (max-width: 768px) {
         .services-hero-modern {
-          padding: 50px 0;
+          padding: 60px 0;
         }
-        .services-hero-modern h1 {
-          font-size: 2rem;
-        }
-        .services-hero-modern p {
-          font-size: 1rem;
-        }
-        .category-filters {
-          gap: 0.75rem;
-        }
-        .category-btn-modern {
-          padding: 6px 16px;
-          font-size: 0.85rem;
-        }
-      }
 
-      @media (max-width: 576px) {
-        .service-card-modern {
-          padding: 1.5rem;
+        .services-grid, .packages-grid-modern, .reviews-grid {
+          grid-template-columns: 1fr;
         }
-        .package-card-modern {
-          padding: 1.5rem;
+
+        .category-filters {
+          gap: 6px;
         }
-        .packages-grid-modern {
-          gap: 1.5rem;
+
+        .category-btn-modern {
+          padding: 6px 14px;
+          font-size: 0.8125rem;
         }
       }
     </style>
@@ -782,10 +835,10 @@
               websites that work across all devices.
             </p>
             <ul class="features-list">
-              <li><i class="fas fa-check-circle" aria-hidden="true"></i> Responsive Design</li>
-              <li><i class="fas fa-check-circle" aria-hidden="true"></i> SEO Optimized</li>
-              <li><i class="fas fa-check-circle" aria-hidden="true"></i> CMS Integration</li>
-              <li><i class="fas fa-check-circle" aria-hidden="true"></i> E-commerce Solutions</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Responsive Design</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> SEO Optimized</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> CMS Integration</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> E-commerce Solutions</li>
             </ul>
           </article>
 
@@ -801,10 +854,10 @@
               solutions that drive efficiency.
             </p>
             <ul class="features-list">
-              <li><i class="fas fa-check-circle" aria-hidden="true"></i> Custom Development</li>
-              <li><i class="fas fa-check-circle" aria-hidden="true"></i> API Integration</li>
-              <li><i class="fas fa-check-circle" aria-hidden="true"></i> Real-time Features</li>
-              <li><i class="fas fa-check-circle" aria-hidden="true"></i> Progressive Web Apps</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Custom Development</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> API Integration</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Real-time Features</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Progressive Web Apps</li>
             </ul>
           </article>
 
@@ -820,10 +873,10 @@
               your brand's essence.
             </p>
             <ul class="features-list">
-              <li><i class="fas fa-check-circle" aria-hidden="true"></i> Brand Identity</li>
-              <li><i class="fas fa-check-circle" aria-hidden="true"></i> UI/UX Design</li>
-              <li><i class="fas fa-check-circle" aria-hidden="true"></i> Marketing Materials</li>
-              <li><i class="fas fa-check-circle" aria-hidden="true"></i> Social Media Graphics</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Brand Identity</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> UI/UX Design</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Marketing Materials</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Social Media Graphics</li>
             </ul>
           </article>
 
@@ -837,10 +890,10 @@
               accessible to your customers.
             </p>
             <ul class="features-list">
-              <li><i class="fas fa-check-circle" aria-hidden="true"></i> 99.9% Uptime</li>
-              <li><i class="fas fa-check-circle" aria-hidden="true"></i> 24/7 Support</li>
-              <li><i class="fas fa-check-circle" aria-hidden="true"></i> SSL Certificates</li>
-              <li><i class="fas fa-check-circle" aria-hidden="true"></i> Daily Backups</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> 99.9% Uptime Guarantee</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> 24/7 Monitoring</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> SSL Certificates</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Automated Daily Backups</li>
             </ul>
           </article>
 
@@ -856,10 +909,10 @@
               actionable insights.
             </p>
             <ul class="features-list">
-              <li><i class="fas fa-check-circle" aria-hidden="true"></i> Custom Dashboards</li>
-              <li><i class="fas fa-check-circle" aria-hidden="true"></i> Data Visualization</li>
-              <li><i class="fas fa-check-circle" aria-hidden="true"></i> Real-time Reporting</li>
-              <li><i class="fas fa-check-circle" aria-hidden="true"></i> Data Integration</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Custom Dashboards</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Data Visualization</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Real-time Reporting</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Data Pipeline Integration</li>
             </ul>
           </article>
 
@@ -873,12 +926,10 @@
               data-driven decisions.
             </p>
             <ul class="features-list">
-              <li><i class="fas fa-check-circle" aria-hidden="true"></i> Custom Surveys</li>
-              <li><i class="fas fa-check-circle" aria-hidden="true"></i> Data Analysis</li>
-              <li><i class="fas fa-check-circle" aria-hidden="true"></i> Insight Reports</li>
-              <li>
-                <i class="fas fa-check-circle" aria-hidden="true"></i> Customer Journey Mapping
-              </li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Custom Surveys</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Data Analysis</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Executive Insight Reports</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Customer Journey Mapping</li>
             </ul>
           </article>
         </div>
@@ -890,7 +941,7 @@
       <div class="container">
         <div class="section-title scroll-reveal">
           <h2>Product Packages</h2>
-          <p>Choose the perfect package for your business needs</p>
+          <p>Choose the perfect package tailored to your business scale</p>
         </div>
 
         <div class="packages-grid-modern">
@@ -902,9 +953,9 @@
               Perfect for small businesses and startups
             </p>
             <ul class="package-features">
-              <li><i class="fas fa-check" aria-hidden="true"></i> Professional Responsive Website (Up to 5 Pages)</li>
-              <li><i class="fas fa-check" aria-hidden="true"></i> Mobile & Tablet Optimization</li>
-              <li><i class="fas fa-check" aria-hidden="true"></i> Contact & Lead Generation Forms</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Responsive Website (Up to 5 Pages)</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Mobile &amp; Tablet Optimization</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Contact &amp; Lead Generation Forms</li>
               <li><i class="fas fa-check" aria-hidden="true"></i> Basic Search Engine Optimization</li>
               <li><i class="fas fa-check" aria-hidden="true"></i> Social Media Integration</li>
               <li><i class="fas fa-check" aria-hidden="true"></i> SSL Security Certificate</li>
@@ -928,11 +979,11 @@
               <li><i class="fas fa-check" aria-hidden="true"></i> Content Management System (CMS)</li>
               <li><i class="fas fa-check" aria-hidden="true"></i> Advanced Search Engine Optimization</li>
               <li><i class="fas fa-check" aria-hidden="true"></i> Blog or News Module</li>
-              <li><i class="fas fa-check" aria-hidden="true"></i> WhatsApp & Social Integrations</li>
-              <li><i class="fas fa-check" aria-hidden="true"></i> Lead Capture & Analytics Setup</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> WhatsApp &amp; Social Integrations</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Lead Capture &amp; Analytics Setup</li>
               <li><i class="fas fa-check" aria-hidden="true"></i> Premium Performance Optimization</li>
               <li><i class="fas fa-check" aria-hidden="true"></i> Hosting Included (12 Months)</li>
-              <li><i class="fas fa-check" aria-hidden="true"></i> Technical Support & Maintenance</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Technical Support &amp; Maintenance</li>
             </ul>
             <div class="package-price">R7,000 <span>/ once-off</span></div>
             <a href="contact.html" class="package-btn-modern">Get Started</a>
@@ -943,18 +994,18 @@
             <div class="package-icon-modern"><i class="fas fa-rocket" aria-hidden="true"></i></div>
             <h3>Enterprise Package</h3>
             <p class="package-subtitle">
-              Complete digital solution for established businesses
+              Complete digital solution for established organizations
             </p>
             <ul class="package-features">
               <li><i class="fas fa-check" aria-hidden="true"></i> Custom Web Applications</li>
               <li><i class="fas fa-check" aria-hidden="true"></i> Business Process Automation</li>
               <li><i class="fas fa-check" aria-hidden="true"></i> Multi-Tenant SaaS Development</li>
-              <li><i class="fas fa-check" aria-hidden="true"></i> E-Commerce & Booking Platforms</li>
-              <li><i class="fas fa-check" aria-hidden="true"></i> Power BI Dashboards & Reporting</li>
-              <li><i class="fas fa-check" aria-hidden="true"></i> API & Third-Party Integrations</li>
-              <li><i class="fas fa-check" aria-hidden="true"></i> Advanced Security & Compliance</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> E-Commerce &amp; Booking Platforms</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Power BI Dashboards &amp; Reporting</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> API &amp; Third-Party Integrations</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Advanced Security &amp; Compliance</li>
               <li><i class="fas fa-check" aria-hidden="true"></i> Dedicated Technical Support</li>
-              <li><i class="fas fa-check" aria-hidden="true"></i> Hosting & Infrastructure Management</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Hosting &amp; Infrastructure Management</li>
               <li><i class="fas fa-check" aria-hidden="true"></i> Ongoing Strategic Consultation</li>
             </ul>
             <div class="package-price">Custom Quote</div>
@@ -976,8 +1027,8 @@
             <div class="client-marquee-track" id="marqueeTrack"></div>
           </div>
         </div>
-        <div class="text-center" style="margin-top: 40px">
-          <p>And many more satisfied clients...</p>
+        <div class="text-center" style="margin-top: 32px">
+          <p style="color: var(--color-slate-600); font-size: 0.9375rem;">And many more satisfied clients...</p>
         </div>
       </div>
     </section>
@@ -990,11 +1041,11 @@
           <p>Read reviews from our satisfied customers</p>
         </div>
         <div class="reviews-grid" id="reviewsGrid"></div>
-        <div class="text-center" style="margin-top: 40px">
+        <div class="text-center" style="margin-top: 40px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
           <a href="#" class="btn"
             ><i class="fab fa-google" aria-hidden="true"></i> Write a Review on Google</a
           >
-          <a href="#" class="btn btn-secondary" style="margin-left: 15px"
+          <a href="#" class="btn btn-secondary"
             ><i class="fas fa-star" aria-hidden="true"></i> Read More Reviews</a
           >
         </div>
@@ -1017,12 +1068,12 @@
     <footer id="main-footer"></footer>
 
     <!-- ============================================ -->
-    <!-- SCRIPTS                                     -->
+    <!-- SCRIPTS                                      -->
     <!-- ============================================ -->
     <script src="js/config.js" defer></script>
     <script src="js/script.js" defer></script>
 
-    <!-- Services Page Enhancements -->
+    <!-- Services Page Filtering and Enhancements -->
     <script defer>
       document.addEventListener("DOMContentLoaded", function () {
         // Category filter functionality
@@ -1037,17 +1088,17 @@
             const category = btn.getAttribute("data-category");
             serviceCards.forEach((card) => {
               if (category === "all" || card.getAttribute("data-category") === category) {
-                card.style.display = "block";
+                card.style.display = "flex";
                 setTimeout(() => {
                   card.style.opacity = "1";
                   card.style.transform = "translateY(0)";
                 }, 10);
               } else {
                 card.style.opacity = "0";
-                card.style.transform = "translateY(20px)";
+                card.style.transform = "translateY(16px)";
                 setTimeout(() => {
                   card.style.display = "none";
-                }, 300);
+                }, 200);
               }
             });
           });
