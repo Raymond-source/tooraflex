@@ -1725,3 +1725,200 @@ title {
     border-color: #60a5fa;
   }
 }
+/* ----- Packages Background & Line Animations ----- */
+.packages-section-wrapper {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-slate-50);
+}
+
+/* Background Animated Line Mesh */
+.bg-lines-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.bg-line-path {
+  stroke: rgba(37, 99, 235, 0.12);
+  stroke-width: 1.5;
+  stroke-dasharray: 8, 8;
+  animation: lineFlow 35s linear infinite;
+}
+
+.bg-line-path-2 {
+  stroke: rgba(15, 23, 42, 0.08);
+  stroke-width: 1;
+  stroke-dasharray: 12, 12;
+  animation: lineFlowReverse 45s linear infinite;
+}
+
+/* Moving Lines Animation Keyframes */
+@keyframes lineFlow {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 1000; }
+}
+
+@keyframes lineFlowReverse {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -1000; }
+}
+
+/* Container Z-Index adjustment so text sits above lines */
+.packages-section-wrapper .container {
+  position: relative;
+  z-index: 2;
+}
+
+.packages-grid-modern {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  align-items: stretch;
+  perspective: 1000px;
+}
+
+.package-card-modern {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 32px;
+  position: relative;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  will-change: transform, box-shadow;
+  overflow: hidden; /* Ensures sliding top line stays bounded */
+}
+
+/* Moving Top Border Line on Hover */
+.package-card-modern::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--color-blue-600), transparent);
+  transition: left 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.package-card-modern:hover::before {
+  left: 100%;
+}
+
+/* Card Hover Elevation */
+.package-card-modern:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 20px 30px -10px rgba(15, 23, 42, 0.1),
+              0 10px 15px -5px rgba(15, 23, 42, 0.04);
+  border-color: #cbd5e1;
+}
+
+/* Featured Card Dynamic Border */
+.package-card-modern.featured {
+  border: 2px solid var(--color-blue-600);
+  box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.15);
+}
+
+.package-card-modern.featured::before {
+  background: linear-gradient(90deg, transparent, #60a5fa, transparent);
+  animation: lineSweep 3s infinite;
+}
+
+@keyframes lineSweep {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.package-card-modern.featured:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 35px -10px rgba(37, 99, 235, 0.25);
+}
+
+/* Feature Checkmark Shift on Hover */
+.package-features li i {
+  color: var(--color-blue-600);
+  font-size: 0.875rem;
+  margin-top: 3px;
+  flex-shrink: 0;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.package-card-modern:hover .package-features li i {
+  transform: translateX(3px) scale(1.1);
+}
+
+/* Icon Container Wobble */
+.package-icon-modern {
+  width: 48px;
+  height: 48px;
+  background: var(--color-blue-50);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.3s ease;
+}
+
+.package-card-modern:hover .package-icon-modern {
+  transform: rotate(-6deg) scale(1.1);
+  background: #dbeafe;
+}
+
+/* Button Shimmer */
+.package-btn-modern {
+  width: 100%;
+  text-align: center;
+  display: block;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: var(--color-slate-900);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  transition: all 0.25s ease;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.package-btn-modern::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0) 80%
+  );
+  transform: rotate(25deg);
+  transition: none;
+}
+
+.package-btn-modern:hover::after {
+  left: 120%;
+  transition: all 0.65s ease-in-out;
+}
+
+.package-card-modern.featured .package-btn-modern {
+  background: var(--color-blue-600);
+}
+
+.package-card-modern.featured .package-btn-modern:hover {
+  background: var(--color-blue-700);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+}
