@@ -36,7 +36,6 @@ const siteConfig = {
     { id: "starter-package", name: "Starter Package" },
     { id: "business-package", name: "Business Package" },
     { id: "enterprise-package", name: "Enterprise Package" },
-    { id: "multiple", name: "Multiple Services" },
     { id: "custom", name: "Custom Solution" },
   ],
   
